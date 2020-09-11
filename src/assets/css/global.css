@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-theme="light"] {
+  --color-primary: #fcf7ff;
+  --color-secondary: #0b1930;
+  --color-accent: #f2edf5;
+  --color-text: #d8e4fd;
+}
+
+[data-theme="dark"] {
+  --color-primary: #0b1930;
+  --color-secondary: #fcf7ff;
+  --color-accent: #081121;
+  --color-text: #fcf7ff;
+  --color-text-alt: #;
+}
+
+body {
+  font-family: "Poppins", "sans-serif";
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+@layer base {
+  p {
+    @apply leading-8 pb-5;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    @apply text-sm;
+  }
+
+  :not(pre) > code {
+    @apply text-sm bg-accent py-1 px-1 text-secondary rounded border-blue-lightest border border-solid;
+  }
+
+  .post-content ul {
+    @apply pb-4 pl-8 leading-8 list-disc;
+  }
+
+  .post-content ul > li > p,
+  .post-content ul > li > ul {
+    @apply pb-0;
+  }
+
+  .post-content h2 {
+    @apply text-2xl font-bold border-l-8 border-red border-solid px-3 my-3;
+  }
+
+  .post-content h3 {
+    @apply text-xl font-bold border-l-8 border-red border-solid px-3 my-3;
+  }
+
+  .post-content h4 {
+    @apply text-lg font-bold border-l-8 border-red border-solid px-3 my-3;
+  }
+
+  .post-content h5 {
+    @apply text-lg font-bold border-l-4 border-red border-solid px-3 my-3;
+  }
+
+  .post-content h6 {
+    @apply text-base font-bold border-l-4 border-red border-solid px-3 my-3;
+  }
+}
