@@ -8,6 +8,7 @@ const tailwindcss = require("tailwindcss");
 
 module.exports = {
   siteName: "Chase Adams",
+  icon: "./src/assets/logo.png",
   templates: {
     Post: [
       {
@@ -25,6 +26,12 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      use: "@gridsome/plugin-google-analytics",
+      options: {
+        id: "UA-62564031-1",
+      },
+    },
     {
       use: "gridsome-plugin-tailwindcss",
       options: {
@@ -66,7 +73,7 @@ module.exports = {
           author: "Chase Adams",
         }),
         output: {
-          dir: "./static",
+          dir: "./dist",
           name: "rss.xml",
         },
       },

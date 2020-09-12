@@ -1,16 +1,19 @@
 <template>
   <div>
     <header
-      class="bg-primary fixed flex flex-wrap md:fixed md:top-0 items-center inset-x-0 md:flex-row md:py-4 md:justify-end md:w-10/12 m-auto"
+      class="bg-primary fixed flex flex-wrap md:fixed md:top-0 items-center inset-x-0 md:flex-row md:py-1 md:justify-end md:w-10/12 m-auto"
     >
       <h1
-        class="brand-logo w-2/5 mx-2 py-2 md:my-5 md:text-center md:w-auto md:text-left mr-auto"
+        class="brand-logo w-2/5 mx-2 md:text-center md:w-auto md:text-left mr-auto"
       >
         <g-link
-          class="inline-block md:text-sm lg:text-base border-solid border-4 border-border uppercase font-bold py-2 px-4"
+          class="flex flex-row items-center md:text-sm lg:text-base md:border-solid md:border-4 md:border-border uppercase font-bold py-2 px-4"
           to="/"
-          ><span class="block md:hidden">CA</span><span class="hidden">: </span
-          ><span class="hidden md:block">Chase Adams</span></g-link
+          ><g-image
+            class="inline-block"
+            src="~/assets/logo.png"
+            width="32"
+          /><span class="hidden ml-3 md:inline-block">Chase Adams</span></g-link
         >
       </h1>
       <nav
