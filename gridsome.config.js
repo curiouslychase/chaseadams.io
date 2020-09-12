@@ -11,20 +11,34 @@ module.exports = {
   templates: {
     Post: [
       {
-        path: node => {
+        path: (node) => {
           return `${node.permalink}`;
-        }
-      }
+        },
+      },
     ],
     Tag: [
       {
-        path: node => {
+        path: (node) => {
           return `/tags/${node.id.toLowerCase()}/`;
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   plugins: [
+    {
+      use: "gridsome-plugin-purgecss",
+      // default options, the following will be included if you don't provide anything
+      options: {
+        content: [
+          "./src/**/*.vue",
+          "./src/**/*.js",
+          "./src/**/*.jsx",
+          "./src/**/*.pug",
+          "./src/**/*.md",
+        ],
+        defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+      },
+    },
     {
       use: "@gridsome/source-filesystem",
       options: {
@@ -33,20 +47,20 @@ module.exports = {
         refs: {
           tags: {
             typeName: `Tag`,
-            create: true
-          }
+            create: true,
+          },
         },
         remark: {
-          plugins: ["@gridsome/remark-prismjs"]
-        }
-      }
-    }
+          plugins: ["@gridsome/remark-prismjs"],
+        },
+      },
+    },
   ],
   css: {
     loaderOptions: {
       postcss: {
-        plugins: [tailwindcss]
-      }
-    }
-  }
+        plugins: [tailwindcss],
+      },
+    },
+  },
 };
