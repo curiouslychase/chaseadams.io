@@ -8,6 +8,7 @@ const tailwindcss = require("tailwindcss");
 
 module.exports = {
   siteName: "Chase Adams",
+  icon: "./src/assets/logo.png",
   templates: {
     Post: [
       {
@@ -72,7 +73,7 @@ module.exports = {
           author: "Chase Adams",
         }),
         output: {
-          dir: "./static",
+          dir: "./dist",
           name: "rss.xml",
         },
       },
