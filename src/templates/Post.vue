@@ -12,23 +12,32 @@
       <div class="grid">
         <div>Published: {{ $page.post.date }}</div>
         <div class="py-8">
-          Tags:
-          <div
-            class="inline-block px-2"
+          <span class="block pb-3 md:inline-block md:pr-3">Tags:</span>
+          <span
+            class="inline-block py-3 pr-3"
             v-for="tag in $page.post.tags"
             :key="tag.id"
           >
             <g-link
-              class="border-2 border-solid border-red p-2 hover:bg-red hover:text-blue"
+              class="p-1 border-2 border-solid border-red md:p-2 hover:bg-red hover:text-blue"
               :to="tag.path"
               >{{ tag.title }}</g-link
             >
-          </div>
+          </span>
         </div>
       </div>
     </div>
   </layout>
 </template>
+
+<script>
+import PrimaryHeader from "../components/PrimaryHeader";
+export default {
+  components: {
+    PrimaryHeader,
+  },
+};
+</script>
 
 <page-query>
 query ($id: ID!) {

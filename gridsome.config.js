@@ -26,17 +26,12 @@ module.exports = {
   },
   plugins: [
     {
-      use: "gridsome-plugin-purgecss",
-      // default options, the following will be included if you don't provide anything
+      use: "gridsome-plugin-tailwindcss",
       options: {
-        content: [
-          "./src/**/*.vue",
-          "./src/**/*.js",
-          "./src/**/*.jsx",
-          "./src/**/*.pug",
-          "./src/**/*.md",
-        ],
-        defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+        tailwindConfig: "./tailwind.config.js",
+        presetEnvConfig: {},
+        shouldImport: true,
+        shouldTimeTravel: true,
       },
     },
     {
@@ -52,6 +47,27 @@ module.exports = {
         },
         remark: {
           plugins: ["@gridsome/remark-prismjs"],
+        },
+      },
+    },
+    {
+      use: "gridsome-plugin-rss",
+      options: {
+        contentTypeName: "Post",
+        feedOptions: {
+          title: "Chase Adams",
+          feed_url: "https://chaseadams.io/rss.xml",
+          site_url: "https://chaseadams.io",
+        },
+        feedItemOptions: (node) => ({
+          title: node.title,
+          description: node.description,
+          url: "https://chaseadams.io/post/" + node.path,
+          author: "Chase Adams",
+        }),
+        output: {
+          dir: "./static",
+          name: "rss.xml",
         },
       },
     },
