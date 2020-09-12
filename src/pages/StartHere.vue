@@ -9,7 +9,7 @@ export default {
     PrimaryHeader,
   },
   metaInfo: {
-    title: "Hello, world!",
+    title: "Start Here",
   },
 };
 </script>

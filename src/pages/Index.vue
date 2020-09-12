@@ -51,7 +51,7 @@ export default {
     PostList,
   },
   metaInfo: {
-    title: "Hello, world!",
+    title: "Chase Adams",
   },
 };
 </script>

@@ -37,6 +37,18 @@ body {
     @apply text-sm bg-accent py-1 px-1 text-secondary rounded border-blue-lightest border border-solid;
   }
 
+  .brand-logo .active--exact {
+    @apply text-red border-red;
+  }
+
+  .main-nav .link.active {
+    @apply text-blue bg-red;
+  }
+
+  .main-nav .start-here.active {
+    @apply text-blue bg-red;
+  }
+
   .post-content table {
     @apply w-full table-auto mb-8;
   }

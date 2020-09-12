@@ -30,16 +30,4 @@ export default {
 };
 </script>
 
-<style>
-.brand-logo .active--exact {
-  @apply text-red border-red;
-}
-
-.main-nav .link.active {
-  @apply text-blue bg-red;
-}
-
-.main-nav .start-here.active {
-  @apply text-blue bg-red;
-}
-</style>
+<style src="../assets/css/global.css" />

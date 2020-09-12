@@ -55,6 +55,27 @@ module.exports = {
         },
       },
     },
+    {
+      use: "gridsome-plugin-rss",
+      options: {
+        contentTypeName: "Post",
+        feedOptions: {
+          title: "Chase Adams",
+          feed_url: "https://chaseadams.io/rss.xml",
+          site_url: "https://chaseadams.io",
+        },
+        feedItemOptions: (node) => ({
+          title: node.title,
+          description: node.description,
+          url: "https://chaseadams.io/post/" + node.path,
+          author: "Chase Adams",
+        }),
+        output: {
+          dir: "./static",
+          name: "rss.xml",
+        },
+      },
+    },
   ],
   css: {
     loaderOptions: {
