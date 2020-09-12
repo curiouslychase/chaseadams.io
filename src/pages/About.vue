@@ -1,12 +1,6 @@
 <template>
   <Layout>
-    <div class="p-4">
-      <h1 class="text-center text-4xl font-bold mb-8">
-        <span class="pb-3 border-b-4 border-red">
-          About Me
-        </span>
-      </h1>
-    </div>
+    <PrimaryHeader title="About Me" />
     <div class="post-content">
       <div>
         <h2>In 30 Seconds</h2>
@@ -81,7 +75,11 @@
 </template>
 
 <script>
+import PrimaryHeader from "../components/PrimaryHeader";
 export default {
+  components: {
+    PrimaryHeader,
+  },
   metaInfo: {
     title: "About Chase",
   },

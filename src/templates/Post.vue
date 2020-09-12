@@ -30,6 +30,15 @@
   </layout>
 </template>
 
+<script>
+import PrimaryHeader from "../components/PrimaryHeader";
+export default {
+  components: {
+    PrimaryHeader,
+  },
+};
+</script>
+
 <page-query>
 query ($id: ID!) {
   post(id: $id) {
