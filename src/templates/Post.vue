@@ -3,7 +3,7 @@
     <div class="lg:w-8/12 w-full mx-auto">
       <div class="p-4 md:p-8">
         <h1
-          class="leading-10 text-3xl font-bold text-center"
+          class="md:leading-10 text-center text-xl md:text-4xl font-bold md:mb-8"
           v-html="$page.post.title"
         />
         <span class="mx-auto block w-3/12 pb-8 border-b-4 border-red" />

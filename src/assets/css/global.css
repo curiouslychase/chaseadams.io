@@ -46,23 +46,28 @@ body {
     @apply pb-0;
   }
 
-  .post-content h2 {
+  .post-content h2,
+  h2.styled {
     @apply text-2xl font-bold border-l-8 border-red border-solid px-3 my-3;
   }
 
-  .post-content h3 {
+  .post-content h3,
+  h3.styled {
     @apply text-xl font-bold border-l-8 border-red border-solid px-3 my-3;
   }
 
-  .post-content h4 {
+  .post-content h4,
+  h4.styled {
     @apply text-lg font-bold border-l-8 border-red border-solid px-3 my-3;
   }
 
-  .post-content h5 {
+  .post-content h5,
+  h5.styled {
     @apply text-lg font-bold border-l-4 border-red border-solid px-3 my-3;
   }
 
-  .post-content h6 {
+  .post-content h6,
+  h6.styled {
     @apply text-base font-bold border-l-4 border-red border-solid px-3 my-3;
   }
 }
