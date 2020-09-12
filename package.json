@@ -12,10 +12,6 @@
     "@gridsome/transformer-remark": "^0.6.2",
     "gridsome": "^0.7.0",
     "gridsome-plugin-rss": "^1.2.0",
-    "gridsome-plugin-tailwindcss": "^3.0.1",
-    "tailwindcss": "^1.8.6"
-  },
-  "devDependencies": {
-    "gridsome-plugin-purgecss": "^1.0.12"
+    "gridsome-plugin-tailwindcss": "^3.0.1"
   }
 }
