@@ -9,6 +9,12 @@
         <span class="mx-auto block w-3/12 pb-8 border-b-4 border-red" />
       </div>
       <div class="post-content" v-html="$page.post.content" />
+      <div class="text-center pb-8">
+        <div class="border-b-4 border-secondary mt-16"></div>
+        <div class="inline-block -mt-8 px-8 bg-primary">
+          <g-image src="~/assets/logo-heart.png" immediate="true" width="50" />
+        </div>
+      </div>
       <div class="grid">
         <div>Published: {{ $page.post.date }}</div>
         <div class="py-8">

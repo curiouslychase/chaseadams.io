@@ -7,7 +7,7 @@
         class="brand-logo w-2/5 mx-2 md:text-center md:w-auto md:text-left mr-auto"
       >
         <g-link
-          class="flex flex-row items-center md:text-sm lg:text-base md:border-solid md:border-4 md:border-border uppercase font-bold py-2 px-4"
+          class="flex flex-row items-center md:text-sm lg:text-base uppercase font-bold py-2 px-4"
           to="/"
           ><g-image
             class="inline-block"
