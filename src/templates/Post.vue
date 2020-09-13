@@ -78,8 +78,8 @@ export default {
 
     let image = `${this.$page.metadata.siteUrl}/img/share/default.jpeg`;
 
-    if (this.$page.post.imageUrl) {
-      image = `${this.$page.metadata.siteUrl}${this.$page.post.imageUrl}`;
+    if (this.$page.post.image) {
+      image = `${this.$page.metadata.siteUrl}${this.$page.post.image}`;
     }
 
     meta = meta.concat([
@@ -132,6 +132,7 @@ query ($id: ID!) {
     content
     path
     description
+    image
     date(format: "YYYY/MM/DD")
     tags {
         title
