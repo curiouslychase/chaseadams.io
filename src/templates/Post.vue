@@ -79,7 +79,7 @@ export default {
     let image = `${this.$page.metadata.siteUrl}/img/share/default.jpeg`;
 
     if (this.$page.post.image) {
-      image = `${this.$page.metadata.siteUrl}${this.$page.post.image}`;
+      image = `${this.$page.metadata.siteUrl}/${this.$page.post.image}`;
     }
 
     meta = meta.concat([
