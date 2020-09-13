@@ -42,14 +42,96 @@ export default {
   components: {
     PrimaryHeader,
   },
+  metaInfo() {
+    let meta = [
+      {
+        key: "og:title",
+        name: "og:title",
+        content: this.$page.post.title,
+      },
+      {
+        key: "og:type",
+        name: "og:type",
+        content: "article",
+      },
+      {
+        key: "og:url",
+        name: "og:url",
+        content: `${this.$page.metadata.siteUrl}${this.$page.post.path}`,
+      },
+      {
+        key: "twitter:card",
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        key: "twitter:creator",
+        name: "twitter:creator",
+        content: "https://twitter.com/chaseadamsio",
+      },
+      {
+        key: "twitter:title",
+        name: "twitter:title",
+        content: this.$page.post.title,
+      },
+    ];
+
+    let image = `${this.$page.metadata.siteUrl}/img/share/default.jpeg`;
+
+    if (this.$page.post.imageUrl) {
+      image = `${this.$page.metadata.siteUrl}${this.$page.post.imageUrl}`;
+    }
+
+    meta = meta.concat([
+      {
+        key: "og:image",
+        name: "og:image",
+        content: image,
+      },
+      {
+        key: "twitter:image",
+        name: "twitter:image",
+        content: image,
+      },
+    ]);
+
+    if (this.$page.post.description) {
+      meta = meta.concat([
+        {
+          name: "description",
+          content: this.$page.post.description,
+        },
+        {
+          key: "og:description",
+          name: "og:description",
+          content: this.$page.post.description,
+        },
+        {
+          key: "twitter:description",
+          name: "twitter:description",
+          content: this.$page.post.description,
+        },
+      ]);
+    }
+
+    return {
+      title: this.$page.post.title,
+      meta,
+    };
+  },
 };
 </script>
 
 <page-query>
 query ($id: ID!) {
+  metadata {
+    siteUrl
+  }
   post(id: $id) {
     title
     content
+    path
+    description
     date(format: "YYYY/MM/DD")
     tags {
         title

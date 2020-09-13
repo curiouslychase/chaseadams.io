@@ -8,6 +8,7 @@ const tailwindcss = require("tailwindcss");
 
 module.exports = {
   siteName: "Chase Adams",
+  siteUrl: "https://chaseadams.io",
   icon: "./src/assets/favicon.png",
   templates: {
     Post: [
