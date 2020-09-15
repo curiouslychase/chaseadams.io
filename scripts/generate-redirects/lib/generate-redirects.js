@@ -8,6 +8,7 @@ async function generateRedirects(redirects) {
   const _redirects = [];
   await readDirRecursive(`content/posts`, _redirects, ``);
   await readDirRecursive(`content/pages`, _redirects, ``);
+  _redirects.push(`/posts/ /blog/ 301`);
   _redirects.push(`/topics/ /tags/ 301`);
   _redirects.push(`/topics/ci/cd/ /tags/ 301`);
   _redirects.push(`/topics/* /tags/:splat 301`);
