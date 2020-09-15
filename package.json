@@ -2,7 +2,8 @@
   "name": "src",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
+    "generate-redirects": "cd scripts/generate-redirects && yarn install && cd ../../ && node scripts/generate-redirects/lib/cli.js",
+    "build": "gridsome build && yarn generate-redirects",
     "develop": "gridsome develop",
     "explore": "gridsome explore"
   },
