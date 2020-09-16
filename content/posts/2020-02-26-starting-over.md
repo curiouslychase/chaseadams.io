@@ -6,7 +6,7 @@ permalink: /posts/starting-over/
 type: post
 status: proposal
 tags:
-    - resilience
+    - Resilience
 ---
 
 This morning Belle accidentally knocked over a Lincoln Log structure I'd built and Elizabeth got upset. I explained to her that nothing lasts forever and you can always start over! Starting over doesn't mean starting from scratch because YOU have the experience from your previous build to build something new with new materials.

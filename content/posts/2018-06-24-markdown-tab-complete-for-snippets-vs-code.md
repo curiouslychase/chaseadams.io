@@ -7,7 +7,7 @@ aliases:
   - /2018/2018-06-24-markdown-tab-complete-for-snippets-vs-code/
   - /markdown-tab-complete-vs-code/
 tags:
-  - markdown
+  - Markdown
   - VS Code
   - VS Code Snippets
 permalink: /posts/markdown-tab-complete-vs-code/

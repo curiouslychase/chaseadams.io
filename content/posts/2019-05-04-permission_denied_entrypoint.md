@@ -3,7 +3,7 @@ title: >-
   Fix Docker Error: GitHub Actions Entrypoint Executable Error
 date: 2019-05-04T00:00:00.000Z
 tags:
-  - github Actions
+  - GitHub Actions
   - Docker
 aliases:
   - /2019-05-04-catching-a-github-actions-entrypoint-executable-error/

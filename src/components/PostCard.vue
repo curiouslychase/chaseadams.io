@@ -18,17 +18,21 @@
     </span>
 
     <div class="ml-auto mt-auto pt-4">
-      <g-link
-        :to="post.path"
+      <Button
+        :link="post.path"
         class="text-sm inline-block rounded p-2 bg-blue-lighter text-white white md:text-base"
-        >Read More
-      </g-link>
+        text="Read More"
+      />
     </div>
   </li>
 </template>
 
 <script>
+import Button from "./Button";
 export default {
+  components: {
+    Button,
+  },
   props: {
     post: { type: Object, required: true },
   },

@@ -6,7 +6,7 @@ tags:
   - Frontend Engineer
   - Git
   - JavaScript
-  - markdown
+  - Markdown
 aliases:
   - /2015-08-07-five-technologies-every-frontend-engineer-should-know/
   - /2015/08/five-technologies-every-frontend-engineer-should-know/

@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <Header />
-    <div class="w-11/12 py4 md:pt-48 md:pb-24 md:w-10/12 m-auto">
+    <div class="content w-11/12 py4 md:pt-48 md:pb-24 md:w-10/12 m-auto">
       <slot />
     </div>
     <Footer />
