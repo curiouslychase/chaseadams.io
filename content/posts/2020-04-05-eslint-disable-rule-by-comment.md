@@ -15,9 +15,7 @@ tags: ["JavaScript", "ESLint", "Developer Experience"]
 description: Learn how to disable ESLint rules with the comment syntax
 ---
 
-import ESLintRuleSyntaxGenerator from "components/support/eslint-disable-rule-by-comment";
-
-<ESLintRuleSyntaxGenerator />
+Learn all the ways to disable ESLint rules with the comment syntax.
 
 ## Ignore ESLint rules for file
 
