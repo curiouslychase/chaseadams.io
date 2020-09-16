@@ -82,6 +82,7 @@ export default {
   },
   metaInfo: {
     title: "About Chase",
+    description: "Learn about Chase Adams: Engineering and Experimentation",
   },
 };
 </script>
