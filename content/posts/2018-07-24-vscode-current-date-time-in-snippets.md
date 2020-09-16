@@ -4,7 +4,7 @@ description: Learn how to use current date and time in VS Code Snippets.
 date: 2018-07-24T00:00:00.000Z
 role: software developer
 tags:
-  - markdown
+  - Markdown
   - VS Code
   - VS Code Snippets
 aliases:

@@ -1,28 +1,29 @@
 <template>
   <layout>
-    <div class="p-4">
-      <h1 class="text-center mb-8">
-        <h1 class="leading-10 text-2xl text-center">
-          Posts tagged with
-          <span class="block p-2 text-4xl font-bold"
-            >"{{ $page.tag.title }}"</span
-          >
-        </h1>
-        <span class="mx-auto block w-3/12 pb-8 border-b-4 border-red" />
-      </h1>
-    </div>
+    <PrimaryHeader
+      v-bind:title="'Posts tagged with \'' + $page.tag.title + '\''"
+    />
 
     <PostList :posts="$page.tag.belongsTo.edges" />
+    <div class="text-center p-4">
+      <Button link="/tags/" text="All Tags" />
+    </div>
   </layout>
 </template>
 <script>
+import PrimaryHeader from "../components/PrimaryHeader";
 import PostList from "../components/PostList";
+import Button from "../components/Button";
+
 export default {
   components: {
+    PrimaryHeader,
     PostList,
+    Button,
   },
 };
 </script>
+
 <page-query>
   query Tag($id: ID!) {
     tag(id: $id) {

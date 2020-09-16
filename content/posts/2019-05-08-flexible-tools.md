@@ -2,7 +2,7 @@
 title: 'On Team Productivity, Tools & Flexible Data'
 date: 2019-05-08T00:00:00.000Z
 tags:
-  - tools
+  - Tools
   - Software Lifecycle
 aliases:
   - /2019/2019-05-08-flexible-tools/

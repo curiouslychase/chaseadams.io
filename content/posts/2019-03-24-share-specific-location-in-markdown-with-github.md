@@ -3,9 +3,9 @@ title: Share Specific Lines in a Markdown file with GitHub
 description: Learn the trick I use to share a Markdown file with GitHub
 date: 2019-03-24T00:00:00.000Z
 tags:
-  - markdown
-  - github
-  - collaboration
+  - Markdown
+  - GitHub
+  - Collaboration
 image: img/share/share-line-markdown-github.jpeg
 video_id: EEo3QbW9kRE
 aliases:

@@ -24,6 +24,9 @@ body {
 }
 
 @layer base {
+  a {
+    cursor: pointer;
+  }
   p {
     @apply leading-8 pb-5;
   }
