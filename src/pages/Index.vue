@@ -51,7 +51,9 @@ export default {
     PostList,
   },
   metaInfo: {
-    title: "Chase Adams",
+    title: "Building a better web",
+    description:
+      "Building a better web, better teams and pursuing self development.",
   },
 };
 </script>
