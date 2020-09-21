@@ -3,18 +3,17 @@
 @tailwind utilities;
 
 [data-theme="light"] {
-  --color-primary: #fcf7ff;
-  --color-secondary: #0b1930;
-  --color-accent: #f2edf5;
+  --color-primary: #fff;
+  --color-secondary: #081121;
+  --color-accent: #f2f2f2;
   --color-text: #d8e4fd;
 }
 
 [data-theme="dark"] {
-  --color-primary: #0b1930;
-  --color-secondary: #fcf7ff;
-  --color-accent: #081121;
+  --color-primary: #081121;
+  --color-secondary: #f2f2f2;
+  --color-accent: #0e1e3b;
   --color-text: #fcf7ff;
-  --color-text-alt: #;
 }
 
 body {
@@ -40,16 +39,16 @@ body {
     @apply text-sm bg-accent py-1 px-1 text-secondary rounded border-blue-lightest border border-solid;
   }
 
-  .brand-logo .active--exact {
-    @apply text-red border-red;
+  .main-nav .link.active {
+    @apply border-b-4 border-solid border-red;
   }
 
-  .main-nav .link.active {
-    @apply text-blue bg-red;
+  .main-nav .link.active:hover {
+    @apply bg-transparent;
   }
 
   .main-nav .start-here.active {
-    @apply text-blue bg-red;
+    @apply bg-red;
   }
 
   .post-content table {

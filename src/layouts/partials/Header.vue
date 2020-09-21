@@ -35,7 +35,7 @@
             class="flex-1 text-center md:flex-initial md:mr-8"
           >
             <g-link
-              class="link text-sm block py-4 md:px-2 lg:text-base md:py-2 hover:text-blue hover:bg-red transition-all duration-200"
+              class="link text-sm block py-4 md:px-2 lg:text-base md:py-2  hover:bg-red transition-all duration-200"
               :to="item.link"
               >{{ item.linkText }}</g-link
             >
