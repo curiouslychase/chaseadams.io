@@ -11,6 +11,13 @@ module.exports = {
   siteUrl: "https://chaseadams.io",
   icon: "./src/assets/favicon.png",
   templates: {
+    Sitepage: [
+      {
+        path: (node) => {
+          return `${node.permalink}`;
+        },
+      },
+    ],
     Post: [
       {
         path: (node) => {
@@ -53,6 +60,17 @@ module.exports = {
             create: true,
           },
         },
+        remark: {
+          plugins: ["@gridsome/remark-prismjs"],
+        },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/pages/**/*.md",
+        typeName: "Sitepage",
+
         remark: {
           plugins: ["@gridsome/remark-prismjs"],
         },
