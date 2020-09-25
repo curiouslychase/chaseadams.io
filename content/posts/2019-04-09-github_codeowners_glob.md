@@ -5,7 +5,7 @@ description: >-
   its contents
 date: 2019-04-09T00:00:00.000Z
 tags:
-  - github
+  - GitHub
 aliases:
   - /notes_to_self/github_codeowners_glob/
   - /github-codeowners-pattern-match-cheatsheet
