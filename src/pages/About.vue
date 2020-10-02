@@ -60,7 +60,7 @@
         </ul>
       </div>
       <div>
-        <h2>My Interests Inclued...</h2>
+        <h2>My Interests Include...</h2>
         <ul>
           <li>Experimenting with productivity systems &amp; processes.</li>
           <li>Making things with my 3D printer.</li>
