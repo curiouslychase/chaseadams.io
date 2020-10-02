@@ -23,7 +23,7 @@ I'm excited to be a part of the inception of Murmur and excited to see what's to
 
 **Where are you headed?**
 
-A startup called Murmur (https://murmur.io).
+A startup called Murmur ([website is basic right now](https://murmur.io)).
 
 **What will you be doing?**
 
