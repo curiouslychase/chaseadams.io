@@ -11,28 +11,10 @@
             >Hi, I'm Chase!</span
           >
           <span class="text-xl md:text-2xl font-bold block"
-            >I'm Currently...</span
+            >I enable building better teams through human-centric
+            software.</span
           >
         </h1>
-        <ul class="text-sm md:pb-4 md:leading-8 md:text-base">
-          <li class="py-1">
-            <span class="text-base md:text-3xl md:pr-3">🧰</span> building
-            software that lowers friction so that makers can turn their ideas
-            into reality.
-          </li>
-          <li class="py-1">
-            <span class="text-base md:text-3xl md:pr-3">👨‍🔬</span> learning new
-            concepts and ideas.
-          </li>
-          <li class="py-1">
-            <span class="text-base md:text-3xl md:pr-3">🚀</span> teaching
-            others.
-          </li>
-          <li class="py-1">
-            <span class="text-base md:text-3xl md:pr-3">🧠</span> exploring
-            ideas on consciousness.
-          </li>
-        </ul>
       </div>
     </div>
     <div class="py-4 md:py-16">
@@ -51,9 +33,9 @@ export default {
     PostList,
   },
   metaInfo: {
-    title: "Building a better web",
+    title: "Building better teams",
     description:
-      "Building a better web, better teams and pursuing self development.",
+      "I enable building better teams through human-centric software.",
   },
 };
 </script>
