@@ -11,11 +11,13 @@ I'm embarking on a new chapter of life: **joining Murmur, a platform that will c
 
 On Tuesday, October 13th, I'll be joining the team (as employee #2) at Murmur to build collaborative software to help teams decide how they're going to work together. We're doing this by guiding them through the process of making working agreements where everyone gives consent.
 
-Aaron Dignan (author of Brave New Work and CEO of The Ready) reached out to me to talk about self-management a few weeks ago and he introduced me to his vision for Murmur. When he asked me "what do you think?" the first thought in my mind was "my whole adult life has led me to this moment of saying 'this was what I was made to do.'". Thankfully, Aaron asked me if this was something I wanted to be a part of first. He also gave me the opportunity to give recommendations about what decisions I'd make and what kind of software I'd want to build. That was helpful, because if I did decide to join, the software would look the way I wanted it to anyways.
+Aaron Dignan (author of Brave New Work and CEO of The Ready) reached out to me to talk about self-management a few weeks ago and he introduced me to the vision for Murmur. When he asked me "what do you think?" the first thought in my mind was "my whole adult life has led me to this moment of saying 'this was what I was made to do.'".
+
+Thankfully, Aaron thought so too, because he asked me if building the Murmur platform was something I wanted to be a part of! As an alternative, he gave me the opportunity to simply give advice about how I would build the software. If I did decide to join, the decisions would be the ones I'd want to make anyways.
 
 I wasn't _looking_ for something new, in fact, I was preparing to dig into my path at Webflow deeper doing this same type of work, but within teams rather than as software. Because I wasn't looking, I had mixed emotions: I knew this was a rare opportunity that I would regret not taking but I had also started to settle in to making an impact at Webflow with people I enjoy working with on a product I think will also change the future of innovation.
 
-After a week of grappling, I told Aaron that I'm all in. 
+After a week of grappling, I told Aaron that I'm all in.
 
 I'm excited to be a part of the inception of Murmur and excited to see what's to come in building software to help teams decide how to work together in a way that puts humans at the center of the process.
 
