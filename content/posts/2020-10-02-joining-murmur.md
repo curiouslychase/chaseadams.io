@@ -4,7 +4,7 @@ date: 2020-10-02
 description: "I'm embarking on a new chapter of life: joining Murmur, a platform that will change the future of work."
 permalink: /joining-murmur
 type: post
-status: published
+status: private
 ---
 
 I'm embarking on a new chapter of life: **joining Murmur, a platform that will change the future of work.**
