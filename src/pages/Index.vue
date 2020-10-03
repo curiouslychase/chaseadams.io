@@ -1,18 +1,18 @@
 <template>
   <Layout>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 items-center py-4">
-      <div>
+      <div class="text-center">
         <g-image src="~/assets/1050-transparent-black-rg.png" width="500" />
       </div>
       <div class="text-center md:text-left">
         <h1>
           <span
-            class="text-white text-2xl mb-4 inline-block md:text-4xl font-bold border-l-8 bg-blue-lighter border-red border-solid px-3 md:mb-8"
+            class="text-white text-2xl mb-4 inline-block md:text-4xl font-bold bg-blue-lighter px-3 md:mb-8"
             >Hi, I'm Chase!</span
           >
           <span class="text-xl md:text-2xl font-bold block"
-            >I enable building better teams through human-centric
-            software.</span
+            >I enable building strong, resilient teams by creating human-centric
+            software and self-management frameworks.</span
           >
         </h1>
       </div>
@@ -33,9 +33,8 @@ export default {
     PostList,
   },
   metaInfo: {
-    title: "Building better teams",
     description:
-      "I enable building better teams through human-centric software.",
+      "Enabling building stronger, more resilient teams through human-centric software.",
   },
 };
 </script>
