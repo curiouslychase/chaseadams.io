@@ -11,7 +11,7 @@ I'm embarking on a new chapter of life: **joining Murmur, a platform that will c
 
 On Tuesday, October 13th, I'll be joining the team (as employee #2) at Murmur to build collaborative software to help teams decide how they're going to work together. We're doing this by guiding them through the process of making working agreements where everyone gives consent.
 
-Aaron Dignan (author of Brave New Work and CEO of The Ready) reached out to me to talk about self-management a few weeks ago and he introduced me to the vision for Murmur. When he asked me "what do you think?" the first thought in my mind was "my whole adult life has led me to this moment of saying 'this was what I was made to do.'".
+[Aaron Dignan](https://aarondignan.com) (author of [Brave New Work](https://www.bravenewwork.com/) and Founder of [The Ready](https://theready.com/)) reached out to me to talk about self-management a few weeks ago and he introduced me to the vision for Murmur. When he asked me "what do you think?" the first thought in my mind was "my whole adult life has led me to this moment of saying 'this was what I was made to do.'".
 
 Thankfully, Aaron thought so too, because he asked me if building the Murmur platform was something I wanted to be a part of! As an alternative, he gave me the opportunity to simply give advice about how I would build the software. If I did decide to join, the decisions would be the ones I'd want to make anyways.
 
