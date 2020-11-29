@@ -1,10 +1,26 @@
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
+import path from "path";
 import remark from "remark";
 import html from "remark-html";
+import slugify from "slugify";
 
 const postsDirectory = path.join(process.cwd(), "src", "posts");
+
+export type Tag = {
+  text: string;
+  slug: string;
+  posts: Array<PostMeta>;
+};
+
+export type PostMeta = {
+  id: string;
+  description: string | null;
+  title: string;
+  status: string;
+  date: string;
+  permalink: string;
+};
 
 export type Post = {
   id: string;
@@ -12,7 +28,10 @@ export type Post = {
   contentHtml: string;
   title: string;
   permalink: string;
+  tags: Array<Tag>;
   date: string;
+  description: string | null;
+  status: string;
 };
 
 export type AllPosts = Array<Post>;
@@ -29,13 +48,24 @@ const getPosts = () => {
 
       const matterResult = matter(fileContents);
 
+      let tags = [];
+      if (matterResult.data.tags) {
+        tags = matterResult.data.tags.map((tag: string) => ({
+          text: tag,
+          slug: `/tags/${slugify(tag.toLowerCase())}`,
+        }));
+      }
+
       return {
         id,
         filename: filename,
         date: matterResult.data.date,
         title: matterResult.data.title,
+        tags: tags,
         permalink: matterResult.data.permalink,
+        description: matterResult.data.description ?? null,
         contentHtml: matterResult.content,
+        status: matterResult.data.status,
       };
     }
   );
@@ -78,14 +108,64 @@ const getSlugFromFilename = (filename: string): string => {
   return filename.replace(/\.md$/, "");
 };
 
-export function getSortedPostsData() {
-  const allPostData = getPosts();
+type SortedPostsParams = {
+  limit?: number;
+  tagSlug?: string;
+};
 
-  return allPostData.sort((a, b) => {
+export function getSortedPostsData({ limit }: SortedPostsParams = {}) {
+  let allPostData = getPosts();
+
+  allPostData = allPostData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
       return -1;
     }
   });
+
+  if (limit) {
+    allPostData = allPostData.slice(0, limit + 2);
+  }
+
+  return allPostData;
+}
+
+export function getTagsMap() {
+  const allPostData = getPosts();
+  const allTags: { [slug: string]: Tag } = {};
+
+  allPostData.forEach((post) => {
+    const { id, tags, title, permalink, status, date, description } = post;
+    tags.forEach((tag) => {
+      if (!allTags[tag.slug]) {
+        allTags[tag.slug] = tag;
+        allTags[tag.slug].posts = [
+          {
+            id,
+            title,
+            permalink,
+            status,
+            date,
+            description,
+          },
+        ];
+      } else {
+        allTags[tag.slug].posts.push({
+          id,
+          title,
+          permalink,
+          status,
+          date,
+          description,
+        });
+      }
+    });
+  });
+
+  return allTags;
+}
+
+export function getTags() {
+  return Object.values(getTagsMap());
 }

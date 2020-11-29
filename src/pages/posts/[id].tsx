@@ -1,34 +1,28 @@
 import type {
   GetStaticPaths,
-  NextPage,
-  GetStaticPropsContext,
   GetStaticProps,
+  GetStaticPropsContext,
+  NextPage,
 } from "next";
 import Head from "next/head";
 
-import Layout from "~/components/layout";
+import DefaultLayout from "~/containers/layouts/Default";
+import PostView from "~/containers/views/Post";
 import { getAllPostIds, getPostData } from "~/lib/posts";
 import type { Post } from "~/lib/posts";
-import Date from "~/components/date";
 
 type Props = {
-  postData: Post;
+  post: Post;
 };
 
-const PostPage: NextPage<Props> = ({ postData }: { postData: Post }) => {
+const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
   return (
-    <Layout>
+    <DefaultLayout>
       <Head>
-        <title>{postData.title} | Chase Adams</title>
+        <title>{post.title} | Chase Adams</title>
       </Head>
-      <article>
-        <h1>{postData.title}</h1>
-        <div>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
-    </Layout>
+      <PostView {...post} />
+    </DefaultLayout>
   );
 };
 
@@ -46,10 +40,10 @@ export const getStaticProps: GetStaticProps = async ({
   params,
 }: GetStaticPropsContext) => {
   if (typeof params?.id === "string") {
-    const postData = await getPostData(params.id);
+    const post = await getPostData(params.id);
     return {
       props: {
-        postData,
+        post,
       },
     };
   }
