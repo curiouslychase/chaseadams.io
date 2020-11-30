@@ -71,7 +71,7 @@ async function generate() {
     const item = {
       title: post.title,
       guid: post.id,
-      url: `https://chaseadams.io${post.id}`,
+      url: `https://chaseadams.io/${post.id}`,
       date: post.date,
       description: post.description ?? "A post by Chase Adams",
       author: "Chase Adams",
