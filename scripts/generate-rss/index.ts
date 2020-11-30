@@ -4,7 +4,7 @@ import path from "path";
 import RSS from "rss";
 import slugify from "slugify";
 
-import type { Post } from "~/lib/posts";
+import type { Post } from "../../src/lib/posts";
 
 const postsDirectory = path.join(process.cwd(), "src", "posts");
 
@@ -58,7 +58,9 @@ function getSortedPostsData() {
 }
 
 async function generate() {
-  const previewItems = getSortedPostsData();
+  const previewItems = getSortedPostsData().filter(
+    ({ status }) => status === "published"
+  );
   const feed = new RSS({
     title: "Chase Adams' Blog",
     site_url: "https://chaseadams.io",

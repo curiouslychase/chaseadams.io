@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn build:rss && next build",
     "start": "next start",
-    "build:rss": "node --loader ts-node/esm ./src/scripts/generate-rss.ts"
+    "build:rss": "node --loader ts-node/esm ./scripts/generate-rss/index.ts"
   },
   "dependencies": {
     "@types/rss": "^0.0.28",
