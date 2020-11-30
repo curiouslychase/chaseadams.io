@@ -1,7 +1,17 @@
 import Link from "next/link";
 import type { FC } from "react";
 
-import { Item, List, Title } from "./styles";
+import {
+  DescriptionWrapper,
+  Item,
+  List,
+  Tag,
+  TagHeading,
+  TagList,
+  TagListItem,
+  TagWrapper,
+  Title,
+} from "./styles";
 import type { Props } from "./types";
 
 const PostList: FC<Props> = ({ posts }) => (
@@ -15,15 +25,20 @@ const PostList: FC<Props> = ({ posts }) => (
               <Title>{title}</Title>
             </a>
           </Link>
-          <div>{description}</div>
-          {tags &&
-            tags.map(({ text, slug }) => (
-              <div key={slug}>
-                <Link href={slug}>
-                  <a>{text}</a>
-                </Link>
-              </div>
-            ))}
+          <DescriptionWrapper>{description}</DescriptionWrapper>
+          <TagWrapper>
+            <TagHeading>Tagged with: </TagHeading>
+            <TagList>
+              {tags &&
+                tags.map(({ text, slug }) => (
+                  <TagListItem key={slug}>
+                    <Link href={slug}>
+                      <Tag>{text}</Tag>
+                    </Link>
+                  </TagListItem>
+                ))}
+            </TagList>
+          </TagWrapper>
         </Item>
       ))}
   </List>

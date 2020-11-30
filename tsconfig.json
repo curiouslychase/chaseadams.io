@@ -25,6 +25,12 @@
     "jsx": "preserve",
     "target": "es5"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/redirects.js",
+    "next.config.js"
+  ],
   "exclude": ["node_modules"]
 }

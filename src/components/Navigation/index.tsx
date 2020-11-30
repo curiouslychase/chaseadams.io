@@ -10,7 +10,6 @@ const Navigation: FC = () => (
       <Brand>Chase Adams</Brand>
     </Link>
     <NavigationList>
-      <NavigationListItem></NavigationListItem>
       <NavigationListItem>
         <Link href="/blog">
           <a>Blog</a>

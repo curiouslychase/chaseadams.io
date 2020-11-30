@@ -15,6 +15,7 @@ export const Brand = styled.a`
 export const NavigationList = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -24,7 +25,8 @@ export const NavigationListItem = styled.li`
   margin: 0;
   padding: 0;
 
-  a {
+  a,
+  button {
     padding: 1rem;
 
     &.last {

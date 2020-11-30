@@ -2,6 +2,7 @@ const colors = {
   white: "#fff",
   black: "#081121",
   red: "#f00",
+  blue: "#2541b2",
 };
 
 const base = {
@@ -16,7 +17,7 @@ const light = {
   colors: {
     background: colors.white,
     text: colors.black,
-    primary: colors.red,
+    primary: colors.blue,
   },
   ...base,
 };
@@ -25,7 +26,7 @@ const dark = {
   colors: {
     background: colors.black,
     text: colors.white,
-    primary: colors.red,
+    primary: colors.blue,
   },
   ...base,
 };

@@ -17,10 +17,20 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
     <div>
       {tags && (
         <div>
-          Tags{" "}
-          {tags.map((tag) => (
-            <div>{tag}</div>
-          ))}
+          <span
+            style={{
+              display: "block",
+              fontSize: "1.25rem",
+              fontWeight: "bold",
+            }}
+          >
+            Tags
+          </span>{" "}
+          <ul>
+            {tags.map((tag) => (
+              <li key={tag.slug}>{tag.text}</li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
