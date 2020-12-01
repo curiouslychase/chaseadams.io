@@ -85,11 +85,20 @@ export const getPostData = async (id: string) => {
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
+  let tags = [];
+  if (matterResult.data.tags) {
+    tags = matterResult.data.tags.map((tag: string) => ({
+      text: tag,
+      slug: `/tags/${slugify(tag.toLowerCase())}`,
+    }));
+  }
+
   // Combine the data with the id
   return {
+    ...matterResult.data,
     id,
     contentHtml,
-    ...matterResult.data,
+    tags,
   };
 };
 

@@ -1,8 +1,10 @@
 const colors = {
   white: "#fff",
-  black: "#081121",
+  black90: "#232840",
+  black: "#07080f",
   red: "#f00",
-  blue: "#2541b2",
+  blue: "#232840",
+  grey70: "#A8BBDC",
 };
 
 const base = {
@@ -14,21 +16,23 @@ const base = {
 };
 
 const light = {
+  ...base,
   colors: {
     background: colors.white,
     text: colors.black,
     primary: colors.blue,
+    muted: `#5474A0`,
   },
-  ...base,
 };
 
 const dark = {
-  colors: {
-    background: colors.black,
-    text: colors.white,
-    primary: colors.blue,
-  },
   ...base,
+  colors: {
+    background: colors.black90,
+    text: colors.white,
+    primary: colors.grey70,
+    muted: colors.grey70,
+  },
 };
 
 const themes = {

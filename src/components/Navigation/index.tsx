@@ -20,11 +20,11 @@ const Navigation: FC = () => (
           <a>About Me</a>
         </Link>
       </NavigationListItem>
-      <NavigationListItem>
+      {/* <NavigationListItem>
         <Link href="/contact">
           <a>Contact</a>
         </Link>
-      </NavigationListItem>
+      </NavigationListItem> */}
       <NavigationListItem>
         <ThemeSwitcher />
       </NavigationListItem>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FC } from "react";
 
 import Date from "~/components/Date";
@@ -28,7 +29,11 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
           </span>{" "}
           <ul>
             {tags.map((tag) => (
-              <li key={tag.slug}>{tag.text}</li>
+              <li key={tag.slug}>
+                <Link href={tag.slug}>
+                  <a>{tag.text}</a>
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

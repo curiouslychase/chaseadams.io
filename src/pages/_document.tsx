@@ -1,5 +1,6 @@
 import type { DocumentContext } from "next/document";
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import { useEffect } from "react";
 import { ServerStyleSheet } from "styled-components";
 
 import theme from "~/styles/themes";
@@ -42,6 +43,13 @@ const MagicScriptTag = () => {
       colorMode === 'light'
         ? '${theme.light.colors.primary}'
         : '${theme.dark.colors.primary}'
+    );
+
+    root.style.setProperty(
+      '--color-muted',
+      colorMode === 'light'
+        ? '${theme.light.colors.muted}'
+        : '${theme.dark.colors.muted}'
     );
     root.style.setProperty('--initial-color-mode', colorMode);
   })()`;

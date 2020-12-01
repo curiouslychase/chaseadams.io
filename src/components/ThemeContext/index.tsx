@@ -44,6 +44,10 @@ export const ThemeSwitcherProvider: FC = ({ children }) => {
         ? theme.light.colors.primary
         : theme.dark.colors.primary
     );
+    root.style.setProperty(
+      "--color-muted",
+      newValue === "light" ? theme.light.colors.muted : theme.dark.colors.muted
+    );
   };
   return (
     <ThemeContext.Provider value={{ colorMode, setColorMode }}>
