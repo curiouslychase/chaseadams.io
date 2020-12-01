@@ -1,6 +1,5 @@
 import type { DocumentContext } from "next/document";
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import { useEffect } from "react";
 import { ServerStyleSheet } from "styled-components";
 
 import theme from "~/styles/themes";
