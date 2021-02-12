@@ -10,6 +10,8 @@ export const ThemeContext = createContext({
   },
 });
 
+export const ThemeSwitcherConsumer = ThemeContext.Consumer;
+
 export const ThemeSwitcherProvider: FC = ({ children }) => {
   const [colorMode, rawSetColorMode] = useState("dark");
   useEffect(() => {
@@ -47,6 +49,18 @@ export const ThemeSwitcherProvider: FC = ({ children }) => {
     root.style.setProperty(
       "--color-muted",
       newValue === "light" ? theme.light.colors.muted : theme.dark.colors.muted
+    );
+    root.style.setProperty(
+      "--color-labelBackground",
+      newValue === "light"
+        ? theme.light.colors.labelBackground
+        : theme.dark.colors.labelBackground
+    );
+    root.style.setProperty(
+      "--color-labelForeground",
+      newValue === "light"
+        ? theme.light.colors.labelForeground
+        : theme.dark.colors.labelForeground
     );
   };
   return (

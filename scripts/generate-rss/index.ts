@@ -81,7 +81,7 @@ async function generate() {
   });
 
   const rss = feed.xml({ indent: true });
-  fs.writeFileSync("./public/feed.xml", rss);
+  fs.writeFileSync("./public/rss.xml", rss);
 }
 
 generate();

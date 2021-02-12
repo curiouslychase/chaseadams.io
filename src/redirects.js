@@ -1,4 +1,5 @@
 module.exports = [
+  { source: "/blog", destination: "/posts", permanent: true },
   {
     source: "/posts/emulate-what-you-want-to-replicate",
     destination: "/posts/2013-10-01-emulate-what-you-want-to-replicate",

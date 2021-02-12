@@ -13,12 +13,32 @@ export const Item = styled.li`
 `;
 
 export const Title = styled.h3`
+  display: inline-block;
   margin: 0;
-  padding: 0;
+
+  font-weight: ${({ theme }) => theme.weights.normal};
+`;
+
+export const TitleLink = styled.a`
+  display: block;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-labelBackground);
+  color: var(--color-labelForeground);
+  transition: 0.2s all;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.blue500};
+    text-decoration: none;
+  }
+`;
+
+export const SummaryMeta = styled.div`
+  padding: 0.5rem;
 `;
 
 export const DescriptionWrapper = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 `;
 
 export const TagWrapper = styled.div`

@@ -50,6 +50,21 @@ const MagicScriptTag = () => {
         ? '${theme.light.colors.muted}'
         : '${theme.dark.colors.muted}'
     );
+
+    root.style.setProperty(
+      '--color-labelBackground',
+      colorMode === 'light'
+        ? '${theme.light.colors.labelBackground}'
+        : '${theme.dark.colors.labelBackground}'
+    );
+
+    root.style.setProperty(
+      '--color-labelForeground',
+      colorMode === 'light'
+        ? '${theme.light.colors.labelForeground}'
+        : '${theme.dark.colors.labelForeground}'
+    );
+
     root.style.setProperty('--initial-color-mode', colorMode);
   })()`;
 
@@ -90,7 +105,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
         </Head>

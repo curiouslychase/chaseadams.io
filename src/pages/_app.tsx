@@ -2,18 +2,27 @@ import type { AppProps } from "next/app";
 import React, { FC } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { ThemeSwitcherProvider } from "~/components/ThemeContext";
+import {
+  ThemeSwitcherConsumer,
+  ThemeSwitcherProvider,
+} from "~/components/ThemeContext";
 import { GlobalStyle } from "~/styles/global";
 import themes from "~/styles/themes";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeSwitcherProvider>
-      <ThemeProvider theme={themes.light}>
-        <GlobalStyle />
+      <ThemeSwitcherConsumer>
+        {({ colorMode }) => (
+          <ThemeProvider
+            theme={colorMode === "light" ? themes.light : themes.dark}
+          >
+            <GlobalStyle />
 
-        <Component {...pageProps} />
-      </ThemeProvider>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        )}
+      </ThemeSwitcherConsumer>
     </ThemeSwitcherProvider>
   );
 };

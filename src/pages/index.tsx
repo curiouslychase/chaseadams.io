@@ -12,13 +12,13 @@ export default function Home({ allPostsData }: { allPostsData: AllPosts }) {
   return (
     <DefaultLayout>
       <Head>
-        <title>Chase Adams | Home</title>
+        <title>Chase Adams</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <section>
-          <Title>Hi, I'm Chase Adams.</Title>
+          <Title>Hi, I'm Chase.</Title>
           <p style={{ margin: "0px" }}>
             I enable building strong, resilient teams by creating human-centric
             software and self-management frameworks.

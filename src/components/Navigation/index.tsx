@@ -1,34 +1,38 @@
 import Link from "next/link";
 import type { FC } from "react";
+import "@szhsin/react-menu/dist/index.css";
 
 import ThemeSwitcher from "../ThemeSwitcher";
-import { Brand, Container, NavigationList, NavigationListItem } from "./styles";
+import { Brand, Container, Menu, MenuButton, MenuItem } from "./styles";
 
-const Navigation: FC = () => (
-  <Container>
-    <Link href="/">
-      <Brand>Chase Adams</Brand>
-    </Link>
-    <NavigationList>
-      <NavigationListItem>
-        <Link href="/blog">
-          <a>Blog</a>
-        </Link>
-      </NavigationListItem>
-      <NavigationListItem>
-        <Link href="/about">
-          <a>About Me</a>
-        </Link>
-      </NavigationListItem>
-      {/* <NavigationListItem>
+const Navigation: FC = () => {
+  return (
+    <Container>
+      <Link href="/" passHref>
+        <Brand>Chase Adams</Brand>
+      </Link>
+      <Menu menuButton={<MenuButton>Menu</MenuButton>}>
+        <MenuItem>
+          <Link href="/posts">
+            <a>Writing</a>
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link href="/about">
+            <a>About Me</a>
+          </Link>
+        </MenuItem>
+        {/* <MenuItem>
         <Link href="/contact">
           <a>Contact</a>
         </Link>
-      </NavigationListItem> */}
-      <NavigationListItem>
-        <ThemeSwitcher />
-      </NavigationListItem>
-    </NavigationList>
-  </Container>
-);
+      </MenuItem> */}
+        <MenuItem>
+          <ThemeSwitcher />
+        </MenuItem>
+      </Menu>
+    </Container>
+  );
+};
+
 export default Navigation;

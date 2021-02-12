@@ -9,12 +9,14 @@
     "build:rss": "node --loader ts-node/esm ./scripts/generate-rss/index.ts"
   },
   "dependencies": {
+    "@szhsin/react-menu": "^1.6.0",
     "@types/rss": "^0.0.28",
     "@types/styled-components": "^5.1.4",
     "babel-plugin-styled-components": "npm:@z1digitalstudio/babel-plugin-styled-components@1.11.1-rev.1",
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
+    "next-mdx-enhanced": "^5.0.0",
     "prismjs": "^1.22.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
