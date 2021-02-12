@@ -16,6 +16,8 @@ node_modules
 /build
 /public/feed.xml
 
+dist
+
 # misc
 .DS_Store
 

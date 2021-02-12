@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "yarn build:rss && next build",
     "start": "next start",
-    "build:rss": "node --loader ts-node/esm ./scripts/generate-rss/index.ts"
+    "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
     "@szhsin/react-menu": "^1.6.0",
@@ -25,7 +25,8 @@
     "rss": "^1.2.2",
     "slugify": "^1.4.6",
     "styled-components": "^5.2.1",
-    "ts-node": "^9.1.0"
+    "ts-node": "^9.1.0",
+    "tsc": "^1.20150623.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.10",
