@@ -20,6 +20,9 @@ async function getDropboxContent({ fromDropbox, dest }) {
   });
   await downloadZip({ dbx, path: fromDropbox })
     .then(setupExtractZip(dest))
+    .then(() => {
+      console.log(fs.readdirSync(`${dest}/content`));
+    })
     .catch((err) => {
       console.error(err);
       process.exitCode = 1;
@@ -44,6 +47,8 @@ async function downloadZip({ dbx, path }) {
         fs.unlinkSync(zipPath);
       }
 
+      console.log(`downloading zip to ${zipPath}`);
+
       fs.writeFileSync(zipPath, fileBinary);
       return zipPath;
     });
@@ -51,15 +56,15 @@ async function downloadZip({ dbx, path }) {
 
 function setupExtractZip(dest) {
   return async function extractZip(zipPath) {
-    extract(
-      `${process.cwd()}/${zipPath}`,
-      { dir: `${process.cwd()}/${dest}` },
-      (err) => {
-        if (err) {
-          throw new Error(`could not extract zip: ${err}`);
-        }
+    const extractPath = `${process.cwd()}/${dest}`;
+    const fromPath = `${process.cwd()}/${zipPath}`;
+
+    console.log(`extracting to ${extractPath} from ${fromPath}`);
+    extract(fromPath, { dir: extractPath }, (err) => {
+      if (err) {
+        throw new Error(`could not extract zip: ${err}`);
       }
-    );
+    });
   };
 }
 

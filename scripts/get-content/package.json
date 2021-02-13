@@ -27,10 +27,5 @@
   "bugs": {
     "url": "https://github.com/chaseadamsio/chaseadams.io/issues"
   },
-  "dependencies": {
-    "dropbox": "^4.0.30",
-    "extract-zip": "^1.6.7",
-    "isomorphic-fetch": "^2.2.1",
-    "yargs": "^15.1.0"
-  }
+  "dependencies": {}
 }
