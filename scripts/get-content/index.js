@@ -20,9 +20,6 @@ async function getDropboxContent({ fromDropbox, dest }) {
   });
   await downloadZip({ dbx, path: fromDropbox })
     .then(setupExtractZip(dest))
-    .then(() => {
-      console.log(fs.readdirSync(`${dest}/content`));
-    })
     .catch((err) => {
       console.error(err);
       process.exitCode = 1;
