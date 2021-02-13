@@ -15,7 +15,7 @@ export const HeadingWrapper = styled.div`
 export const Brand = styled.a`
   cursor: pointer;
   padding: 0.5rem 0.75rem;
-  color: ${({ theme }) => theme.colors.blue500};
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ theme }) => theme.weights.black};
   font-size: 3.625rem;
 
