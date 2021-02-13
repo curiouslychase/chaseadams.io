@@ -1,0 +1,36 @@
+{
+  "name": "get-dropbox-content",
+  "version": "0.0.0",
+  "description": "get dropbox content for site",
+  "keywords": [],
+  "author": "Chase Adams <realchaseadams@gmail.com>",
+  "homepage": "https://github.com/chaseadamsio/chaseadams.io/tree/master/packages/get-dropbox-content#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaseadamsio/chaseadams.io.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/chaseadamsio/chaseadams.io/issues"
+  },
+  "dependencies": {
+    "dropbox": "^4.0.30",
+    "extract-zip": "^1.6.7",
+    "isomorphic-fetch": "^2.2.1",
+    "yargs": "^15.1.0"
+  }
+}
