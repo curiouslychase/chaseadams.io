@@ -7,7 +7,7 @@
     "build": "yarn build:get-content && yarn build:rss && next build",
     "start": "next start",
     "local:link-content": "test -L src/content || ln -s $HOME/Dropbox/chaseadams.io/content src/content",
-    "build:get-content": "node scripts/get-content/index.js --fromDropbox=/chaseadams.io/content --dest=src/",
+    "build:get-content": "node scripts/get-content/index.js --fromDropbox=/chaseadams.io/content --dest=src",
     "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
