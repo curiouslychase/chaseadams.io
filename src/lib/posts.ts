@@ -146,9 +146,14 @@ export function getTagsMap() {
 
   allPostData.forEach((post) => {
     const { id, tags, title, permalink, status, date, description } = post;
+    if (status !== "published") {
+      return;
+    }
+
     tags.forEach((tag) => {
       if (!allTags[tag.slug]) {
         allTags[tag.slug] = tag;
+
         allTags[tag.slug].posts = [
           {
             id,

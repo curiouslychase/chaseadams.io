@@ -15,7 +15,7 @@ const TagPostList: FC<Props> = ({ posts }) => (
               <Title>{title}</Title>
             </a>
           </Link>
-          <div>{description}</div>
+          <div>{description ?? <em>no description.</em>}</div>
         </Item>
       ))}
   </List>

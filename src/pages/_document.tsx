@@ -3,6 +3,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 import theme from "~/styles/themes";
+import * as gtag from "~/utils/gtag";
 
 const MagicScriptTag = () => {
   const codeToRunOnClient = `
@@ -103,11 +104,31 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+            href="https://cloud.typography.com/6522872/7140832/css/fonts.css"
             rel="stylesheet"
           />
+          {process.env.NODE_ENV === "production" && (
+            <>
+              {/* Global Site Tag (gtag.js) - Google Analytics */}
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gtag.GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+          `,
+                }}
+              />
+            </>
+          )}
         </Head>
         <body>
           <MagicScriptTag />

@@ -35,7 +35,7 @@ const PostList: FC<Props> = ({ posts }) => (
                 <TagList>
                   {tags.map(({ text, slug }) => (
                     <TagListItem key={slug}>
-                      <Link href={slug}>
+                      <Link href={slug} passHref>
                         <Tag>{text}</Tag>
                       </Link>
                     </TagListItem>

@@ -1,5 +1,6 @@
 const colors = {
   white: "#fff",
+  black: "#1e242e",
   gray50: "#F9FAFB",
   gray100: "#F3F4F6",
   gray200: "#E5E7EB",
@@ -9,9 +10,11 @@ const colors = {
   gray600: "#4B5563",
   gray800: "#1F2937",
   gray900: "#111827",
-  black90: "#232840",
+  blue300: "#93C5FD",
+  blue400: "#60A5FA",
   blue500: "#3B82F6",
-  black: "#000",
+  blue600: "#2563EB",
+  blue700: "#1D4ED8",
   red: "#f00",
   blue: "#232840",
   grey70: "#A8BBDC",
@@ -19,9 +22,10 @@ const colors = {
 
 const base = {
   weights: {
+    light: 300,
     normal: 400,
-    medium: 500,
     bold: 700,
+    black: 800,
   },
 };
 

@@ -16,7 +16,7 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
     </MetaWrapper>
     <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
     <div>
-      {tags && (
+      {tags.length ? (
         <div>
           <span
             style={{
@@ -26,7 +26,7 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
             }}
           >
             Tags
-          </span>{" "}
+          </span>
           <ul>
             {tags.map((tag) => (
               <li key={tag.slug}>
@@ -37,7 +37,7 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
             ))}
           </ul>
         </div>
-      )}
+      ) : null}
     </div>
   </article>
 );
