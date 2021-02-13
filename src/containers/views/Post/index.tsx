@@ -4,7 +4,7 @@ import type { FC } from "react";
 import Date from "~/components/Date";
 import Title from "~/components/Title";
 
-import { Author, MetaWrapper } from "./styles";
+import { Author, MetaWrapper, PostWrapper } from "./styles";
 import type { Props } from "./types";
 
 const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
@@ -14,7 +14,7 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags }) => (
       <Author>Chase Adams</Author>
       <Date dateString={date} />
     </MetaWrapper>
-    <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    <PostWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
     <div>
       {tags.length ? (
         <div>

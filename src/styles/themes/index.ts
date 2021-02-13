@@ -45,6 +45,7 @@ const light = {
     menuButtonActiveForeground: colors.gray900,
     menuButtonActiveBackground: colors.white,
     menuButtonActiveBorder: colors.gray500,
+    mutedBorder: colors.gray300,
   },
 };
 
@@ -64,6 +65,7 @@ const dark = {
     menuButtonActiveForeground: colors.gray50,
     menuButtonActiveBackground: colors.black,
     menuButtonActiveBorder: colors.gray300,
+    mutedBorder: colors.gray600,
   },
 };
 
