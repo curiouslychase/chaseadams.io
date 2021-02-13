@@ -5,7 +5,7 @@ import remark from "remark";
 import html from "remark-html";
 import slugify from "slugify";
 
-const postsDirectory = path.join(process.cwd(), "src", "posts");
+const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 
 export type Tag = {
   text: string;

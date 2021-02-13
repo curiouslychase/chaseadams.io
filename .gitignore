@@ -32,4 +32,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+src/content
+tmp
 public/rss.xml
