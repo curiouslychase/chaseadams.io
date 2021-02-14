@@ -10,11 +10,11 @@ const TagPostList: FC<Props> = ({ posts }) => (
       .filter(({ status }) => status === "published")
       .map(({ id, description, title }) => (
         <Item key={id}>
-          <Link href={`/posts/${id}`}>
-            <a>
-              <Title>{title}</Title>
-            </a>
-          </Link>
+          <Title>
+            <Link href={`/posts/${id}`}>
+              <a>{title}</a>
+            </Link>
+          </Title>
           <div>{description ?? <em>no description.</em>}</div>
         </Item>
       ))}

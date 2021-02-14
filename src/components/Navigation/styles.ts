@@ -3,13 +3,26 @@ import styled from "styled-components";
 export const Container = styled.nav`
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
-  margin-top: 2rem;
   width: 100%;
+  padding: 2rem 0;
+
+  @media (${({ theme }) => theme.responsive.phone}) {
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
-export const HeadingWrapper = styled.div`
-  padding: 3rem 0;
+export const HeadingWrapper = styled.h2`
+  padding: 3rem 0 0;
+  font-size: 3.625rem;
+  text-align: center;
+
+  @media (${({ theme }) => theme.responsive.phone}) {
+    padding: 0;
+    font-size: 1.5rem;
+  }
 `;
 
 export const Brand = styled.a`
@@ -17,7 +30,20 @@ export const Brand = styled.a`
   padding: 0.5rem 0.75rem;
   color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ theme }) => theme.weights.black};
-  font-size: 3.625rem;
+  text-transform: lowercase;
+
+  span.small {
+    display: none;
+  }
+
+  @media (${({ theme }) => theme.responsive.phone}) {
+    span.small {
+      display: inline;
+    }
+    span:not(.small) {
+      display: none;
+    }
+  }
 
   &:hover {
     text-decoration: underline;
@@ -28,7 +54,7 @@ export const Menu = styled.ul`
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  text-transform: lowercase;
 `;
 
 export const MenuItem = styled.li`

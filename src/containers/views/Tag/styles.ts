@@ -7,10 +7,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 `;
 
-export const Title = styled.h3`
-  margin: 0;
-  padding: 0;
-`;
+export const Title = styled.h3``;

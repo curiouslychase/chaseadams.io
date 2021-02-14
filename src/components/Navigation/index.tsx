@@ -9,7 +9,10 @@ const Navigation: FC = () => {
     <Container>
       <HeadingWrapper>
         <Link href="/" passHref>
-          <Brand>chase adams</Brand>
+          <Brand>
+            <span>Chase Adams</span>
+            <span className="small">(ca)</span>
+          </Brand>
         </Link>
       </HeadingWrapper>
       <Menu>

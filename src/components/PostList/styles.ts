@@ -9,37 +9,18 @@ const UnstyledList = styled.ul`
 export const List = styled(UnstyledList)``;
 
 export const Item = styled.li`
-  margin-bottom: 1.5rem;
+  padding: 1.5rem 0;
 `;
 
-export const Title = styled.h3`
-  display: inline-block;
-  margin: 0;
-
-  font-weight: ${({ theme }) => theme.weights.normal};
-`;
+export const Title = styled.h3``;
 
 export const TitleLink = styled.a`
   display: block;
-  padding: 0.5rem 0.75rem;
-  background: var(--color-labelBackground);
-  color: var(--color-labelForeground);
-  transition: 0.2s all;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.white};
-    background: ${({ theme }) => theme.colors.blue500};
-    text-decoration: none;
-  }
 `;
 
-export const SummaryMeta = styled.div`
-  padding: 0.5rem;
-`;
+export const SummaryMeta = styled.div``;
 
-export const DescriptionWrapper = styled.div`
-  margin-top: 1rem;
-`;
+export const DescriptionWrapper = styled.div``;
 
 export const TagWrapper = styled.div`
   margin-top: 0.5rem;
@@ -53,7 +34,7 @@ export const TagList = styled(UnstyledList)`
 export const TagListItem = styled.li`
   display: inline;
   &:not(:last-child)::after {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.text};
     content: ", ";
   }
 `;

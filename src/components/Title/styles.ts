@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.h1<{ size: string }>`
+  padding: 1rem 0;
+
   ${({ size }) => {
     switch (size) {
       case "L":
@@ -15,6 +17,4 @@ export const Container = styled.h1<{ size: string }>`
         `;
     }
   }}
-  margin-bottom: 0px;
-  padding: 0px;
 `;
