@@ -24,11 +24,16 @@ export const Brand = styled.a`
   }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.ul`
+  list-style: none;
   display: flex;
   justify-content: flex-end;
-  gap: 2rem;
   width: 100%;
 `;
 
-export const MenuItem = styled.div``;
+export const MenuItem = styled.li`
+  padding-right: 2rem;
+  &:last-child {
+    padding-right: 0;
+  }
+`;
