@@ -29,8 +29,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/redirects.js",
-    "next.config.js"
+    "next.config.js",
+    "scripts/get-content/index.js"
   ],
   "exclude": ["node_modules"]
 }
