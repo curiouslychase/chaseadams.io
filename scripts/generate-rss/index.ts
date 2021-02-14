@@ -38,7 +38,6 @@ function getSortedPostsData() {
         date: matterResult.data.date,
         title: matterResult.data.title,
         tags: tags,
-        permalink: matterResult.data.permalink,
         description: matterResult.data.description ?? null,
         contentHtml: matterResult.content,
         status: matterResult.data.status,

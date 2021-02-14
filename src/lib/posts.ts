@@ -19,7 +19,6 @@ export type PostMeta = {
   title: string;
   status: string;
   date: string;
-  permalink: string;
 };
 
 export type Post = {
@@ -27,7 +26,6 @@ export type Post = {
   filename: string;
   contentHtml: string;
   title: string;
-  permalink: string;
   tags: Array<Tag>;
   date: string;
   description: string | null;
@@ -62,7 +60,6 @@ const getPosts = () => {
         date: matterResult.data.date,
         title: matterResult.data.title,
         tags: tags,
-        permalink: matterResult.data.permalink,
         description: matterResult.data.description ?? null,
         contentHtml: matterResult.content,
         status: matterResult.data.status,
@@ -145,7 +142,7 @@ export function getTagsMap() {
   const allTags: { [slug: string]: Tag } = {};
 
   allPostData.forEach((post) => {
-    const { id, tags, title, permalink, status, date, description } = post;
+    const { id, tags, title, status, date, description } = post;
     if (status !== "published") {
       return;
     }
@@ -158,7 +155,6 @@ export function getTagsMap() {
           {
             id,
             title,
-            permalink,
             status,
             date,
             description,
@@ -168,7 +164,6 @@ export function getTagsMap() {
         allTags[tag.slug].posts.push({
           id,
           title,
-          permalink,
           status,
           date,
           description,

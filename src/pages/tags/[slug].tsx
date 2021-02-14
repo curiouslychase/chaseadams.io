@@ -50,8 +50,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     tag = getTagsMap()[`/tags/${params.slug}`];
   }
 
-  console.log(tag);
-
   return {
     props: {
       tag,
