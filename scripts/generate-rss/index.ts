@@ -6,7 +6,7 @@ import slugify from "slugify";
 
 import type { Post } from "../../src/lib/posts";
 
-const postsDirectory = path.join(process.cwd(), "src", "posts");
+const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 
 const getSlugFromFilename = (filename: string): string => {
   return filename.replace(/\.md$/, "");
