@@ -11,13 +11,12 @@ const colors = {
   gray600: "#4B5563",
   gray800: "#1F2937",
   gray900: "#111827",
-  blue300: "#93C5FD",
+  blue300: "#47A9FF",
   blue400: "#3A6992",
-  blue500: "#3B82F6",
+  blue500: "#058AFF",
   blue600: "#2563EB",
   blue700: "#1D4ED8",
   red: "#f00",
-  blue: "#232840",
 };
 
 const base = {
@@ -39,7 +38,7 @@ const light = {
     background: colors.gray50,
     accent: colors.gray100,
     text: colors.gray900,
-    primary: colors.blue400,
+    primary: colors.blue500,
     muted: colors.gray500,
     labelBackground: colors.gray100,
     labelForeground: colors.black,

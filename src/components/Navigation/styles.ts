@@ -32,15 +32,8 @@ export const Brand = styled.a`
   font-weight: ${({ theme }) => theme.weights.black};
   text-transform: lowercase;
 
-  span.small {
-    display: none;
-  }
-
   @media (${({ theme }) => theme.responsive.phone}) {
-    span.small {
-      display: inline;
-    }
-    span:not(.small) {
+    span.onLarge {
       display: none;
     }
   }

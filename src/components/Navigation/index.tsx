@@ -10,8 +10,9 @@ const Navigation: FC = () => {
       <HeadingWrapper>
         <Link href="/" passHref>
           <Brand>
-            <span>Chase Adams</span>
-            <span className="small">(ca)</span>
+            <span>
+              Chase <span className="onLarge">Adams</span>
+            </span>
           </Brand>
         </Link>
       </HeadingWrapper>
