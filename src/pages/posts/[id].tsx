@@ -31,6 +31,10 @@ const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@chaseadamsio" />
         <meta name="twitter:title" content={post.title} />
+        <meta
+          name="twitter:image"
+          content={post.image ?? "/img/share/default.jpg"}
+        />
         {post.description && (
           <>
             <meta name="description" content={post.description} />
