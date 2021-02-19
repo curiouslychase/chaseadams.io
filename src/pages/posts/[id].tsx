@@ -16,6 +16,10 @@ type Props = {
 };
 
 const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
+  const imageUrl = `https://chaseinmotion.com${
+    post.image ?? "/img/share/default.jpg"
+  }`;
+
   return (
     <DefaultLayout>
       <Head>
@@ -24,19 +28,11 @@ const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
         <meta name="og:title" content={post.title} />
 
         <meta name="og:type" content="website" />
-        <meta
-          name="og:image"
-          content={post.image ?? "/img/share/default.jpg"}
-        />
+        <meta name="og:image" content={imageUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@chaseadamsio" />
         <meta name="twitter:title" content={post.title} />
-        <meta
-          name="twitter:image"
-          content={`https://chaseinmotion.com${
-            post.image ?? "/img/share/default.jpg"
-          }`}
-        />
+        <meta name="twitter:image" content={imageUrl} />
         {post.description && (
           <>
             <meta name="description" content={post.description} />
