@@ -33,7 +33,9 @@ const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
         <meta name="twitter:title" content={post.title} />
         <meta
           name="twitter:image"
-          content={post.image ?? "/img/share/default.jpg"}
+          content={`https://chaseinmotion.com${
+            post.image ?? "/img/share/default.jpg"
+          }`}
         />
         {post.description && (
           <>
