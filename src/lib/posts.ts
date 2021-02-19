@@ -18,6 +18,7 @@ export type PostMeta = {
   description: string | null;
   title: string;
   status: string;
+  image?: string;
   date: string;
 };
 
@@ -28,6 +29,7 @@ export type Post = {
   title: string;
   tags: Array<Tag>;
   date: string;
+  image?: string;
   description: string | null;
   status: string;
 };
@@ -59,6 +61,7 @@ const getPosts = () => {
         filename: filename,
         date: matterResult.data.date,
         title: matterResult.data.title,
+        image: matterResult.data.image ?? null,
         tags: tags,
         description: matterResult.data.description ?? null,
         contentHtml: matterResult.content,

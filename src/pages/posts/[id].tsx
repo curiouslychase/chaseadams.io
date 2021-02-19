@@ -20,6 +20,24 @@ const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
     <DefaultLayout>
       <Head>
         <title>{post.title} | Chase Adams</title>
+
+        <meta name="og:title" content={post.title} />
+
+        <meta name="og:type" content="website" />
+        <meta
+          name="og:image"
+          content={post.image ?? "/img/share/default.jpg"}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@chaseadamsio" />
+        <meta name="twitter:title" content={post.title} />
+        {post.description && (
+          <>
+            <meta name="description" content={post.description} />
+            <meta name="twitter:description" content={post.description} />
+            <meta name="og:description" content={post.description} />
+          </>
+        )}
       </Head>
       <PostView {...post} />
     </DefaultLayout>
