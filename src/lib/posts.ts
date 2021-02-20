@@ -24,6 +24,7 @@ export type PostMeta = {
 
 export type Post = {
   id: string;
+  slug: string;
   filename: string;
   contentHtml: string;
   title: string;
