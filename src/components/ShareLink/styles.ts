@@ -32,4 +32,19 @@ export const Container = styled.div`
       text-decoration: none;
     }
   }
+
+  @media (${({ theme }) => theme.responsive.phone}) {
+    max-width: 100%;
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    img {
+      width: 36px;
+      height: 30px;
+    }
+
+    div {
+      padding: 0 1rem 0;
+    }
+  }
 `;
