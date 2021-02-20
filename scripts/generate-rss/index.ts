@@ -34,6 +34,7 @@ function getSortedPostsData() {
 
       return {
         id,
+        slug: id,
         filename: filename,
         date: matterResult.data.date,
         title: matterResult.data.title,
