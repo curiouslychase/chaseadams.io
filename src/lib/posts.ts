@@ -96,6 +96,7 @@ export const getPostData = async (id: string) => {
   // Combine the data with the id
   return {
     ...matterResult.data,
+    slug: `/posts/${id}`,
     id,
     contentHtml,
     tags,

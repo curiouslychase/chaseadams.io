@@ -33,6 +33,7 @@ const base = {
 
 const light = {
   ...base,
+  mode: "light",
   colors: {
     ...colors,
     background: colors.gray50,
@@ -54,6 +55,7 @@ const light = {
 
 const dark = {
   ...base,
+  mode: "dark",
   colors: {
     ...colors,
     background: colors.black,
