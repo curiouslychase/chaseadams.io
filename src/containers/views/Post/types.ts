@@ -5,4 +5,5 @@ export type Props = {
   date: string;
   contentHtml: string;
   tags: Array<Tag>;
+  slug: string;
 };

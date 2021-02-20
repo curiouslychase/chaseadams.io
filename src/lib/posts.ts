@@ -24,6 +24,7 @@ export type PostMeta = {
 
 export type Post = {
   id: string;
+  slug: string;
   filename: string;
   contentHtml: string;
   title: string;
@@ -58,6 +59,7 @@ const getPosts = () => {
 
       return {
         id,
+        slug: id,
         filename: filename,
         date: matterResult.data.date,
         title: matterResult.data.title,
@@ -96,6 +98,7 @@ export const getPostData = async (id: string) => {
   // Combine the data with the id
   return {
     ...matterResult.data,
+    slug: `/posts/${id}`,
     id,
     contentHtml,
     tags,
