@@ -37,11 +37,14 @@ const ShareLink: FC<Props> = ({ siteUrl, permalink, title, tags }) => {
 
   const url = `${siteUrl}${permalink}`;
   return (
-    <Container onClick={handleClick}>
+    <Container>
       <img src={`/assets/twitter-white.png`} />
       <div>
         Was this article useful?{` `}
-        <a href={`https://twitter.com/intent/tweet?=${url}&text=${title}`}>
+        <a
+          onClick={handleClick}
+          href={`https://twitter.com/intent/tweet?=${url}&text=${title}`}
+        >
           Share it on Twitter!
         </a>
       </div>
