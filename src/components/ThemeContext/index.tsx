@@ -41,6 +41,12 @@ export const ThemeSwitcherProvider: FC = ({ children }) => {
         : theme.dark.colors.background
     );
     root.style.setProperty(
+      "--color-accent",
+      newValue === "light"
+        ? theme.light.colors.accent
+        : theme.dark.colors.accent
+    );
+    root.style.setProperty(
       "--color-primary",
       newValue === "light"
         ? theme.light.colors.primary
@@ -49,18 +55,6 @@ export const ThemeSwitcherProvider: FC = ({ children }) => {
     root.style.setProperty(
       "--color-muted",
       newValue === "light" ? theme.light.colors.muted : theme.dark.colors.muted
-    );
-    root.style.setProperty(
-      "--color-labelBackground",
-      newValue === "light"
-        ? theme.light.colors.labelBackground
-        : theme.dark.colors.labelBackground
-    );
-    root.style.setProperty(
-      "--color-labelForeground",
-      newValue === "light"
-        ? theme.light.colors.labelForeground
-        : theme.dark.colors.labelForeground
     );
   };
   return (

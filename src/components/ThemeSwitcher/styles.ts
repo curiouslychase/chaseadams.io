@@ -6,7 +6,7 @@ export const Button = styled.button`
   padding: 0;
   font-size: 1rem;
   align-items: center;
-  color: var(--color-menuButtonForeground);
+  color: var(--color-primary);
   border: none;
   background: none;
   cursor: pointer;

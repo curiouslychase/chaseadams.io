@@ -20,10 +20,9 @@ body {
 a {
   color: var(--color-primary);
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 img {

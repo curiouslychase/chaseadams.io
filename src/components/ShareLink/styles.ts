@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 70%;
   display: flex;
-  background: ${({ theme }) => theme.colors.blue500};
-  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.blue800};
+  color: ${({ theme }) => theme.colors.white100};
   padding: 1.25rem;
   margin: 3rem auto;
   align-items: center;
@@ -21,12 +21,15 @@ export const Container = styled.div`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.white};
-    border-bottom: 3px solid ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.white100};
+    box-shadow: 0 3px 0 ${({ theme }) => theme.colors.white100};
     padding: 0.15rem 0;
+    transition: box-shadow 400ms ease 0s;
+
     &:hover {
       text-decoration: none;
-      background: ${({ theme }) => theme.colors.blue700};
+      transition: box-shadow 100ms ease 0s;
+      box-shadow: 0 5px 0 ${({ theme }) => theme.colors.white100};
     }
   }
 

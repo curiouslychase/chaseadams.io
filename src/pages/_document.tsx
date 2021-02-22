@@ -32,6 +32,7 @@ const MagicScriptTag = () => {
         ? '${theme.light.colors.text}'
         : '${theme.dark.colors.text}'
     );
+
     root.style.setProperty(
       '--color-background',
       colorMode === 'light'
@@ -53,19 +54,12 @@ const MagicScriptTag = () => {
     );
 
     root.style.setProperty(
-      '--color-labelBackground',
+      '--color-accent',
       colorMode === 'light'
-        ? '${theme.light.colors.labelBackground}'
-        : '${theme.dark.colors.labelBackground}'
+        ? '${theme.light.colors.accent}'
+        : '${theme.dark.colors.accent}'
     );
-
-    root.style.setProperty(
-      '--color-labelForeground',
-      colorMode === 'light'
-        ? '${theme.light.colors.labelForeground}'
-        : '${theme.dark.colors.labelForeground}'
-    );
-
+    
     root.style.setProperty('--initial-color-mode', colorMode);
   })()`;
 

@@ -5,17 +5,18 @@ import Date from "~/components/Date";
 import ShareLink from "~/components/ShareLink";
 import Title from "~/components/Title";
 
-import { Author, MetaWrapper, PostWrapper } from "./styles";
+import { MetaWrapper, PostWrapper } from "./styles";
 import type { Props } from "./types";
 
 const PostView: FC<Props> = ({ title, date, contentHtml, tags, slug }) => (
   <article>
     <Title size="M">{title}</Title>
+    <PostWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
+
     <MetaWrapper>
-      <Author>Chase Adams</Author>
       <Date dateString={date} />
     </MetaWrapper>
-    <PostWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
+
     <ShareLink
       siteUrl={`https://chaseinmotion.com`}
       permalink={slug}
