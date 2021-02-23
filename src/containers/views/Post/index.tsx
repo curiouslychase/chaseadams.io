@@ -18,7 +18,7 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags, slug }) => (
     </MetaWrapper>
 
     <ShareLink
-      siteUrl={`https://chaseinmotion.com`}
+      siteUrl={`https://chaseadams.io`}
       permalink={slug}
       title={title}
       tags={tags.map(({ text }) => text)}
