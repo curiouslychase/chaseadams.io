@@ -64,7 +64,7 @@ async function generate() {
   const feed = new RSS({
     title: "Chase Adams' Blog",
     site_url: "https://chaseadams.io",
-    feed_url: "https://chaseadams.io/feed.xml",
+    feed_url: "https://chaseadams.io/rss.xml",
   });
 
   previewItems.map((post: Post) => {
