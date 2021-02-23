@@ -6,10 +6,6 @@ export const MetaWrapper = styled.div`
 `;
 
 export const PostWrapper = styled.div`
-  pre {
-    border: 1px solid var(--color-muted);
-  }
-
   p > code {
     padding: 3px;
     border: 1px solid var(--color-muted);

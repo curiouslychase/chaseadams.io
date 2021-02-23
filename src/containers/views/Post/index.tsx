@@ -13,10 +13,6 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags, slug }) => (
     <Title size="M">{title}</Title>
     <PostWrapper dangerouslySetInnerHTML={{ __html: contentHtml }} />
 
-    <MetaWrapper>
-      <Date dateString={date} />
-    </MetaWrapper>
-
     <ShareLink
       siteUrl={`https://chaseadams.io`}
       permalink={slug}
@@ -46,6 +42,10 @@ const PostView: FC<Props> = ({ title, date, contentHtml, tags, slug }) => (
         </ul>
       </div>
     ) : null}
+
+    <MetaWrapper>
+      <Date dateString={date} />
+    </MetaWrapper>
   </article>
 );
 

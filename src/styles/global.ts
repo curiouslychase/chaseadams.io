@@ -117,6 +117,7 @@ code.language-javascript,
   color: #c4b9fe;
 }
 
+
 code.language-css,
 code.language-scss,
 .token.boolean,
@@ -287,4 +288,13 @@ pre[class*="language-flow"]::before {
 pre[class*="language-asciidoc"]::before {
   content: "asciidoc";
 }
+pre[class*="language-ts"]::before {
+  content: "ts";
+  background: #2f74bf;
+}
+pre[class*="language-tsx"]::before {
+  content: "tsx";
+  background: #2f74bf;
+}
+
 `;
