@@ -16,7 +16,7 @@ type Props = {
 };
 
 const PostPage: NextPage<Props> = ({ post }: { post: Post }) => {
-  const imageUrl = `https://chaseinmotion.com${
+  const imageUrl = `https://chaseadams.io${
     post.image ?? "/img/share/default.jpg"
   }`;
 
