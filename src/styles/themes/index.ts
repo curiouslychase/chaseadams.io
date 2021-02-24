@@ -43,10 +43,10 @@ const light = {
   colors: {
     ...colors,
     background: colors.gray50,
-    accent: colors.white100,
+    accent: colors.gray100,
     text: colors.blue700,
-    primary: colors.purple300,
-    muted: colors.purple100,
+    primary: colors.blue600,
+    muted: colors.gray300,
   },
 };
 
@@ -56,10 +56,10 @@ const dark = {
   colors: {
     ...colors,
     background: colors.blue900,
-    accent: colors.blue800,
+    accent: colors.gray800,
     text: colors.white100,
-    primary: colors.purple100,
-    muted: colors.purple300,
+    primary: colors.blue300,
+    muted: colors.gray600,
   },
 };
 
