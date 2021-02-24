@@ -7,6 +7,8 @@ import type { MdxRemote } from "next-mdx-remote/types";
 import path from "path";
 import slugify from "slugify";
 
+import { getHeadings } from "~/utils/getHeadings";
+
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 
 export type Tag = {
@@ -33,6 +35,7 @@ export type Post = {
   filename: string;
   mdxSource: MdxRemote.Source;
   title: string;
+  headings?: Array<{ text: string; level: number; slug: string }>;
   tags: Array<Tag>;
   date: string;
   image?: string;
@@ -89,12 +92,13 @@ export const getPostData = async (id: string) => {
   const mdxSource = await renderToString(matterResult.content, {
     mdxOptions: {
       remarkPlugins: [
-        require("remark-autolink-headings"),
+        require("remark-toc"),
         require("remark-slug"),
-        require("remark-code-titles"),
+        require("remark-autolink-headings"),
       ],
       rehypePlugins: [mdxPrism],
     },
+    scope: matterResult.data,
   });
 
   let tags = [];
@@ -105,12 +109,15 @@ export const getPostData = async (id: string) => {
     }));
   }
 
+  const headings = await getHeadings(matterResult.content);
+
   // Combine the data with the id
   return {
     ...matterResult.data,
     slug: `/posts/${id}`,
     id,
     mdxSource,
+    headings,
     tags,
   };
 };

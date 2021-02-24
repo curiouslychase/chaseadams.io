@@ -6,6 +6,7 @@ export type Props = {
   title: string;
   date: string;
   mdxSource: MdxRemote.Source;
+  headings?: Array<{ text: string; level: number; slug: string }>;
   tags: Array<Tag>;
   slug: string;
 };
