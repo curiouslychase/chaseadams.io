@@ -7,7 +7,7 @@ import Title from "~/components/Title";
 import DefaultLayout from "~/containers/layouts/Default";
 import TagPostList from "~/containers/views/Tag";
 import { getTags, getTagsMap } from "~/lib/posts";
-import type { Tag } from "~/lib/posts";
+import type { Tag } from "~/lib/posts/types";
 
 export default function TagPage({ tag }: { tag: Tag }) {
   return (

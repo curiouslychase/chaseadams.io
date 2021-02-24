@@ -1,6 +1,6 @@
 import type { MdxRemote } from "next-mdx-remote/types";
 
-import type { Tag } from "~/lib/posts";
+import type { Tag } from "~/lib/posts/types";
 
 export type Props = {
   title: string;

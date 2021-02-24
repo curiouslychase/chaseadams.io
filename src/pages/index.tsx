@@ -4,7 +4,7 @@ import Head from "next/head";
 import DefaultLayout from "~/containers/layouts/Default";
 import HomeView from "~/containers/views/Home";
 import { getSortedPostsData } from "~/lib/posts";
-import type { AllPosts } from "~/lib/posts";
+import type { AllPosts } from "~/lib/posts/types";
 
 export default function Home({ allPostsData }: { allPostsData: AllPosts }) {
   return (

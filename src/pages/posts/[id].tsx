@@ -9,7 +9,7 @@ import Head from "next/head";
 import DefaultLayout from "~/containers/layouts/Default";
 import PostView from "~/containers/views/Post";
 import { getAllPostIds, getPostData } from "~/lib/posts";
-import type { Post } from "~/lib/posts";
+import type { Post } from "~/lib/posts/types";
 
 type Props = {
   post: Post;
