@@ -4,7 +4,7 @@ import path from "path";
 import RSS from "rss";
 import slugify from "slugify";
 
-import type { PostMeta } from "../../src/lib/posts";
+import type { PostMeta } from "../../src/lib/posts/types";
 
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 

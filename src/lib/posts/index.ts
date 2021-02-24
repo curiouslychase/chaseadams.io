@@ -3,47 +3,14 @@ import matter from "gray-matter";
 //@ts-ignore
 import mdxPrism from "mdx-prism";
 import renderToString from "next-mdx-remote/render-to-string";
-import type { MdxRemote } from "next-mdx-remote/types";
 import path from "path";
 import slugify from "slugify";
 
 import getHeadings from "~/utils/getHeadings";
 
+import type { PostMeta, Tag } from "./types";
+
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
-
-export type Tag = {
-  text: string;
-  slug: string;
-  posts: Array<PostMeta>;
-};
-
-export type PostMeta = {
-  id: string;
-  slug: string;
-  filename: string;
-  tags?: Array<Tag>;
-  description: string | null;
-  title: string;
-  status: string;
-  image?: string;
-  date: string;
-};
-
-export type Post = {
-  id: string;
-  slug: string;
-  filename: string;
-  mdxSource: MdxRemote.Source;
-  title: string;
-  headings?: Array<{ text: string; level: number; slug: string }>;
-  tags: Array<Tag>;
-  date: string;
-  image?: string;
-  description: string | null;
-  status: string;
-};
-
-export type AllPosts = Array<Post>;
 
 const getPosts = () => {
   const filenames = fs.readdirSync(postsDirectory);
@@ -109,7 +76,7 @@ export const getPostData = async (id: string) => {
     }));
   }
 
-  const headings = await getHeadings(matterResult.content);
+  const headings = getHeadings(matterResult.content);
 
   // Combine the data with the id
   return {
