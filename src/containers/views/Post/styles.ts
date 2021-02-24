@@ -1,4 +1,43 @@
 import styled from "styled-components";
+export const Container = styled.div`
+  & .post {
+    display: block;
+
+    @media (min-width: 1084px) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    & aside {
+      max-width: 20rem;
+      position: sticky;
+      top: 5rem;
+      max-height: calc(100vh - 5rem);
+      display: none;
+
+      @media (min-width: 1084px) {
+        display: block;
+      }
+    }
+
+    & article {
+      width: 100%;
+      @media (min-width: 1084px) {
+        max-width: 45rem;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      scroll-margin-top: 1rem;
+    }
+  }
+`;
 
 export const MetaWrapper = styled.div`
   margin: 0.5rem 0 2rem;
@@ -22,6 +61,13 @@ export const PostWrapper = styled.div`
       text-decoration: none;
       transition: box-shadow 100ms ease 0s;
       box-shadow: 0px 3px 0px var(--color-primary);
+    }
+  }
+
+  table {
+    width: 100%;
+    th {
+      text-align: left;
     }
   }
 `;

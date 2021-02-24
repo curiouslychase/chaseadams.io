@@ -297,4 +297,8 @@ pre[class*="language-tsx"]::before {
   background: #2f74bf;
 }
 
+pre[class*="language-go"]::before {
+  content: "go";
+}
+
 `;
