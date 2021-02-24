@@ -4,7 +4,7 @@ import path from "path";
 import RSS from "rss";
 import slugify from "slugify";
 
-import type { Post } from "../../src/lib/posts";
+import type { PostMeta } from "../../src/lib/posts";
 
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 
@@ -16,7 +16,7 @@ function getSortedPostsData() {
   const filenames = fs.readdirSync(postsDirectory);
 
   const posts = filenames.map(
-    (filename: string): Post => {
+    (filename: string): PostMeta => {
       const id = getSlugFromFilename(filename);
 
       const fullPath = path.join(postsDirectory, filename);
@@ -40,7 +40,6 @@ function getSortedPostsData() {
         title: matterResult.data.title,
         tags: tags,
         description: matterResult.data.description ?? null,
-        contentHtml: matterResult.content,
         status: matterResult.data.status,
       };
     }
@@ -67,7 +66,7 @@ async function generate() {
     feed_url: "https://chaseadams.io/rss.xml",
   });
 
-  previewItems.map((post: Post) => {
+  previewItems.map((post: PostMeta) => {
     const item = {
       title: post.title,
       guid: post.id,

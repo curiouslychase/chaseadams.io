@@ -1,8 +1,10 @@
 import fs from "fs";
 import matter from "gray-matter";
+//@ts-ignore
+import mdxPrism from "mdx-prism";
+import renderToString from "next-mdx-remote/render-to-string";
+import type { MdxRemote } from "next-mdx-remote/types";
 import path from "path";
-import remark from "remark";
-import html from "remark-html";
 import slugify from "slugify";
 
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
@@ -15,6 +17,9 @@ export type Tag = {
 
 export type PostMeta = {
   id: string;
+  slug: string;
+  filename: string;
+  tags?: Array<Tag>;
   description: string | null;
   title: string;
   status: string;
@@ -26,7 +31,7 @@ export type Post = {
   id: string;
   slug: string;
   filename: string;
-  contentHtml: string;
+  mdxSource: MdxRemote.Source;
   title: string;
   tags: Array<Tag>;
   date: string;
@@ -41,7 +46,7 @@ const getPosts = () => {
   const filenames = fs.readdirSync(postsDirectory);
 
   const posts = filenames.map(
-    (filename): Post => {
+    (filename): PostMeta => {
       const id = getSlugFromFilename(filename);
 
       const fullPath = path.join(postsDirectory, filename);
@@ -66,7 +71,6 @@ const getPosts = () => {
         image: matterResult.data.image ?? null,
         tags: tags,
         description: matterResult.data.description ?? null,
-        contentHtml: matterResult.content,
         status: matterResult.data.status,
       };
     }
@@ -82,10 +86,16 @@ export const getPostData = async (id: string) => {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const mdxSource = await renderToString(matterResult.content, {
+    mdxOptions: {
+      remarkPlugins: [
+        require("remark-autolink-headings"),
+        require("remark-slug"),
+        require("remark-code-titles"),
+      ],
+      rehypePlugins: [mdxPrism],
+    },
+  });
 
   let tags = [];
   if (matterResult.data.tags) {
@@ -100,7 +110,7 @@ export const getPostData = async (id: string) => {
     ...matterResult.data,
     slug: `/posts/${id}`,
     id,
-    contentHtml,
+    mdxSource,
     tags,
   };
 };
@@ -148,8 +158,12 @@ export function getTagsMap() {
   const allTags: { [slug: string]: Tag } = {};
 
   allPostData.forEach((post) => {
-    const { id, tags, title, status, date, description } = post;
+    const { id, tags, title, status, slug, date, filename, description } = post;
     if (status !== "published") {
+      return;
+    }
+
+    if (!tags) {
       return;
     }
 
@@ -161,6 +175,8 @@ export function getTagsMap() {
           {
             id,
             title,
+            filename,
+            slug,
             status,
             date,
             description,
@@ -170,7 +186,9 @@ export function getTagsMap() {
         allTags[tag.slug].posts.push({
           id,
           title,
+          filename,
           status,
+          slug,
           date,
           description,
         });
