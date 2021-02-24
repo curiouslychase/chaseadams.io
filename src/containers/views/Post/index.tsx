@@ -5,35 +5,11 @@ import type { FC } from "react";
 import Date from "~/components/Date";
 import MaxWidthWrapper from "~/components/MaxWidthWrapper";
 import ShareLink from "~/components/ShareLink";
+import TableOfContents from "~/components/TableOfContents";
 import Title from "~/components/Title";
 
 import { Container, MetaWrapper, PostWrapper } from "./styles";
 import type { Props } from "./types";
-
-const TableOfContents: FC<{
-  headings?: Array<{
-    text: string;
-    level: number;
-    slug: string;
-  }>;
-}> = ({ headings }) => {
-  if (!headings) {
-    return null;
-  }
-
-  return (
-    <nav>
-      <h2>Table of Contents</h2>
-      <ul>
-        {headings.map((heading) => (
-          <li>
-            <a href={`#${heading.slug}`}>{heading.text}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
 
 const PostView: FC<Props> = ({
   title,
