@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import HeaderWrapper from "~/components/HeaderWrapper";
+import MaxWidthWrapper from "~/components/MaxWidthWrapper";
 import Title from "~/components/Title";
 import DefaultLayout from "~/containers/layouts/Default";
 import TagPostList from "~/containers/views/Tag";
@@ -10,23 +11,26 @@ import { getTags, getTagsMap } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
 
 export default function TagPage({ tag }: { tag: Tag }) {
+  const title = `Posts tagged with '${tag.text}'`;
   return (
     <DefaultLayout>
-      <Head>
-        <title>Chase Adams | Blog</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MaxWidthWrapper>
+        <Head>
+          <title>{title}</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main>
-        <HeaderWrapper>
-          <Title size="M">Posts tagged with '{tag.text}'</Title>
-        </HeaderWrapper>
+        <main>
+          <HeaderWrapper>
+            <Title size="M">{title}</Title>
+          </HeaderWrapper>
 
-        <TagPostList posts={tag.posts} />
-        <Link href="/tags/">
-          <a>All Tags</a>
-        </Link>
-      </main>
+          <TagPostList posts={tag.posts} />
+          <Link href="/tags/">
+            <a>All Tags</a>
+          </Link>
+        </main>
+      </MaxWidthWrapper>
     </DefaultLayout>
   );
 }

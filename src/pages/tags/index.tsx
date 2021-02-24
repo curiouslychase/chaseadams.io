@@ -13,7 +13,7 @@ export default function Tags({ allTagsData }: { allTagsData: Array<Tag> }) {
   return (
     <DefaultLayout>
       <Head>
-        <title>Chase Adams | Blog</title>
+        <title>All Tags</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MaxWidthWrapper>
