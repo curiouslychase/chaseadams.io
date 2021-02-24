@@ -1,7 +1,7 @@
 import slugs from "github-slugger";
 
 // borrowed from Josh Comeau
-export async function getHeadings(source: string) {
+const getHeadings = (source: string) => {
   // Get each line individually, and filter out anything that
   // isn't a heading.
   const headingLines = source.split("\n").filter((line) => {
@@ -21,4 +21,6 @@ export async function getHeadings(source: string) {
 
     return { text, level, slug };
   });
-}
+};
+
+export default getHeadings;

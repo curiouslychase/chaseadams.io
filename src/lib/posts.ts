@@ -7,7 +7,7 @@ import type { MdxRemote } from "next-mdx-remote/types";
 import path from "path";
 import slugify from "slugify";
 
-import { getHeadings } from "~/utils/getHeadings";
+import getHeadings from "~/utils/getHeadings";
 
 const postsDirectory = path.join(process.cwd(), "src", "content", "posts");
 
