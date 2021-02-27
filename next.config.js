@@ -7,6 +7,11 @@ module.exports = {
         destination: `/posts/most-common-programming-case-types/`,
         permanent: true,
       },
+      {
+        source: `/gatsby-drafts/`,
+        destination: `/posts/gatsby-drafts/`,
+        permanent: true,
+      },
     ];
   },
 };
