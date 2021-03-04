@@ -65,7 +65,7 @@ pre[class*="language-"] ::-moz-selection {
 pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection {
   text-shadow: none;
-  background: #20242d;
+  background: #DD92F633;
 }
 
 /* Code blocks */
