@@ -61,7 +61,7 @@ async function generate() {
     ({ status }) => status === "published"
   );
   const feed = new RSS({
-    title: "Chase Adams' Blog",
+    title: "Chase Adams' Writing",
     site_url: "https://chaseadams.io",
     feed_url: "https://chaseadams.io/rss.xml",
   });

@@ -13,13 +13,13 @@ export default function Home({ allPostsData }: { allPostsData: AllPosts }) {
   return (
     <DefaultLayout>
       <Head>
-        <title>Chase Adams | Blog</title>
+        <title>Chase Adams | Writing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MaxWidthWrapper>
         <main>
           <HeaderWrapper>
-            <Title>Blog</Title>
+            <Title>Writing</Title>
           </HeaderWrapper>
           <PostList posts={allPostsData} />
         </main>

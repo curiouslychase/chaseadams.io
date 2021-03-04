@@ -12,6 +12,11 @@ module.exports = {
         destination: `/posts/gatsby-drafts/`,
         permanent: true,
       },
+      {
+        source: `/blog/`,
+        destination: `/writing/`,
+        permanent: true,
+      },
     ];
   },
 };

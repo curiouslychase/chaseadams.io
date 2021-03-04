@@ -21,8 +21,8 @@ const Navigation: FC = () => {
         </HeadingWrapper>
         <Menu>
           <MenuItem>
-            <Link href="/blog">
-              <a>Blog</a>
+            <Link href="/writing">
+              <a>Writing</a>
             </Link>
           </MenuItem>
           <MenuItem>

@@ -22,7 +22,7 @@ const HomeView: FC<Props> = ({ allPostsData }) => {
         <section>
           <Subtitle>Latest Writing</Subtitle>
           <PostList posts={allPostsData} />
-          <Link href="/blog">
+          <Link href="/writing">
             <a>All Writing</a>
           </Link>
         </section>
