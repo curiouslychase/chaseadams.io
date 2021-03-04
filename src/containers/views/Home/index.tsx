@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { FC } from "react";
 
 import MaxWidthWrapper from "~/components/MaxWidthWrapper";
@@ -21,6 +22,9 @@ const HomeView: FC<Props> = ({ allPostsData }) => {
         <section>
           <Subtitle>Latest Writing</Subtitle>
           <PostList posts={allPostsData} />
+          <Link href="/blog">
+            <a>All Writing</a>
+          </Link>
         </section>
       </Main>
     </MaxWidthWrapper>
