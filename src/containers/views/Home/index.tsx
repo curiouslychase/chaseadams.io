@@ -13,7 +13,7 @@ const HomeView: FC<Props> = ({ allPostsData }) => {
     <MaxWidthWrapper>
       <Main>
         <Section>
-          <img src="/img/chaseadams.jpg" />
+          <img src="/img/chaseadams.png" />
           <p>
             I enable building strong, resilient teams by creating human-centric
             software and self-management frameworks.

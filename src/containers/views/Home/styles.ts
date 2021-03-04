@@ -22,8 +22,7 @@ export const Section = styled.div`
   }
 
   img {
-    width: 150px;
-    border-radius: 50%;
+    width: 256px;
   }
 
   p {
