@@ -58,7 +58,7 @@ pre[class*="language-"] {
   word-break: normal;
   word-spacing: normal;
   min-width: 100px;
-  width: max-content;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -66,7 +66,7 @@ pre[class*="language-"] {
 pre > code {
   white-space: pre;
   -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
+  overflow: auto;
   display: block;
   max-width: 100%;
   min-width: 100px;
