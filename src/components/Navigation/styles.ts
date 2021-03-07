@@ -1,29 +1,37 @@
 import styled from "styled-components";
 
+import { resetMargin, resetPadding } from "~/styles/resets";
+
 export const Container = styled.nav`
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding-top: 2rem;
+  padding-right: 0;
+  padding-bottom: 2rem;
+  padding-left: 0;
 
   .home & {
     flex-direction: column-reverse;
   }
 
   @media (${({ theme }) => theme.responsive.phone}) {
-    padding: 0;
+    ${resetPadding};
     flex-direction: row;
   }
 `;
 
 export const HeadingWrapper = styled.h2`
   font-weight: ${({ theme }) => theme.weights.normal};
-  padding: 0;
+  ${resetPadding};
   font-size: 1.25rem;
 
   .home & {
-    padding: 3rem 0 0;
+    padding-top: 3rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
     font-size: 3.625rem;
     font-weight: ${({ theme }) => theme.weights.black};
     text-align: center;
@@ -32,7 +40,10 @@ export const HeadingWrapper = styled.h2`
 
 export const Brand = styled.a`
   cursor: pointer;
-  padding: 0.5rem 0.75rem 0.5rem 0;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
   color: ${({ theme }) => theme.colors.primary};
   text-transform: lowercase;
 
@@ -41,7 +52,7 @@ export const Brand = styled.a`
   }
 
   .home & {
-    padding: 0;
+    ${resetPadding};
   }
 
   @media (${({ theme }) => theme.responsive.phone}) {
@@ -53,7 +64,7 @@ export const Brand = styled.a`
 
 export const Menu = styled.ul`
   list-style: none;
-  margin: 0;
+  ${resetMargin};
   display: flex;
   justify-content: flex-end;
   text-transform: lowercase;

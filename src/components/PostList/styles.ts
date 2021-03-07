@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
+import { resetMargin, resetPadding } from "~/styles/resets";
+
 const UnstyledList = styled.ul`
-  margin: 0;
-  padding: 0;
+  ${resetMargin};
+  ${resetPadding};
   list-style: none;
 `;
 
 export const List = styled(UnstyledList)``;
 
 export const Item = styled.li`
-  padding: 1.5rem 0;
+  padding-top: 1.5rem;
+  padding-right: 0;
+  padding-bottom: 1.5rem;
+  padding-left: 0;
 `;
 
 export const Title = styled.h3``;
