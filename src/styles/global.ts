@@ -1,12 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
+import { resetMargin, resetPadding } from "./resets";
+
 export const GlobalStyle = createGlobalStyle`
 html,
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  padding: 0;
-  margin: 0;
+  ${resetPadding};
+  ${resetMargin};
   font-family: "Ringside Regular SSm A", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
@@ -31,24 +33,48 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+  ${resetMargin};
+  ${resetPadding};
 }
 
 
 pre[class*="language-"] {
-  font-size: 12px;
-  line-height: 1.375;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-
-  tab-size: 4;
-
-  hyphens: none;
   background-color: #20242d;
   color: #c7c8ff;
+  direction: ltr;
+  font-size: 12px;
+  hyphens: none;
+  line-height: 1.375;
+  margin-bottom: 1rem; 
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1rem;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  min-width: 100px;
+  width: max-content;
+  max-width: 100%;
+}
+
+
+pre > code {
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  display: block;
+  max-width: 100%;
+  min-width: 100px;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 3rem;
+  line-height: 1.5rem;
 }
 
 pre[class*="language-"]::selection,
@@ -57,18 +83,96 @@ pre[class*="language-"] ::selection {
   background-color: #DD92F633;
 }
 
-/* Code blocks */
-pre[class*="language-"] {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em; 
-  margin-left: 0;
-  margin-right: 0;
-  overflow: auto;
+
+pre[class*="language-"]::before {
+  background-color: #3c3949;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 6px ;
+  padding-right: 10px;
+  padding-bottom: 6px ;
+  padding-left: 10px;
+  font-size: 12px;
+  text-align: right;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
 }
+
+pre[class*="language-lisp"]::before {
+  content: "lisp";
+}
+pre[class*="language-logs"]::before {
+  content: "logs";
+}
+pre[class*="language-javascript"]::before {
+  content: "js";
+}
+pre[class*="language-js"]::before {
+  content: "js";
+}
+pre[class*="language-json"]::before {
+  content: "json";
+}
+pre[class*="language-jsx"]::before {
+  content: "jsx";
+}
+pre[class*="language-graphql"]::before {
+  content: "GraphQL";
+}
+pre[class*="language-html"]::before {
+  content: "html";
+}
+pre[class*="language-css"]::before {
+  content: "css";
+}
+pre[class*="language-shell"]::before {
+  content: "shell";
+}
+pre[class*="language-sh"]::before {
+  content: "sh";
+}
+pre[class*="language-bash"]::before {
+  content: "bash";
+}
+pre[class*="language-yaml"]::before {
+  content: "yaml";
+}
+pre[class*="language-markdown"]::before {
+  content: "md";
+}
+pre[class*="language-json"]::before,
+pre[class*="language-json5"]::before {
+  content: "json";
+}
+pre[class*="language-diff"]::before {
+  content: "diff";
+}
+pre[class*="language-text"]::before {
+  content: "text";
+}
+pre[class*="language-flow"]::before {
+  content: "flow";
+}
+pre[class*="language-asciidoc"]::before {
+  content: "asciidoc";
+}
+pre[class*="language-ts"]::before {
+  content: "ts";
+  background-color: #2f74bf;
+}
+pre[class*="language-tsx"]::before {
+  content: "tsx";
+  background-color: #2f74bf;
+}
+
+pre[class*="language-go"]::before {
+  content: "go";
+}
+
 
 .token.comment,
 .token.prolog,
@@ -172,7 +276,9 @@ code.language-scss,
 }
 
 pre > code.highlight {
-  outline: 0.4em solid #8a75f5;
+  outline-width: 0.4em;
+  outline-style: solid;
+  outline-color: #8a75f5;
   outline-offset: 0.4em;
 }
 
@@ -186,114 +292,4 @@ pre > code.highlight {
 .line-numbers-rows > span:before {
   color: #3c3949;
 }
-
-/* overrides color-values for the Line Highlight plugin
-* http://prismjs.com/plugins/line-highlight/
-*/
-.line-highlight {
-  background: rgba(224, 145, 66, 0.2);
-  background: -webkit-linear-gradient(
-    left,
-    rgba(224, 145, 66, 0.2) 70%,
-    rgba(224, 145, 66, 0)
-  );
-  background: linear-gradient(
-    to right,
-    rgba(224, 145, 66, 0.2) 70%,
-    rgba(224, 145, 66, 0)
-  );
-}
-
-
-pre[class*="language-"] {
-  position: relative;
-  margin: 1rem 0;
-  padding: 48px 24px 20px;
-  border-radius: 3px;
-}
-
-pre[class*="language-"]::before {
-  background: #3c3949;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 6px 10px;
-  font-size: 12px;
-  text-align: right;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-pre[class*="language-lisp"]::before {
-  content: "lisp";
-}
-pre[class*="language-logs"]::before {
-  content: "logs";
-}
-pre[class*="language-javascript"]::before {
-  content: "js";
-}
-pre[class*="language-js"]::before {
-  content: "js";
-}
-pre[class*="language-json"]::before {
-  content: "json";
-}
-pre[class*="language-jsx"]::before {
-  content: "jsx";
-}
-pre[class*="language-graphql"]::before {
-  content: "GraphQL";
-}
-pre[class*="language-html"]::before {
-  content: "html";
-}
-pre[class*="language-css"]::before {
-  content: "css";
-}
-pre[class*="language-shell"]::before {
-  content: "shell";
-}
-pre[class*="language-sh"]::before {
-  content: "sh";
-}
-pre[class*="language-bash"]::before {
-  content: "bash";
-}
-pre[class*="language-yaml"]::before {
-  content: "yaml";
-}
-pre[class*="language-markdown"]::before {
-  content: "md";
-}
-pre[class*="language-json"]::before,
-pre[class*="language-json5"]::before {
-  content: "json";
-}
-pre[class*="language-diff"]::before {
-  content: "diff";
-}
-pre[class*="language-text"]::before {
-  content: "text";
-}
-pre[class*="language-flow"]::before {
-  content: "flow";
-}
-pre[class*="language-asciidoc"]::before {
-  content: "asciidoc";
-}
-pre[class*="language-ts"]::before {
-  content: "ts";
-  background: #2f74bf;
-}
-pre[class*="language-tsx"]::before {
-  content: "tsx";
-  background: #2f74bf;
-}
-
-pre[class*="language-go"]::before {
-  content: "go";
-}
-
 `;
