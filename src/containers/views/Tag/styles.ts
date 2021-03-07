@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
+import { resetList } from "~/styles/resets";
+
 export const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  ${resetList};
 `;
 
 export const Item = styled.li`

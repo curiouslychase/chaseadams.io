@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 html,
 body {
-  background: var(--color-background);
+  background-color: var(--color-background);
   color: var(--color-text);
   padding: 0;
   margin: 0;
@@ -44,34 +44,29 @@ pre[class*="language-"] {
   word-spacing: normal;
   word-break: normal;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
   tab-size: 4;
 
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
-  background: #20242d;
+  background-color: #20242d;
   color: #c7c8ff;
-}
-
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection {
-  text-shadow: none;
-  background: #20242d;
 }
 
 pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection {
   text-shadow: none;
-  background: #DD92F633;
+  background-color: #DD92F633;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; 
+  margin-left: 0;
+  margin-right: 0;
   overflow: auto;
 }
 
