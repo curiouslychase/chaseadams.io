@@ -1,6 +1,5 @@
 import fs from "fs";
 import matter from "gray-matter";
-//@ts-ignore
 import mdxPrism from "mdx-prism";
 import renderToString from "next-mdx-remote/render-to-string";
 import path from "path";
