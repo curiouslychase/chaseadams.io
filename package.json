@@ -7,6 +7,8 @@
     "dev": "next dev",
     "lint": "eslint . --ext '**/*.{js,jsx,ts,tsx,json}' --max-warnings=0",
     "start": "next start",
+    "test": "yarn jest",
+    "test:watch": "yarn jest --watch",
     "build": "yarn build:get-content && yarn build:rss && yarn build:next",
     "build:get-content": "node scripts/get-content/index.js --fromDropbox=/chaseadams.io/content --dest=src",
     "build:next": "next build",
