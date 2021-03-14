@@ -5,6 +5,7 @@
   "scripts": {
     "local:link-content": "test -L src/content || ln -s $HOME/Dropbox/chaseadams.io/content src/content",
     "dev": "next dev",
+    "lint": "eslint . --ext '**/*.{js,jsx,ts,tsx,json}' --max-warnings=0",
     "start": "next start",
     "build": "yarn build:get-content && yarn build:rss && yarn build:next",
     "build:get-content": "node scripts/get-content/index.js --fromDropbox=/chaseadams.io/content --dest=src",
