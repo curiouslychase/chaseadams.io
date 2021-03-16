@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-import DefaultLayout from "~/containers/layouts/Default";
 import StyleGuideView from "~/containers/views/StyleGuide";
+import DefaultLayout from "~/layouts/Default";
 
 export default function Home() {
   return (

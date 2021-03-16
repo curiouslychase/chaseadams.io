@@ -6,8 +6,8 @@ import type {
 } from "next";
 import Head from "next/head";
 
-import DefaultLayout from "~/containers/layouts/Default";
 import PostView from "~/containers/views/Post";
+import DefaultLayout from "~/layouts/Default";
 import { getAllPostIds, getPostData } from "~/lib/posts";
 import type { Post } from "~/lib/posts/types";
 

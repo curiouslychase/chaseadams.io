@@ -5,7 +5,7 @@ import Link from "next/link";
 import HeaderWrapper from "~/components/HeaderWrapper";
 import MaxWidthWrapper from "~/components/MaxWidthWrapper";
 import Title from "~/components/Title";
-import DefaultLayout from "~/containers/layouts/Default";
+import DefaultLayout from "~/layouts/Default";
 import { getTags } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
 
