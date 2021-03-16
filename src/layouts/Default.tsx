@@ -30,6 +30,10 @@ const Layout: FC = ({ children }) => {
     <div
       className={className}
       css={css`
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        padding-bottom: 1rem;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
