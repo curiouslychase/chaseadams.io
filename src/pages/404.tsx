@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "~/components/MaxWidthWrapper";
-import DefaultLayout from "~/containers/layouts/Default";
+import DefaultLayout from "~/layouts/Default";
 export default function Custom404() {
   return (
     <DefaultLayout>

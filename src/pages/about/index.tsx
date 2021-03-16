@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import MaxWidthWrapper from "~/components/MaxWidthWrapper";
 import Title from "~/components/Title";
-import DefaultLayout from "~/containers/layouts/Default";
+import DefaultLayout from "~/layouts/Default";
 
 const AboutMePage = () => (
   <DefaultLayout>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import Title from "~/components/Title";
-import DefaultLayout from "~/containers/layouts/Default";
+import DefaultLayout from "~/layouts/Default";
 
 const ContactPage = () => (
   <DefaultLayout>
