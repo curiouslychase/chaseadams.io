@@ -102,7 +102,7 @@ class MyDocument extends Document {
             href="https://cloud.typography.com/6522872/7140832/css/fonts.css"
             rel="stylesheet"
           />
-          {process.env.NODE_ENV === "production" && (
+          {process.env.IS_PRODUCTION && (
             <>
               {/* Global Site Tag (gtag.js) - Google Analytics */}
               <script

@@ -16,7 +16,7 @@ import * as gtag from "../utils/gtag";
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.IS_PRODUCTION) {
     useEffect(() => {
       const handleRouteChange = (url: URL) => {
         gtag.pageview(url);
