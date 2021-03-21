@@ -16,6 +16,7 @@
     "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
+    "@storybook/addon-docs": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@szhsin/react-menu": "^1.6.0",
     "babel-plugin-styled-components": "npm:@z1digitalstudio/babel-plugin-styled-components@1.11.1-rev.1",
