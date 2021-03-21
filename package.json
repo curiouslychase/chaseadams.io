@@ -8,6 +8,7 @@
     "lint": "eslint . --ext '**/*.{js,jsx,ts,tsx,json}' --max-warnings=0",
     "lint:css": "stylelint './src/**/*.{ts,tsx}'",
     "start": "next start",
+    "storybook": "start-storybook -p 6006 -c .storybook -s ./",
     "test": "yarn jest",
     "test:watch": "yarn jest --watch",
     "build": "yarn build:get-content && yarn build:rss && yarn build:next",
@@ -16,6 +17,8 @@
     "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
+    "@storybook/addon-docs": "^6.1.21",
+    "@storybook/react": "^6.1.21",
     "@szhsin/react-menu": "^1.6.0",
     "babel-plugin-styled-components": "npm:@z1digitalstudio/babel-plugin-styled-components@1.11.1-rev.1",
     "date-fns": "^2.16.1",
@@ -41,7 +44,8 @@
     "styled-components": "^5.2.1",
     "stylelint-order": "^4.1.0",
     "ts-node": "^9.1.0",
-    "tsc": "^1.20150623.0"
+    "tsc": "^1.20150623.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
