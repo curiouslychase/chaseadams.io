@@ -1,7 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.h1<{ size: string }>`
-  padding: 1rem 0;
+  padding-top: 1rem;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 
   ${({ size }) => {
     switch (size) {
