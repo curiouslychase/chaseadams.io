@@ -7,6 +7,7 @@
     "dev": "next dev",
     "lint": "eslint . --ext '**/*.{js,jsx,ts,tsx,json}' --max-warnings=0",
     "start": "next start",
+    "storybook": "start-storybook -p 6006 -c .storybook -s ./",
     "test": "yarn jest",
     "test:watch": "yarn jest --watch",
     "build": "yarn build:get-content && yarn build:rss && yarn build:next",
@@ -15,6 +16,7 @@
     "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
+    "@storybook/react": "^6.1.21",
     "@szhsin/react-menu": "^1.6.0",
     "babel-plugin-styled-components": "npm:@z1digitalstudio/babel-plugin-styled-components@1.11.1-rev.1",
     "date-fns": "^2.16.1",
