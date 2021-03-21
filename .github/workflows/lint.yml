@@ -14,3 +14,5 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Run ESLint
         run: yarn lint
+      - name: Run StyleLint
+        run: yarn lint:css

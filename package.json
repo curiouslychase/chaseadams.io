@@ -6,6 +6,7 @@
     "local:link-content": "test -L src/content || ln -s $HOME/Dropbox/chaseadams.io/content src/content",
     "dev": "next dev",
     "lint": "eslint . --ext '**/*.{js,jsx,ts,tsx,json}' --max-warnings=0",
+    "lint:css": "stylelint './src/**/*.{ts,tsx}'",
     "start": "next start",
     "test": "yarn jest",
     "test:watch": "yarn jest --watch",

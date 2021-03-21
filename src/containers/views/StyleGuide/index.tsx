@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Swatch = styled.div`
   display: flex;
-  background: var(--color);
+  background-color: var(--color);
   width: 100px;
   height: 100px;
   align-items: center;
