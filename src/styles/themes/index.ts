@@ -1,6 +1,8 @@
 const colors = {
   white: "#fff",
+  white50: `hsl(0, 0%, 96%)`,
   white100: `#EDE0FF`,
+  white150: `hsl(0, 0%, 55%)`,
   black: "#000",
   blackAccent: "#040506",
   gray50: "#F9FAFB",
@@ -17,10 +19,11 @@ const colors = {
   blue500: "#058AFF",
   blue600: "#2563EB",
   blue700: "#130A5D",
+  blue850: "hsl(221, 42%, 25%)",
+  blue900: "hsl(251, 80%, 4%)",
   purple100: `#ba44eb`,
   purple300: `#7F00FF`,
   blue800: `#0D0637`,
-  blue900: `#040212`,
   pink: `#FB36ED`,
   red: "#f00",
 };
@@ -42,7 +45,8 @@ const light = {
   mode: "light",
   colors: {
     ...colors,
-    background: colors.gray50,
+    background: colors.white50,
+    backgroundDot: colors.white150,
     accent: colors.gray100,
     text: colors.blue700,
     primary: colors.blue600,
@@ -56,6 +60,7 @@ const dark = {
   colors: {
     ...colors,
     background: colors.blue900,
+    backgroundDot: colors.blue850,
     accent: colors.gray800,
     text: colors.white100,
     primary: colors.blue300,
