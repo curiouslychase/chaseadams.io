@@ -40,6 +40,14 @@ export const ThemeSwitcherProvider: FC = ({ children }) => {
         ? theme.light.colors.background
         : theme.dark.colors.background
     );
+
+    root.style.setProperty(
+      "--color-background-dot",
+      newValue === "light"
+        ? theme.light.colors.backgroundDot
+        : theme.dark.colors.backgroundDot
+    );
+
     root.style.setProperty(
       "--color-accent",
       newValue === "light"

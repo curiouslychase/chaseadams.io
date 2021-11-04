@@ -5,7 +5,12 @@ import { resetMargin, resetPadding } from "./resets";
 export const GlobalStyle = createGlobalStyle`
 html,
 body {
-  background-color: var(--color-background);
+
+  background: linear-gradient(90deg, var(--color-background) 17px, transparent 1%) center,
+		linear-gradient(var(--color-background) 17px, transparent 1%) center,
+		var(--color-background-dot);
+	background-size: 18px 18px;
+
   color: var(--color-text);
   ${resetPadding};
   ${resetMargin};

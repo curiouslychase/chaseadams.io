@@ -39,6 +39,14 @@ const MagicScriptTag = () => {
         ? '${theme.light.colors.background}'
         : '${theme.dark.colors.background}'
     );
+
+    root.style.setProperty(
+      '--color-background-dot',
+      colorMode === 'light'
+        ? '${theme.light.colors.backgroundDot}'
+        : '${theme.dark.colors.backgroundDot}'
+    );
+
     root.style.setProperty(
       '--color-primary',
       colorMode === 'light'
