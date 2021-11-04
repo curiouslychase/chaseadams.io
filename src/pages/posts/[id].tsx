@@ -173,7 +173,7 @@ const PostBody = ({ post }: Props) => {
           css={css`
             margin-top: 0.5rem;
             margin-bottom: 2rem;
-            color: var(--color-muted);
+            color: var(--color-text);
           `}
         >
           <Date dateString={date} />
