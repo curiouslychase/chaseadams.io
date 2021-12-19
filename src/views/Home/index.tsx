@@ -6,7 +6,6 @@ import { Container } from "~/components/shared/Container";
 import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
-import { Hexagon } from "~/components/svgs/Hexagon";
 import type { AllPosts, PostMeta } from "~/lib/posts/types";
 
 const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
@@ -15,7 +14,7 @@ const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
       <SiteHeader />
       <Container>
         <div className="flex items-center gap-10 flex-col lg:flex-row">
-          <ImageWithHexagons />
+          <Image src={"/img/chase-hex.png"} width={350} height={350} />
           <div className="flex flex-col">
             <p className="text-blue-700 dark:text-blue-400 text-4xl font-bold pb-4">
               Hey, I'm Chase!
@@ -44,24 +43,6 @@ const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
     </PageContainer>
   );
 };
-
-function ImageWithHexagons() {
-  return (
-    <div className="relative shrink-0">
-      <div className="text-blue-400">
-        <div className="relative z-50">
-          <Image src={"/img/chase-hex.png"} width={350} height={350} />
-        </div>
-        <div className="absolute -top-2 -left-2 text-blue-700 dark:text-blue-500 z-30">
-          <Hexagon width={365} height={365} />
-        </div>
-        <div className="absolute -top-2 -left-2 text-red-700 dark:text-red-400 rotate-[-8deg] z-10">
-          <Hexagon width={365} height={365} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Writing({ posts }: { posts: Array<PostMeta> }) {
   return (
