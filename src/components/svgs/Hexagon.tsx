@@ -1,7 +1,7 @@
 type Props = { width?: number; height: number };
 export const Hexagon = ({ width = 621, height = 709 }: Props) => {
   return (
-    <div className={`w-[${width}px] h-[${height}px]`}>
+    <div>
       <svg
         width={width}
         height={height}
