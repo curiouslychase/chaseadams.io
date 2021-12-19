@@ -1,13 +1,13 @@
 module.exports = {
   content: [
-    "./src/components/**/*.{ts,tsx}",
-    "./src/pages/**/*.{ts,tsx}",
-    "./src/views/**/*.{ts,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/views/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: "'Ringside Regular SSm A', 'Helvetica Neue', 'sans-serif'",
+      sans: ['"Ringside Regular SSm A"', "Helvetica Neue", "sans-serif"],
     },
     extend: {
       colors: {
