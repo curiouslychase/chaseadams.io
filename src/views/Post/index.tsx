@@ -1,4 +1,4 @@
-import hydrate from "next-mdx-remote/hydrate";
+import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 
 import { Container } from "~/components/shared/Container";
@@ -20,8 +20,6 @@ export function PostView({ post }: Props) {
 }
 
 function PostBody({ post }: Props) {
-  const content = hydrate(post.mdxSource);
-
   const { headings, title, tags, date } = post;
 
   return (
@@ -38,7 +36,9 @@ function PostBody({ post }: Props) {
               </div>
             </header>
 
-            <div className="prose">{content}</div>
+            <div className="prose">
+              <MDXRemote {...post.mdxSource} />
+            </div>
           </article>
           <div className="grid grid-cols-12">
             <div className="col-start-2 col-span-10">

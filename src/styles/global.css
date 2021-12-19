@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply text-lg
+    @apply text-lg;
   }
 
   a {
@@ -14,7 +14,7 @@
 
 @layer components {
   .m-b-start-auto {
-    margin-block-start: auto
+    margin-block-start: auto;
   }
 
   .highlighter {
@@ -26,10 +26,10 @@
   }
 
   .prose > * {
-   @apply xl:col-start-2 xl:col-span-10 col-span-12; 
+    @apply xl:col-start-2 xl:col-span-10 col-span-12;
   }
 
-  .prose p { 
+  .prose p {
     @apply my-6 text-lg leading-8;
   }
 
@@ -37,12 +37,11 @@
     @apply font-bold mt-10 mb-4 md:mt-10 text-blue-600 dark:text-blue-400 text-3xl leading-normal;
   }
 
-
   .prose h3 {
     @apply font-bold mt-6 mb-4 md:mt-10 text-blue-500 dark:text-blue-300 text-2xl leading-normal;
   }
 
-  .prose h3 code:not(pre > code)  {
+  .prose h3 code:not(pre > code) {
     @apply bg-slate-200 border-blue-300 dark:bg-slate-800 dark:border-slate-600 border-[1px] px-1 py-0.5 rounded-sm text-xl;
   }
 
@@ -53,11 +52,12 @@
   .prose li {
     @apply pl-8 pt-2;
   }
-  
+
   .prose pre {
     @apply col-span-12;
   }
-  .prose code:not(pre > code)  {
+
+  .prose code:not(pre > code) {
     @apply bg-slate-200 border-blue-300 dark:bg-slate-800 dark:border-slate-600 border-[1px] px-1 py-0.5 rounded-sm text-base;
   }
 }
@@ -71,12 +71,12 @@ pre[class*="language-"] {
   font-size: 1rem;
   hyphens: none;
   line-height: 1.375;
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 1rem;
   position: relative;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   tab-size: 4;
   text-align: left;
@@ -87,7 +87,6 @@ pre[class*="language-"] {
   width: 100%;
   max-width: 100%;
 }
-
 
 pre > code {
   white-space: pre;
@@ -106,9 +105,8 @@ pre > code {
 pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection {
   text-shadow: none;
-  background-color: #DD92F633;
+  background-color: #dd92f633;
 }
-
 
 pre[class*="language-"]::before {
   background-color: #3c3949;
@@ -117,9 +115,9 @@ pre[class*="language-"]::before {
   right: 0;
   width: 100%;
   box-sizing: border-box;
-  padding-top: 6px ;
+  padding-top: 6px;
   padding-right: 14px;
-  padding-bottom: 6px ;
+  padding-bottom: 6px;
   padding-left: 10px;
   font-size: 14px;
   text-align: right;
@@ -131,61 +129,80 @@ pre[class*="language-"]::before {
 pre[class*="language-lisp"]::before {
   content: "lisp";
 }
+
 pre[class*="language-logs"]::before {
   content: "logs";
 }
+
 pre[class*="language-javascript"]::before {
   content: "js";
 }
+
 pre[class*="language-js"]::before {
   content: "js";
 }
+
 pre[class*="language-json"]::before {
   content: "json";
 }
+
 pre[class*="language-jsx"]::before {
   content: "jsx";
 }
+
 pre[class*="language-graphql"]::before {
   content: "GraphQL";
 }
+
 pre[class*="language-html"]::before {
   content: "html";
 }
+
 pre[class*="language-css"]::before {
   content: "css";
 }
+
 pre[class*="language-shell"]::before {
   content: "shell";
 }
+
 pre[class*="language-sh"]::before {
   content: "sh";
 }
+
 pre[class*="language-bash"]::before {
   content: "bash";
 }
+
 pre[class*="language-yaml"]::before {
   content: "yaml";
 }
+
 pre[class*="language-markdown"]::before {
   content: "md";
 }
+
 pre[class*="language-json"]::before,
 pre[class*="language-json5"]::before {
   content: "json";
 }
+
 pre[class*="language-diff"]::before {
   content: "diff";
 }
+
 pre[class*="language-text"]::before {
   content: "text";
 }
+
 pre[class*="language-flow"]::before {
   content: "flow";
 }
+
 pre[class*="language-asciidoc"]::before {
   content: "asciidoc";
 }
+
 pre[class*="language-ts"]::before {
   content: "ts";
 }
@@ -197,7 +214,6 @@ pre[class*="language-tsx"]::before {
 pre[class*="language-go"]::before {
   content: "go";
 }
-
 
 .token.comment,
 .token.prolog,
@@ -241,7 +257,6 @@ code.language-javascript,
   color: #c4b9fe;
 }
 
-
 code.language-css,
 code.language-scss,
 .token.boolean,
@@ -271,7 +286,7 @@ code.language-scss,
 
 .token.placeholder,
 .token.variable {
-  color: #ffcc99;
+  color: #fc9;
 }
 
 .token.deleted {
@@ -314,6 +329,6 @@ pre > code.highlight {
   border-right-color: #2c2937;
 }
 
-.line-numbers-rows > span:before {
+.line-numbers-rows > span::before {
   color: #3c3949;
 }

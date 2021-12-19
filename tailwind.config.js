@@ -4,11 +4,15 @@ module.exports = {
     "./src/pages/**/*.{ts,tsx}",
     "./src/views/**/*.{ts,tsx}",
   ],
+  purge: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./src/views/**/*.{ts,tsx}",
+  ],
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans:
-        "'Ringside Regular SSm A', Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+      sans: "'Ringside Regular SSm A', 'Helvetica Neue', 'sans-serif'",
     },
     extend: {
       colors: {
