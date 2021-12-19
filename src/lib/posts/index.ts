@@ -111,16 +111,18 @@ type SortedPostsParams = {
 export function getSortedPostsData({ limit }: SortedPostsParams = {}) {
   let allPostData = getPosts();
 
-  allPostData = allPostData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  allPostData = allPostData
+    .filter((post) => post.status === "published")
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 
   if (limit) {
-    allPostData = allPostData.slice(0, limit + 2);
+    allPostData = allPostData.slice(0, limit);
   }
 
   return allPostData;
