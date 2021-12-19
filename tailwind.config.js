@@ -4,11 +4,6 @@ module.exports = {
     "./src/pages/**/*.{ts,tsx}",
     "./src/views/**/*.{ts,tsx}",
   ],
-  purge: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./src/views/**/*.{ts,tsx}",
-  ],
   darkMode: "class",
   theme: {
     fontFamily: {
