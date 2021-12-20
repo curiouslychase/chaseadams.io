@@ -15,7 +15,7 @@ export default function HomePage({ allPostsData }: { allPostsData: AllPosts }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData({ limit: 9 });
+  const allPostsData = getSortedPostsData({ limit: 12 });
 
   return {
     props: {
