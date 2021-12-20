@@ -3,19 +3,25 @@ import type { GetStaticProps } from "next";
 import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getSortedPostsData } from "~/lib/posts";
 import type { AllPosts } from "~/lib/posts/types";
-import { HomeView } from "~/views/Home";
+import { PostsView } from "~/views/Posts";
 
-export default function HomePage({ allPostsData }: { allPostsData: AllPosts }) {
+const PostsPage = ({ allPostsData }: { allPostsData: AllPosts }) => {
   return (
     <>
-      <PageMetaHead page={{ title: "Chase Adams" }} shouldAppendTag={false} />
-      <HomeView allPostsData={allPostsData} />
+      <PageMetaHead
+        page={{
+          title: "Posts",
+        }}
+      />
+      <PostsView posts={allPostsData} />
     </>
   );
-}
+};
+
+export default PostsPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData({ limit: 9 });
+  const allPostsData = getSortedPostsData();
 
   return {
     props: {

@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import mdxPrism from "mdx-prism";
-import renderToString from "next-mdx-remote/render-to-string";
+import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 import slugify from "slugify";
 
@@ -55,7 +55,7 @@ export const getPostData = async (id: string) => {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  const mdxSource = await renderToString(matterResult.content, {
+  const mdxSource = await serialize(matterResult.content, {
     mdxOptions: {
       remarkPlugins: [
         require("remark-toc"),
@@ -111,16 +111,18 @@ type SortedPostsParams = {
 export function getSortedPostsData({ limit }: SortedPostsParams = {}) {
   let allPostData = getPosts();
 
-  allPostData = allPostData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  allPostData = allPostData
+    .filter((post) => post.status === "published")
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 
   if (limit) {
-    allPostData = allPostData.slice(0, limit + 2);
+    allPostData = allPostData.slice(0, limit);
   }
 
   return allPostData;

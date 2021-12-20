@@ -1,17 +1,18 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 
-import { ThemeContext } from "~/components/ThemeContext";
+import { ThemeContext } from "~/contexts/ThemeContext";
 
-import { Button } from "./styles";
-
-const ThemeSwitcher = () => {
+export const ThemeSwitcher = () => {
   const { colorMode, setColorMode } = useContext(ThemeContext);
 
+  const handleClick = useCallback(() => {
+    setColorMode(colorMode === "light" ? "dark" : "light");
+  }, [colorMode, setColorMode]);
+
   return (
-    <Button
-      onClick={() => {
-        setColorMode(colorMode === "light" ? "dark" : "light");
-      }}
+    <button
+      className="bg-slate-300 dark:bg-black flex gap-2 items-center p-4 rounded-full hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-slate-100 transition-all hover:scale-110"
+      onClick={handleClick}
     >
       {colorMode === "light" ? (
         <svg
@@ -51,8 +52,6 @@ const ThemeSwitcher = () => {
         </svg>
       )}
       <span>Switch Theme</span>
-    </Button>
+    </button>
   );
 };
-
-export default ThemeSwitcher;

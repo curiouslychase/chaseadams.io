@@ -1,4 +1,4 @@
-import type { MdxRemote } from "next-mdx-remote/types";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export type Tag = {
   text: string;
@@ -11,7 +11,7 @@ export type PostMeta = {
   slug: string;
   filename: string;
   tags?: Array<Tag>;
-  description: string | null;
+  description?: string;
   title: string;
   status: string;
   image?: string;
@@ -22,13 +22,13 @@ export type Post = {
   id: string;
   slug: string;
   filename: string;
-  mdxSource: MdxRemote.Source;
+  mdxSource: MDXRemoteSerializeResult;
   title: string;
   headings?: Array<{ text: string; level: number; slug: string }>;
   tags: Array<Tag>;
   date: string;
   image?: string;
-  description: string | null;
+  description?: string;
   status: string;
 };
 
