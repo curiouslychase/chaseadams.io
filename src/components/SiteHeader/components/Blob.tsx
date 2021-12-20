@@ -1,7 +1,7 @@
 export const Blob = () => {
   return (
     <svg
-      className="group-hover:text-red-500 group-hover:translate-x-2 group-hover:w-10 group-hover:-ml-11 transition-all"
+      className="text-blue-400 dark:text-blue-600 dark:md:text-blue-400  md:text-blue-600 group-hover:text-red-400 dark:group-hover:text-red-500 md:group-hover:translate-x-2 md:group-hover:w-10 md:group-hover:-ml-11 transition-all"
       width={64}
       height={64}
       xmlns="http://www.w3.org/2000/svg"
