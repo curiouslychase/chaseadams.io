@@ -11,7 +11,7 @@ export type PostMeta = {
   slug: string;
   filename: string;
   tags?: Array<Tag>;
-  description: string | null;
+  description?: string;
   title: string;
   status: string;
   image?: string;
@@ -28,7 +28,7 @@ export type Post = {
   tags: Array<Tag>;
   date: string;
   image?: string;
-  description: string | null;
+  description?: string;
   status: string;
 };
 

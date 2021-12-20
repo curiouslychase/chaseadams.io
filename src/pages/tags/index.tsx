@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 
+import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getTags } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
 import { TagsView } from "~/views/Tags";
@@ -10,10 +10,7 @@ type Props = { allTagsData: Array<Tag> };
 const TagsPage: NextPage<Props> = ({ allTagsData }) => {
   return (
     <>
-      <Head>
-        <title>All Tags</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <PageMetaHead page={{ title: "All Post Tags" }} />
       <TagsView tags={allTagsData} />
     </>
   );

@@ -2,7 +2,7 @@ import { useCallback, useContext } from "react";
 
 import { ThemeContext } from "~/contexts/ThemeContext";
 
-const ThemeSwitcher = () => {
+export const ThemeSwitcher = () => {
   const { colorMode, setColorMode } = useContext(ThemeContext);
 
   const handleClick = useCallback(() => {
@@ -55,5 +55,3 @@ const ThemeSwitcher = () => {
     </button>
   );
 };
-
-export default ThemeSwitcher;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "~/components/shared/Container";
-import ThemeSwitcher from "~/components/ThemeSwitcher";
+import { ThemeSwitcher } from "~/components/ThemeSwitcher";
 
 export const SiteFooter = () => {
   return (

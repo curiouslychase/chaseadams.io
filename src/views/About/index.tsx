@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import { Container } from "~/components/shared/Container";
 import { PageContainer } from "~/components/shared/PageContainer";
-import ViewH1 from "~/components/shared/PageTitle";
+import { ViewH1 } from "~/components/shared/PageTitle";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 

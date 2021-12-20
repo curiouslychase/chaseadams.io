@@ -1,14 +1,14 @@
-import Head from "next/head";
-
+import { PageMetaHead } from "~/components/shared/PageMeta";
 import { AboutView } from "~/views/About";
 
 const AboutMePage = () => {
   return (
     <>
-      <Head>
-        <title>About Me, Chase Adams</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <PageMetaHead
+        page={{
+          title: "About Me",
+        }}
+      />
       <AboutView />
     </>
   );

@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { PostSummaries } from "~/components/Post/PostSummaries";
+import { PostSummaries } from "~/components/modules/Post/PostSummaries";
 import { Container } from "~/components/shared/Container";
 import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { AllPosts, PostMeta } from "~/lib/posts/types";
 
-const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
+export const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
   return (
     <PageContainer>
       <SiteHeader />
@@ -35,14 +35,14 @@ const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
           </div>
         </div>
       </Container>
-      <CurrentWork />
+      <CurrentWork shouldRender={false} />
       <Writing posts={allPostsData} />
       <SiteFooter />
     </PageContainer>
   );
 };
 
-function Writing({ posts }: { posts: Array<PostMeta> }) {
+const Writing = ({ posts }: { posts: Array<PostMeta> }) => {
   return (
     <Container>
       <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
@@ -56,9 +56,12 @@ function Writing({ posts }: { posts: Array<PostMeta> }) {
       </div>
     </Container>
   );
-}
+};
 
-function CurrentWork() {
+const CurrentWork = ({ shouldRender }: { shouldRender: boolean }) => {
+  // TODO write something for this, I was too lazy to just remove the component
+  if (!shouldRender) return null;
+
   return (
     <Container>
       <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
@@ -74,6 +77,4 @@ function CurrentWork() {
       </div>
     </Container>
   );
-}
-
-export default HomeView;
+};

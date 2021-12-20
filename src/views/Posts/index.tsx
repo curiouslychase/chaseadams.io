@@ -1,12 +1,12 @@
-import { PostSummaries } from "~/components/Post/PostSummaries";
+import { PostSummaries } from "~/components/modules/Post/PostSummaries";
 import { Container } from "~/components/shared/Container";
 import { PageContainer } from "~/components/shared/PageContainer";
-import ViewH1 from "~/components/shared/PageTitle";
+import { ViewH1 } from "~/components/shared/PageTitle";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { AllPosts } from "~/lib/posts/types";
 
-export function PostsView({ posts }: { posts: AllPosts }) {
+export const PostsView = ({ posts }: { posts: AllPosts }) => {
   return (
     <PageContainer>
       <SiteHeader />
@@ -17,4 +17,4 @@ export function PostsView({ posts }: { posts: AllPosts }) {
       <SiteFooter />
     </PageContainer>
   );
-}
+};

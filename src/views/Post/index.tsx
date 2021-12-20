@@ -9,7 +9,7 @@ import type { Post } from "~/lib/posts/types";
 
 type Props = { post: Post };
 
-export function PostView({ post }: Props) {
+export const PostView = ({ post }: Props) => {
   return (
     <PageContainer>
       <SiteHeader />
@@ -17,9 +17,9 @@ export function PostView({ post }: Props) {
       <SiteFooter />
     </PageContainer>
   );
-}
+};
 
-function PostBody({ post }: Props) {
+const PostBody = ({ post }: Props) => {
   const { headings, title, tags, date } = post;
 
   return (
@@ -50,9 +50,9 @@ function PostBody({ post }: Props) {
       </div>
     </Container>
   );
-}
+};
 
-function TOC({ headings }: { headings: Post["headings"] }) {
+const TOC = ({ headings }: { headings: Post["headings"] }) => {
   return (
     <aside className="block lg:sticky lg:top-[5rem] lg:max-w-[20rem] lg:max-h-[5rem]">
       <h2>Table of Contents</h2>
@@ -67,9 +67,9 @@ function TOC({ headings }: { headings: Post["headings"] }) {
       </ul>
     </aside>
   );
-}
+};
 
-function TagsList({ tags }: { tags: Post["tags"] }) {
+const TagsList = ({ tags }: { tags: Post["tags"] }) => {
   return (
     <div className="py-8">
       <span className="font-bold">Tagged with: </span>
@@ -90,4 +90,4 @@ function TagsList({ tags }: { tags: Post["tags"] }) {
       </ul>
     </div>
   );
-}
+};

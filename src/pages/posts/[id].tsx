@@ -4,8 +4,8 @@ import type {
   GetStaticPropsContext,
   NextPage,
 } from "next";
-import Head from "next/head";
 
+import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getAllPostIds, getPostData } from "~/lib/posts";
 import type { Post } from "~/lib/posts/types";
 import { PostView } from "~/views/Post";
@@ -15,10 +15,7 @@ type Props = { post: Post };
 const PostPage: NextPage<Props> = ({ post }) => {
   return (
     <>
-      <Head>
-        <title>{post.title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <PageMetaHead page={post} />
       <PostView post={post} />
     </>
   );

@@ -1,4 +1,4 @@
-import { PostSummary } from "~/components/Post/PostSummary";
+import { PostSummary } from "~/components/modules/Post/PostSummary";
 import type { PostMeta } from "~/lib/posts/types";
 
 export const PostSummaries = ({ posts }: { posts: Array<PostMeta> }) => {
