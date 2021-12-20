@@ -13,8 +13,24 @@
 }
 
 @layer components {
+  .button {
+    &.cta {
+      @apply inline-block px-6 py-4 bg-blue-700 hover:bg-blue-800 text-slate-100 hover:text-slate-100 dark:bg-blue-500 dark:text-white rounded-full  dark:hover:text-white dark:hover:bg-blue-700 transition-all hover:scale-110;
+    }
+  }
+
   .m-b-start-auto {
     margin-block-start: auto;
+  }
+
+  .site-header {
+    .button {
+      @apply bg-transparent dark:hover:bg-blue-500 dark:hover:text-slate-50 p-3 md:p-4;
+
+      &.active {
+        @apply bg-blue-600 text-slate-50 hover:text-slate-50 dark:bg-blue-500 dark:hover:text-slate-300;
+      }
+    }
   }
 
   .highlighter {
@@ -34,11 +50,11 @@
   }
 
   .prose h2 {
-    @apply font-bold mt-10 mb-4 md:mt-10 text-blue-600 dark:text-blue-400 text-3xl leading-normal;
+    @apply font-bold mt-10 mb-4 md:mt-10 text-blue-600 dark:text-blue-400 text-2xl md:text-3xl leading-normal;
   }
 
   .prose h3 {
-    @apply font-bold mt-6 mb-4 md:mt-10 text-blue-500 dark:text-blue-300 text-2xl leading-normal;
+    @apply font-bold mt-6 mb-4 md:mt-10 text-blue-500 dark:text-blue-300 text-xl md:text-2xl leading-normal;
   }
 
   .prose h3 code:not(pre > code) {
