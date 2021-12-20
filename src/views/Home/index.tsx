@@ -28,9 +28,7 @@ const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
               </Link>
               <div className="m-b-start-auto justify-self-end xl:mt-0 lg:mt-2">
                 <Link href="/posts">
-                  <a className="inline-block px-6 py-4 bg-blue-700 hover:bg-blue-800 text-slate-100 hover:text-slate-100 dark:bg-blue-500 dark:text-white rounded-full  dark:hover:text-white dark:hover:bg-blue-700 transition-all hover:scale-110">
-                    Read my blog
-                  </a>
+                  <a className="button cta">Read my blog</a>
                 </Link>
               </div>
             </div>
@@ -53,9 +51,7 @@ function Writing({ posts }: { posts: Array<PostMeta> }) {
       <PostSummaries posts={posts} />
       <div className="group flex justify-end items-center pt-8">
         <Link href="/posts">
-          <a className="inline-block px-6 py-4 bg-blue-700 hover:bg-blue-800 text-slate-100 hover:text-slate-100 dark:bg-blue-500 dark:text-white rounded-full  dark:hover:text-white dark:hover:bg-blue-700 transition-all hover:scale-110">
-            Start reading the blog
-          </a>
+          <a className="button cta">Start reading the blog</a>
         </Link>
       </div>
     </Container>
