@@ -6,7 +6,9 @@ const AboutMePage = () => {
     <>
       <PageMetaHead
         page={{
-          title: "About Me",
+          title: "About Chase Adams",
+          description:
+            "Creating strong, resilient teams and building human-centric software.",
         }}
       />
       <AboutView />
