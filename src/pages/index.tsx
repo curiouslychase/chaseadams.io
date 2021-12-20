@@ -8,14 +8,21 @@ import { HomeView } from "~/views/Home";
 export default function HomePage({ allPostsData }: { allPostsData: AllPosts }) {
   return (
     <>
-      <PageMetaHead page={{ title: "Chase Adams" }} shouldAppendTag={false} />
+      <PageMetaHead
+        page={{
+          title: "Chase Adams on the Web",
+          description:
+            "Creating strong, resilient teams and building human-centric software.",
+        }}
+        shouldAppendTag={false}
+      />
       <HomeView allPostsData={allPostsData} />
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData({ limit: 9 });
+  const allPostsData = getSortedPostsData({ limit: 12 });
 
   return {
     props: {
