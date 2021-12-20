@@ -28,7 +28,7 @@ function PostBody({ post }: Props) {
         <div>
           <article>
             <header className="mb-10">
-              <h1 className="text-white font-bold text-4xl leading-normal">
+              <h1 className="text-white font-bold text-3xl md:text-4xl leading-normal">
                 <span className="highlighter">{title}</span>
               </h1>
               <div className="block mt-2 text-base text-slate-500 dark:text-slate-300">
