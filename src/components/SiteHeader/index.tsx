@@ -22,8 +22,8 @@ export const SiteHeader = () => {
   const [toggled, { toggle }] = useToggle();
 
   return (
-    <div>
-      <div className="md:m-0 -my-4 fixed md:relative z-10 bg-slate-100 dark:bg-black section-container">
+    <div className="md:m-0 -my-4">
+      <div className="fixed md:relative z-10 bg-slate-100 dark:bg-black section-container">
         <nav className="site-header flex justify-between pb-0 text-base md:text-lg">
           <div>
             <Link href="/">
@@ -103,7 +103,7 @@ export const SiteHeader = () => {
         </nav>
       </div>
 
-      <hr className="border-none h-[96px]" />
+      <hr className="border-none h-[144px]" />
     </div>
   );
 };
