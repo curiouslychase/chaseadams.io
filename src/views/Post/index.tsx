@@ -40,11 +40,11 @@ const PostBody = ({ post }: Props) => {
           </article>
           <div className="grid grid-cols-12">
             <div className="col-start-2 col-span-10">
-              {tags.length && <TagsList tags={tags} />}
+              {tags.length ? <TagsList tags={tags} /> : null}
             </div>
           </div>
         </div>
-        {headings?.length && <TOC headings={headings} />}
+        {headings?.length ? <TOC headings={headings} /> : null}
       </div>
     </div>
   );
