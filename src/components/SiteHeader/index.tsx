@@ -45,7 +45,7 @@ export const SiteHeader = () => {
           </div>
           <div className="flex md:hidden items-center">
             <button
-              className="rounded-full outline px-4 py-2 lowercase"
+              className="rounded-full border-2 border-white px-4 py-2 lowercase"
               onClick={toggle}
             >
               {!toggled ? "Menu" : "X Close"}
