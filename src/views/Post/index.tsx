@@ -1,8 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 import Link from "next/link";
 
-import { Container } from "~/components/shared/Container";
-import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { Post } from "~/lib/posts/types";
@@ -11,11 +9,11 @@ type Props = { post: Post };
 
 export const PostView = ({ post }: Props) => {
   return (
-    <PageContainer>
+    <div className="page-container">
       <SiteHeader />
       <PostBody post={post} />
       <SiteFooter />
-    </PageContainer>
+    </div>
   );
 };
 
@@ -23,7 +21,7 @@ const PostBody = ({ post }: Props) => {
   const { headings, title, tags, date } = post;
 
   return (
-    <Container>
+    <div className="section-container">
       <div className="flex flex-col lg:flex-row gap-8 justify-between">
         <div>
           <article>
@@ -48,7 +46,7 @@ const PostBody = ({ post }: Props) => {
         </div>
         {headings?.length && <TOC headings={headings} />}
       </div>
-    </Container>
+    </div>
   );
 };
 

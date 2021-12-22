@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { Container } from "~/components/shared/Container";
 import { Blob } from "~/components/SiteHeader/components/Blob";
 
 export const SiteHeader = () => {
   const { asPath } = useRouter();
   return (
-    <Container>
+    <div className="section-container">
       <nav className="site-header flex justify-between pb-0 text-lg">
         <div>
           <Link href="/">
@@ -49,6 +48,6 @@ export const SiteHeader = () => {
           </li>
         </ul>
       </nav>
-    </Container>
+    </div>
   );
 };

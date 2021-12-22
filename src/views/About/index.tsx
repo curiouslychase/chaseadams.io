@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-import { Container } from "~/components/shared/Container";
-import { PageContainer } from "~/components/shared/PageContainer";
 import { ViewH1 } from "~/components/shared/PageTitle";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
@@ -12,9 +10,9 @@ export const AboutView = () => {
       <Head>
         <title>About Me - Chase Adams</title>
       </Head>
-      <PageContainer>
+      <div className="page-container">
         <SiteHeader />
-        <Container>
+        <div className="section-container">
           <ViewH1>About Me</ViewH1>
           <h2>In 30 Seconds</h2>
           <h3>I enjoy...</h3>
@@ -68,10 +66,10 @@ export const AboutView = () => {
               Teaching others about technology & productivity.
             </li>
           </ul>
-        </Container>
+        </div>
 
         <SiteFooter />
-      </PageContainer>
+      </div>
     </>
   );
 };
