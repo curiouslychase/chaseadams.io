@@ -1,13 +1,12 @@
 import Link from "next/link";
 
-import { Container } from "~/components/shared/Container";
 import { ThemeSwitcher } from "~/components/ThemeSwitcher";
 
 export const SiteFooter = () => {
   return (
     <div className="justify-self-end py-8 m-b-start-auto bg-slate-200 dark:bg-slate-900">
       <div>
-        <Container>
+        <div className="section-container">
           <div className="block lg:flex justify-between">
             <div>
               <h2 className="font-bold text-md pb-0 lg:pb-4 uppercase text-blue-700 dark:text-blue-400">
@@ -46,15 +45,15 @@ export const SiteFooter = () => {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </div>
-      <Container>
+      <div className="section-container">
         <div className="flex justify-end">
           <div>
             <ThemeSwitcher />
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

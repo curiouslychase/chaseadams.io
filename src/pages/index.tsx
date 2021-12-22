@@ -1,5 +1,6 @@
 import type { GetStaticProps } from "next";
 
+import { DarkModeContainer } from "~/components/shared/DarkModeContainer";
 import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getSortedPostsData } from "~/lib/posts";
 import type { AllPosts } from "~/lib/posts/types";
@@ -7,7 +8,7 @@ import { HomeView } from "~/views/Home";
 
 export default function HomePage({ allPostsData }: { allPostsData: AllPosts }) {
   return (
-    <>
+    <DarkModeContainer>
       <PageMetaHead
         page={{
           title: "Chase Adams on the Web",
@@ -17,7 +18,7 @@ export default function HomePage({ allPostsData }: { allPostsData: AllPosts }) {
         shouldAppendTag={false}
       />
       <HomeView allPostsData={allPostsData} />
-    </>
+    </DarkModeContainer>
   );
 }
 

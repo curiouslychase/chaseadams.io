@@ -5,6 +5,7 @@ import type {
   NextPage,
 } from "next";
 
+import { DarkModeContainer } from "~/components/shared/DarkModeContainer";
 import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getAllPostIds, getPostData } from "~/lib/posts";
 import type { Post } from "~/lib/posts/types";
@@ -14,10 +15,10 @@ type Props = { post: Post };
 
 const PostPage: NextPage<Props> = ({ post }) => {
   return (
-    <>
+    <DarkModeContainer>
       <PageMetaHead page={post} />
       <PostView post={post} />
-    </>
+    </DarkModeContainer>
   );
 };
 

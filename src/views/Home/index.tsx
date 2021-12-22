@@ -2,17 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PostSummaries } from "~/components/modules/Post/PostSummaries";
-import { Container } from "~/components/shared/Container";
-import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { AllPosts, PostMeta } from "~/lib/posts/types";
 
 export const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
   return (
-    <PageContainer>
+    <div className="page-container">
       <SiteHeader />
-      <Container>
+      <div className="section-container">
         <div className="flex items-center gap-10 flex-col lg:flex-row">
           <Image src={"/img/chase-hex.png"} width={350} height={350} />
           <div className="flex flex-col">
@@ -34,17 +32,17 @@ export const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
       <CurrentWork shouldRender={false} />
       <Writing posts={allPostsData} />
       <SiteFooter />
-    </PageContainer>
+    </div>
   );
 };
 
 const Writing = ({ posts }: { posts: Array<PostMeta> }) => {
   return (
-    <Container>
+    <div className="section-container">
       <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
         What I'm Writing
       </h2>
@@ -54,7 +52,7 @@ const Writing = ({ posts }: { posts: Array<PostMeta> }) => {
           <a className="button cta">Start reading the blog</a>
         </Link>
       </div>
-    </Container>
+    </div>
   );
 };
 
@@ -63,7 +61,7 @@ const CurrentWork = ({ shouldRender }: { shouldRender: boolean }) => {
   if (!shouldRender) return null;
 
   return (
-    <Container>
+    <div className="section-container">
       <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
         What I'm Working On
       </h2>
@@ -75,6 +73,6 @@ const CurrentWork = ({ shouldRender }: { shouldRender: boolean }) => {
           <h3 className="font-bold text-2xl">Pizza</h3>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };

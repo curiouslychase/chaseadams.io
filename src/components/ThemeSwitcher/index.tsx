@@ -11,7 +11,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className="bg-slate-300 dark:bg-black flex gap-2 items-center p-4 rounded-full hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-slate-100 transition-all hover:scale-110"
+      className="bg-slate-300 dark:bg-black flex gap-2 items-center p-4 rounded-full border-slate-500 hover:border-slate-900 dark:border-slate-50 border-[3px] hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-slate-100 transition-all hover:scale-110"
       onClick={handleClick}
     >
       {colorMode === "light" ? (

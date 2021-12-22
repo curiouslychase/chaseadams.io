@@ -1,8 +1,6 @@
 import Link from "next/link";
 
 import { PostSummaries } from "~/components/modules/Post/PostSummaries";
-import { Container } from "~/components/shared/Container";
-import { PageContainer } from "~/components/shared/PageContainer";
 import { ViewH1 } from "~/components/shared/PageTitle";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
@@ -12,9 +10,9 @@ type Props = { tag: Tag };
 
 export const TagView = ({ tag }: Props) => {
   return (
-    <PageContainer>
+    <div className="page-container">
       <SiteHeader />
-      <Container>
+      <div className="section-container">
         <ViewH1>
           Tagged with "{tag.text}" ({tag.posts.length})
         </ViewH1>
@@ -22,8 +20,8 @@ export const TagView = ({ tag }: Props) => {
         <div className="pt-8">
           <Link href="/tags">Back to all tags</Link>
         </div>
-      </Container>
+      </div>
       <SiteFooter />
-    </PageContainer>
+    </div>
   );
 };

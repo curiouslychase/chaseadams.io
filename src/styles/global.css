@@ -19,8 +19,16 @@
     }
   }
 
+  .section-container {
+    @apply w-full 2xl:w-[1440px] xl:w-[1280px] lg:w-[1024px] lg:mx-auto  xl:py-[80px] xl:px-[120px] lg:py-[60px] lg:px-[40px] py-[40px] px-[30px];
+  }
+
   .m-b-start-auto {
     margin-block-start: auto;
+  }
+
+  .page-container {
+    @apply flex flex-col justify-start items-stretch bg-slate-100 text-slate-900 dark:bg-black dark:text-slate-200 min-h-screen transition;
   }
 
   .site-header {
