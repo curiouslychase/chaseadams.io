@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 
+import { DarkModeContainer } from "~/components/shared/DarkModeContainer";
 import { PageMetaHead } from "~/components/shared/PageMeta";
 import { getTags } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
@@ -9,10 +10,10 @@ type Props = { allTagsData: Array<Tag> };
 
 const TagsPage: NextPage<Props> = ({ allTagsData }) => {
   return (
-    <>
+    <DarkModeContainer>
       <PageMetaHead page={{ title: "All Post Tags" }} />
       <TagsView tags={allTagsData} />
-    </>
+    </DarkModeContainer>
   );
 };
 
