@@ -49,8 +49,18 @@ const getPosts = () => {
 };
 
 export const getPostData = async (id: string) => {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  let fullPath, fileContents;
+  try {
+    fullPath = path.join(postsDirectory, `${id}.md`);
+    fileContents = fs.readFileSync(fullPath, "utf8");
+  } catch (err) {
+    try {
+      fullPath = path.join(postsDirectory, `${id}.mdx`);
+      fileContents = fs.readFileSync(fullPath, "utf8");
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
@@ -100,7 +110,7 @@ export function getAllPostIds() {
 }
 
 const getSlugFromFilename = (filename: string): string => {
-  return filename.replace(/\.md$/, "");
+  return filename.replace(/\.mdx?$/, "");
 };
 
 type SortedPostsParams = {
