@@ -103,7 +103,7 @@ export const SiteHeader = () => {
         </nav>
       </div>
 
-      <hr className="border-none h-[144px]" />
+      <hr className="border-none h-[144px] md:h-0" />
     </div>
   );
 };
