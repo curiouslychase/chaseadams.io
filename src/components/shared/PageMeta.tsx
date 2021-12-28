@@ -17,7 +17,7 @@ export const PageMetaHead = ({ page, shouldAppendTag = true }: Props) => {
     <Head>
       <title>
         {page.title}
-        {shouldAppendTag && ` | Chase Adams`}
+        {shouldAppendTag ? ` | Chase Adams` : null}
       </title>
 
       <link rel="icon" href="/favicon.ico" />
