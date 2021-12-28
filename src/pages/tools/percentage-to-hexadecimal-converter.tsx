@@ -28,7 +28,7 @@ type UsePercentageToHexadecimalConverterStateTuple = [
 const usePercentageToHexadecimalConverterState = (): UsePercentageToHexadecimalConverterStateTuple => {
   const [percentage, setPercentage] = useState<number>(42);
   const [hexadecimal, setHexadecimal] = useState<string>("6B");
-  const [hexColor, setHexColor] = useState<string>("#ff0000");
+  const [hexColor, setHexColor] = useState<string>("#7e22ce");
 
   const handlePercentageChange = useCallback(
     (evt: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -138,7 +138,7 @@ const PercentageToHexadecimalConverterPage = () => {
             <div className="lg:max-w-[40rem] lg:mx-auto">
               <Abstract />
             </div>
-            <div className="text-base m-10">
+            <div className="text-base my-10 lg:m-10">
               <hgroup className="rounded-t-xl border-2 border-blue-400 border-b-slate-400 dark:border-b-slate-600 bg-slate-300 text-black dark:bg-slate-800 dark:text-slate-50 text-center py-4">
                 <h1 className="font-bold text-2xl">{meta.title}</h1>
                 <h2 className="italic text-sm mt-2 text-slate-600 dark:text-slate-300">
@@ -303,7 +303,7 @@ const PercentageToHexadecimalConverterPage = () => {
 
 const Abstract = () => {
   return (
-    <div>
+    <div className="text-base">
       <section className="mt-8">
         <h2 className="mb-3 text-2xl">Who It&apos;s For</h2>
         <p className="py-2">
