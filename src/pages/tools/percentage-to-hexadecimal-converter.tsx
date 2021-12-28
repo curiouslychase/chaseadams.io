@@ -26,8 +26,8 @@ type UsePercentageToHexadecimalConverterStateTuple = [
 ];
 
 const usePercentageToHexadecimalConverterState = (): UsePercentageToHexadecimalConverterStateTuple => {
-  const [percentage, setPercentage] = useState<number>(50);
-  const [hexadecimal, setHexadecimal] = useState<string>("80");
+  const [percentage, setPercentage] = useState<number>(42);
+  const [hexadecimal, setHexadecimal] = useState<string>("6B");
   const [hexColor, setHexColor] = useState<string>("#ff0000");
 
   const handlePercentageChange = useCallback(
@@ -90,6 +90,11 @@ const usePercentageToHexadecimalConverterState = (): UsePercentageToHexadecimalC
   ];
 };
 
+const meta = {
+  title: "Percentage to Hexadecimal Converter",
+  description: "Convert an opacity percentage to a hexadecimal alpha value.",
+};
+
 const PercentageToHexadecimalConverterPage = () => {
   const [values, handlers] = usePercentageToHexadecimalConverterState();
 
@@ -108,37 +113,41 @@ const PercentageToHexadecimalConverterPage = () => {
     <DarkModeContainer>
       <PageMetaHead
         page={{
-          title: "Percentage to Hexadecimal Converter",
+          title: meta.title,
+          description: meta.description,
         }}
       />
       <div className="page-container">
         <SiteHeader />
         <div className="section-container">
-          <h1 className="text-center text-3xl mb-6">
-            <span className="highlighter">
-              Percentage To Hexadecimal Converter
-            </span>
-          </h1>
+          <hgroup>
+            <h1 className="text-center text-3xl mb-6">
+              <span className="highlighter font-bold text-slate-50">
+                {meta.title}
+              </span>
+            </h1>
+            <h2 className="text-center font-bold">{meta.description}</h2>
+          </hgroup>
 
-          <div className="flex flex-col-reverse">
+          <div className="flex flex-col-reverse lg:w-[848px] lg:mx-auto">
             <Abstract />
-            <div className="flex justify-between py-10">
+            <div className="flex flex-col justify-between py-10">
               <form className="flex flex-col items-center gap-5">
                 <div>
                   <label>
                     <select
                       onChange={handlePercentageModeClick}
-                      className="dark:bg-slate-800 dark:text-white"
+                      className="border-slate-500 rounded-lg p-3 pr-1 border bg-transparent dark:border-blue-400 dark:text-white"
                     >
                       <option value="type">Type</option>
                       <option value="pick">Pick</option>
                     </select>{" "}
                     a percentage:
-                    <div>
+                    <span className="">
                       {percentageMode === "type" && (
-                        <span className="block text-5xl">
+                        <span className="">
                           <input
-                            className="my-5 border rounded-lg bg-transparent dark:border-blue-500 dark:text-white w-[6rem] text-center"
+                            className="my-5 ml-1 p-3 border rounded-lg bg-transparent border-slate-500 dark:border-blue-500 dark:text-white w-[6rem] text-center"
                             type="text"
                             value={values.percentage}
                             onChange={handlers.handlePercentageChange}
@@ -148,7 +157,7 @@ const PercentageToHexadecimalConverterPage = () => {
                       )}
                       {percentageMode === "pick" && (
                         <select
-                          className="bg-transparent border rounded-lg my-5 dark:border-blue-500 dark:text-white text-5xl"
+                          className="bg-transparent text-center border rounded-lg p-3 my-5 ml-1 border-slate-500 dark:border-blue-500 dark:text-white"
                           onChange={handlers.handlePercentageChange}
                         >
                           {[0, 10, 20, 30, 40, 42, 50, 60, 70, 80, 90, 100].map(
@@ -160,78 +169,81 @@ const PercentageToHexadecimalConverterPage = () => {
                           )}
                         </select>
                       )}
-                    </div>
+                    </span>
                   </label>
                 </div>
                 <button
-                  className="button cta dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
+                  className="button cta  dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
                   type="button"
                   disabled={values.hexColor.length < 7}
                   onClick={handlers.handleConvertPercentageToHexadecimal}
                 >
                   Convert Percentage to Hexadecimal
                 </button>
-
-                <div>
-                  <label className="flex flex-col items-center">
-                    Type a hexadecimal color (optional):
-                    <div className="my-5 flex items-center gap-3">
-                      <input
-                        aria-label="Hexadecimal Color"
-                        type="text"
-                        className="text-center text-3xl inline-block dark:bg-slate-800 dark:text-white"
-                        value={values.hexColor}
-                        onChange={handlers.handleHexColorChange}
-                      />
-                      <span
-                        className="inline-block w-[24px] h-[24px] rounded-full"
-                        style={{ backgroundColor: `${values.hexColor}` }}
-                      ></span>
-                    </div>
-                    {values.hexColor.length < 7 ? (
-                      <span className="block text-red-400">
-                        hexadecimal has to be 6 characters to use alpha value.
-                      </span>
-                    ) : null}
-                  </label>
-                </div>
               </form>
 
-              <div>
-                <h2>Result</h2>
+              <div className="mt-8">
+                <h2 className="text-2xl text-center mt-4">Result</h2>
                 <div className="flex flex-col items-center">
-                  Hexadecimal Percentage Value:{" "}
-                  <code className="block my-5 text-5xl">
+                  <code className="block my-5 font-bold highlighter text-slate-50 p-4 rounded text-3xl lg:text-5xl">
                     {values.hexadecimal}
                   </code>
                 </div>
-                <div className="flex justify-between">
-                  <div className="flex flex-col items-center">
-                    <span>No opacity</span>
-                    <span className="block">
-                      (<code>{values.hexColor}</code>)
-                    </span>
-                    <div
-                      className={`w-[128px] h-[128px] mt-3`}
-                      style={{ backgroundColor: values.hexColor }}
-                    ></div>
+                <div className="mt-10 p-5 border rounded-lg border-slate-500">
+                  <div className="text-center text-3xl">
+                    Apply it to a color
                   </div>
-                  <div className="flex flex-col items-center">
-                    <span>Opacity Applied</span>
-                    <span className="block">
-                      (
-                      <code>
-                        {values.hexColor}
-                        {values.hexadecimal}
-                      </code>
-                      )
-                    </span>
-                    <div
-                      className={`w-[128px] h-[128px]  mt-3`}
-                      style={{
-                        backgroundColor: `${values.hexColor}${values.hexadecimal}`,
-                      }}
-                    ></div>
+                  <div>
+                    <label className="flex flex-col items-center">
+                      Type a hexadecimal color:
+                      <div className="my-5 flex items-center gap-3">
+                        <input
+                          aria-label="Hexadecimal Color"
+                          type="text"
+                          className="text-center rounded-lg border border-slate-500 dark:border-blue-400 p-3 inline-block bg-transparent dark:text-white"
+                          value={values.hexColor}
+                          onChange={handlers.handleHexColorChange}
+                        />
+                        <span
+                          className="inline-block w-[24px] h-[24px] rounded-full"
+                          style={{ backgroundColor: `${values.hexColor}` }}
+                        ></span>
+                      </div>
+                      {values.hexColor.length < 7 ? (
+                        <span className="block text-red-400">
+                          hexadecimal has to be 6 characters to use alpha value.
+                        </span>
+                      ) : null}
+                    </label>
+                  </div>
+                  <div className="flex mt-6 justify-around">
+                    <div className="flex flex-col items-center">
+                      <span>Color</span>
+                      <div
+                        className={`w-[128px] h-[128px] my-3`}
+                        style={{ backgroundColor: values.hexColor }}
+                      ></div>
+                      <span className="block">
+                        (<code>{values.hexColor}</code>)
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span>Color with Alpha Applied</span>
+                      <div
+                        className={`w-[128px] h-[128px]  my-3`}
+                        style={{
+                          backgroundColor: `${values.hexColor}${values.hexadecimal}`,
+                        }}
+                      ></div>
+                      <span className="block">
+                        (
+                        <code>
+                          {values.hexColor}
+                          {values.hexadecimal}
+                        </code>
+                        )
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
