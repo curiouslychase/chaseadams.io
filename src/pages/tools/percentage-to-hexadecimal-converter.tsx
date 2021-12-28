@@ -257,14 +257,6 @@ const Abstract = () => {
           conversion with a concrete example.
         </p>
       </section>
-      <section className="mt-8">
-        <h2 className="mb-3 text-2xl">What&apos;s Happening Under the Hood</h2>
-        <p>
-          When a user clicks <strong>Convert Percentage to Hexadecimal</strong>,
-          the form takes the number and multiplies it by <code>255</code> and
-          then divides that number by <code>100</code>.
-        </p>
-      </section>
     </div>
   );
 };
