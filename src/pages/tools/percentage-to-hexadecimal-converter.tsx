@@ -52,11 +52,15 @@ const usePercentageToHexadecimalConverterState = (): UsePercentageToHexadecimalC
 
   const handleHexColorChange = useCallback(
     (evt: ChangeEvent<HTMLInputElement>) => {
-      let color = evt.target.value;
+      let color = evt.target.value.toUpperCase();
       if (!evt.target.value.startsWith("#")) {
         color = `#${color}`;
       }
-      if (evt.target.value.length > 7) {
+      if (!color.match(/^#[0-9A-F]+$/)) {
+        console.error(
+          `🙃 hexadecimal color can only contain hexadecimal characters`
+        );
+      } else if (evt.target.value.length > 7) {
         console.error(
           `🙃 hex color can't be longer than "#" plus 6 characters`
         );
@@ -174,12 +178,18 @@ const PercentageToHexadecimalConverterPage = () => {
                         style={{ backgroundColor: `${values.hexColor}` }}
                       ></span>
                     </div>
+                    {values.hexColor.length < 7 ? (
+                      <span className="block text-red-400">
+                        hexadecimal has to be 6 characters to use alpha value.
+                      </span>
+                    ) : null}
                   </label>
                 </div>
 
                 <button
-                  className="button cta"
+                  className="button cta dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
                   type="button"
+                  disabled={values.hexColor.length < 7}
                   onClick={handlers.handleConvertPercentageToHexadecimal}
                 >
                   Convert Percentage to Hexadecimal
