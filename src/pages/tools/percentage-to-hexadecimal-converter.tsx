@@ -56,7 +56,7 @@ const usePercentageToHexadecimalConverterState = (): UsePercentageToHexadecimalC
       if (!evt.target.value.startsWith("#")) {
         color = `#${color}`;
       }
-      if (!color.match(/^#[0-9A-F]+$/)) {
+      if (color !== "#" && !color.match(/^#[0-9A-F]+$/)) {
         console.error(
           `🙃 hexadecimal color can only contain hexadecimal characters`
         );
@@ -163,10 +163,18 @@ const PercentageToHexadecimalConverterPage = () => {
                     </div>
                   </label>
                 </div>
+                <button
+                  className="button cta dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
+                  type="button"
+                  disabled={values.hexColor.length < 7}
+                  onClick={handlers.handleConvertPercentageToHexadecimal}
+                >
+                  Convert Percentage to Hexadecimal
+                </button>
 
                 <div>
                   <label className="flex flex-col items-center">
-                    Type a hexadecimal color:
+                    Type a hexadecimal color (optional):
                     <div className="my-5 flex items-center gap-3">
                       <input
                         aria-label="Hexadecimal Color"
@@ -187,15 +195,6 @@ const PercentageToHexadecimalConverterPage = () => {
                     ) : null}
                   </label>
                 </div>
-
-                <button
-                  className="button cta dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
-                  type="button"
-                  disabled={values.hexColor.length < 7}
-                  onClick={handlers.handleConvertPercentageToHexadecimal}
-                >
-                  Convert Percentage to Hexadecimal
-                </button>
               </form>
 
               <div>
