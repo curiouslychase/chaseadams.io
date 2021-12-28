@@ -23,6 +23,16 @@ export const SiteFooter = () => {
                     <a>About Me</a>
                   </Link>
                 </li>
+                <li className="pt-3">
+                  <h3>Tools</h3>
+                  <ul>
+                    <li>
+                      <Link href="/tools/percentage-to-hexadecimal-converter/">
+                        <a>Percentage To Hexadecimal Converter</a>
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div className="mt-4 lg:mt-0">
