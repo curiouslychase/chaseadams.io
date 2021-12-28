@@ -153,7 +153,9 @@ const PercentageToHexadecimalConverterPage = () => {
                         >
                           {[0, 10, 20, 30, 40, 42, 50, 60, 70, 80, 90, 100].map(
                             (percentage) => (
-                              <option value={percentage}>{percentage}%</option>
+                              <option key={percentage} value={percentage}>
+                                {percentage}%
+                              </option>
                             )
                           )}
                         </select>
