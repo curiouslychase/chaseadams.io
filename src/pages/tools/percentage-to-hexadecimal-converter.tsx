@@ -182,10 +182,8 @@ const PercentageToHexadecimalConverterPage = () => {
                 </button>
               </form>
 
-              <div>
-                <h2 className="text-2xl text-center my-4">
-                  Hexadecimal Percentage Value
-                </h2>
+              <div className="mt-8">
+                <h2 className="text-2xl text-center mt-4">Result</h2>
                 <div className="flex flex-col items-center">
                   <code className="block my-5 font-bold highlighter text-slate-50 p-4 rounded text-3xl lg:text-5xl">
                     {values.hexadecimal}
