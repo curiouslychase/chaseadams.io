@@ -129,9 +129,9 @@ const PercentageToHexadecimalConverterPage = () => {
             <h2 className="text-center font-bold">{meta.description}</h2>
           </hgroup>
 
-          <div className="flex flex-col-reverse">
+          <div className="flex flex-col-reverse lg:w-[848px] lg:mx-auto">
             <Abstract />
-            <div className="flex flex-col lg:flex-row justify-between py-10">
+            <div className="flex flex-col justify-between py-10">
               <form className="flex flex-col items-center gap-5">
                 <div>
                   <label>
@@ -143,11 +143,11 @@ const PercentageToHexadecimalConverterPage = () => {
                       <option value="pick">Pick</option>
                     </select>{" "}
                     a percentage:
-                    <span className="lg:block">
+                    <span className="">
                       {percentageMode === "type" && (
-                        <span className="lg:block lg:text-5xl">
+                        <span className="">
                           <input
-                            className="my-5 ml-1 lg:mx-0 p-3 border rounded-lg bg-transparent border-slate-500 dark:border-blue-500 dark:text-white w-[6rem] text-center"
+                            className="my-5 ml-1 p-3 border rounded-lg bg-transparent border-slate-500 dark:border-blue-500 dark:text-white w-[6rem] text-center"
                             type="text"
                             value={values.percentage}
                             onChange={handlers.handlePercentageChange}
@@ -157,7 +157,7 @@ const PercentageToHexadecimalConverterPage = () => {
                       )}
                       {percentageMode === "pick" && (
                         <select
-                          className="bg-transparent text-center border rounded-lg p-3 my-5 ml-1 lg:mx-0 border-slate-500 dark:border-blue-500 dark:text-white lg:text-5xl"
+                          className="bg-transparent text-center border rounded-lg p-3 my-5 ml-1 border-slate-500 dark:border-blue-500 dark:text-white"
                           onChange={handlers.handlePercentageChange}
                         >
                           {[0, 10, 20, 30, 40, 42, 50, 60, 70, 80, 90, 100].map(
@@ -180,34 +180,10 @@ const PercentageToHexadecimalConverterPage = () => {
                 >
                   Convert Percentage to Hexadecimal
                 </button>
-
-                <div>
-                  <label className="flex flex-col items-center">
-                    Type a hexadecimal color (optional):
-                    <div className="my-5 flex items-center gap-3">
-                      <input
-                        aria-label="Hexadecimal Color"
-                        type="text"
-                        className="text-center rounded-lg border border-slate-500 dark:border-blue-400 lg:text-3xl p-3 inline-block bg-transparent dark:text-white"
-                        value={values.hexColor}
-                        onChange={handlers.handleHexColorChange}
-                      />
-                      <span
-                        className="inline-block w-[24px] h-[24px] rounded-full"
-                        style={{ backgroundColor: `${values.hexColor}` }}
-                      ></span>
-                    </div>
-                    {values.hexColor.length < 7 ? (
-                      <span className="block text-red-400">
-                        hexadecimal has to be 6 characters to use alpha value.
-                      </span>
-                    ) : null}
-                  </label>
-                </div>
               </form>
 
               <div>
-                <h2 className="text-3xl text-center my-4">
+                <h2 className="text-2xl text-center my-4">
                   Hexadecimal Percentage Value
                 </h2>
                 <div className="flex flex-col items-center">
@@ -215,33 +191,61 @@ const PercentageToHexadecimalConverterPage = () => {
                     {values.hexadecimal}
                   </code>
                 </div>
-                <div className="flex lg:justify-between mt-6 justify-around">
-                  <div className="flex flex-col items-center">
-                    <span>Color</span>
-                    <div
-                      className={`w-[128px] h-[128px] my-3`}
-                      style={{ backgroundColor: values.hexColor }}
-                    ></div>
-                    <span className="block">
-                      (<code>{values.hexColor}</code>)
-                    </span>
+                <div className="mt-10 p-5 border rounded-lg border-slate-500">
+                  <div className="text-center text-3xl">
+                    Apply it to a color
                   </div>
-                  <div className="flex flex-col items-center">
-                    <span>Color with Alpha Applied</span>
-                    <div
-                      className={`w-[128px] h-[128px]  my-3`}
-                      style={{
-                        backgroundColor: `${values.hexColor}${values.hexadecimal}`,
-                      }}
-                    ></div>
-                    <span className="block">
-                      (
-                      <code>
-                        {values.hexColor}
-                        {values.hexadecimal}
-                      </code>
-                      )
-                    </span>
+                  <div>
+                    <label className="flex flex-col items-center">
+                      Type a hexadecimal color:
+                      <div className="my-5 flex items-center gap-3">
+                        <input
+                          aria-label="Hexadecimal Color"
+                          type="text"
+                          className="text-center rounded-lg border border-slate-500 dark:border-blue-400 p-3 inline-block bg-transparent dark:text-white"
+                          value={values.hexColor}
+                          onChange={handlers.handleHexColorChange}
+                        />
+                        <span
+                          className="inline-block w-[24px] h-[24px] rounded-full"
+                          style={{ backgroundColor: `${values.hexColor}` }}
+                        ></span>
+                      </div>
+                      {values.hexColor.length < 7 ? (
+                        <span className="block text-red-400">
+                          hexadecimal has to be 6 characters to use alpha value.
+                        </span>
+                      ) : null}
+                    </label>
+                  </div>
+                  <div className="flex mt-6 justify-around">
+                    <div className="flex flex-col items-center">
+                      <span>Color</span>
+                      <div
+                        className={`w-[128px] h-[128px] my-3`}
+                        style={{ backgroundColor: values.hexColor }}
+                      ></div>
+                      <span className="block">
+                        (<code>{values.hexColor}</code>)
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span>Color with Alpha Applied</span>
+                      <div
+                        className={`w-[128px] h-[128px]  my-3`}
+                        style={{
+                          backgroundColor: `${values.hexColor}${values.hexadecimal}`,
+                        }}
+                      ></div>
+                      <span className="block">
+                        (
+                        <code>
+                          {values.hexColor}
+                          {values.hexadecimal}
+                        </code>
+                        )
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
