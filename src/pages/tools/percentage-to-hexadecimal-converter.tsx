@@ -119,7 +119,7 @@ const PercentageToHexadecimalConverterPage = () => {
       />
       <div className="page-container">
         <SiteHeader />
-        <div className="section-container pt-0">
+        <div className="section-container pt-8">
           <div>
             <span className="text-white text-sm uppercase bg-blue-500 dark:bg-blue-800 p-1 rounded-md">
               Tools
