@@ -1,13 +1,13 @@
-# Give the workflow a name. 
+# Give the workflow a name.
 name: Nightly Build
 
 # Trigger Workflow every midnight UTC
 
 on:
   schedule:
-    - cron: '0 0 * * *'  
-  workflow_dispatch: 
-#workflow_dispatch helps run workflow anytime with a single click. 
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+#workflow_dispatch helps run workflow anytime with a single click.
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,8 +22,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
       - uses: xmflsct/action-vercel-deployment@v0.5.3
         with:
           vercelToken: ${{ secrets.VERCEL_TOKEN }}
