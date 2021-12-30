@@ -16,6 +16,7 @@
     "build:rss": "tsc --outDir scripts/generate-rss/dist --p scripts/generate-rss && node scripts/generate-rss/dist/scripts/generate-rss/index.js"
   },
   "dependencies": {
+    "@stitches/react": "^1.2.6",
     "@storybook/addon-docs": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "@szhsin/react-menu": "^1.6.0",
@@ -27,6 +28,7 @@
     "next": "^12.0.7",
     "next-mdx-enhanced": "^5.0.0",
     "next-mdx-remote": "^3.0.8",
+    "next-themes": "^0.0.15",
     "prismjs": "^1.22.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
