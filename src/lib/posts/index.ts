@@ -58,7 +58,7 @@ export const getPostData = async (id: string) => {
       fullPath = path.join(postsDirectory, `${id}.mdx`);
       fileContents = fs.readFileSync(fullPath, "utf8");
     } catch (err) {
-      throw new Error(err);
+      throw new Error(err as string);
     }
   }
 
@@ -138,15 +138,15 @@ export function getSortedPostsData({ limit }: SortedPostsParams = {}) {
   return allPostData;
 }
 
+export type TagWithPostsWithoutTags = {
+  slug: string;
+  text: string;
+  posts: Array<Omit<PostMeta, "tags"> & { tags?: Array<Omit<Tag, "posts">> }>;
+};
+
 export function getTagsMap() {
   const allPostData = getSortedPostsData();
-  const allTags: {
-    [slug: string]: {
-      posts: Array<
-        Omit<PostMeta, "tags"> & { tags?: Array<Omit<Tag, "posts">> }
-      >;
-    };
-  } = {};
+  const allTags: { [slug: string]: TagWithPostsWithoutTags } = {};
 
   allPostData.forEach((post) => {
     const { id, tags, title, status, slug, date, filename, description } = post;
@@ -166,7 +166,7 @@ export function getTagsMap() {
         .map((tag) => ({ text: tag.text, slug: tag.slug }));
 
       if (!allTags[currentTagSlug]) {
-        allTags[currentTagSlug] = tag;
+        allTags[currentTagSlug] = { ...tag };
 
         allTags[currentTagSlug].posts = [
           {
