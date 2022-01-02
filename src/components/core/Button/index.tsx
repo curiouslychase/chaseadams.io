@@ -1,5 +1,5 @@
 import { VariantProps } from "@stitches/react";
-import { forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 import {
   lightTheme,
@@ -89,7 +89,9 @@ export const StyledButton = styled("button", {
 });
 
 type ButtonVariants = VariantProps<typeof StyledButton>;
-type ButtonOwnProps = StyledElementProps & ButtonVariants;
+type ButtonOwnProps = StyledElementProps &
+  ButtonVariants &
+  ComponentPropsWithoutRef<"button">;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonOwnProps>(
   ({ children, ...props }, forwardedRef) => {
