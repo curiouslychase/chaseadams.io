@@ -139,8 +139,14 @@ export function getSortedPostsData({ limit }: SortedPostsParams = {}) {
 }
 
 export function getTagsMap() {
-  const allPostData = getPosts();
-  const allTags: { [slug: string]: Tag } = {};
+  const allPostData = getSortedPostsData();
+  const allTags: {
+    [slug: string]: {
+      posts: Array<
+        Omit<PostMeta, "tags"> & { tags?: Array<Omit<Tag, "posts">> }
+      >;
+    };
+  } = {};
 
   allPostData.forEach((post) => {
     const { id, tags, title, status, slug, date, filename, description } = post;
@@ -153,29 +159,37 @@ export function getTagsMap() {
     }
 
     tags.forEach((tag) => {
-      if (!allTags[tag.slug]) {
-        allTags[tag.slug] = tag;
+      const currentTagSlug = tag.slug;
 
-        allTags[tag.slug].posts = [
+      const otherTags = tags
+        .filter((tag) => tag.slug !== currentTagSlug)
+        .map((tag) => ({ text: tag.text, slug: tag.slug }));
+
+      if (!allTags[currentTagSlug]) {
+        allTags[currentTagSlug] = tag;
+
+        allTags[currentTagSlug].posts = [
           {
-            id,
-            title,
-            filename,
-            slug,
-            status,
             date,
             description,
+            filename,
+            id,
+            slug,
+            status,
+            tags: otherTags,
+            title,
           },
         ];
       } else {
-        allTags[tag.slug].posts.push({
-          id,
-          title,
-          filename,
-          status,
-          slug,
+        allTags[currentTagSlug].posts.push({
           date,
           description,
+          filename,
+          id,
+          status,
+          slug,
+          tags: otherTags,
+          title,
         });
       }
     });
