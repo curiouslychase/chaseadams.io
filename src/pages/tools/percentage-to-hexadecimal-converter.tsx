@@ -142,12 +142,10 @@ const PercentageToHexadecimalConverterPage = () => {
               Tools
             </Text>
             <hgroup>
-              <Heading css={{ fontSize: "$2xl", mb: "$1", mt: "$2" }}>
-                {meta.title}
-              </Heading>
+              <Heading level="h1">{meta.title}</Heading>
               <Heading
                 css={{ fontStyle: "italic", fontWeight: "normal" }}
-                as="h2"
+                level="h2"
               >
                 {meta.description}
               </Heading>
@@ -223,81 +221,52 @@ const PercentageToHexadecimalConverterPage = () => {
                   <Flex
                     css={{
                       alignItems: "center",
+                      flex: "1 0 auto",
                       flexDirection: "column",
                       gap: "$5",
                       justifyContent: "space-around",
                       m: "$8",
-                      width: "100%",
                       "@lg": {
                         flexDirection: "row",
                       },
                     }}
                   >
-                    <div>
-                      <div>
-                        <Flex
-                          as="label"
+                    <Flex direction={"column"} justify={"between"}>
+                      <Flex
+                        as="label"
+                        css={{
+                          alignItems: "center",
+                        }}
+                      >
+                        <Box
+                          as="select"
                           css={{
-                            alignItems: "center",
-                            justifyContent: "space-around",
+                            backgroundColor: "transparent",
+                            borderStyle: "solid",
+                            borderWidth: "1px",
+                            borderRadius: "8px",
+                            fontSize: "$xl",
+                            mr: "$1",
+                            p: "$3",
+                            pr: "$1",
+                            [`.${darkTheme} &`]: {
+                              borderColor: "$blue400",
+                            },
+                            [`.${lightTheme} &`]: {
+                              borderColor: "$slate500",
+                            },
                           }}
+                          onChange={handlePercentageModeClick}
                         >
-                          <Box
-                            as="select"
-                            css={{
-                              backgroundColor: "transparent",
-                              borderStyle: "solid",
-                              borderWidth: "1px",
-                              borderRadius: "8px",
-                              fontSize: "$xl",
-                              mr: "$1",
-                              p: "$3",
-                              pr: "$1",
-                              [`.${darkTheme} &`]: {
-                                borderColor: "$blue400",
-                              },
-                              [`.${lightTheme} &`]: {
-                                borderColor: "$slate500",
-                              },
-                            }}
-                            onChange={handlePercentageModeClick}
-                          >
-                            <option value="type">Type</option>
-                            <option value="pick">Pick</option>
-                          </Box>{" "}
-                          a percentage:
-                          <span>
-                            {percentageMode === "type" && (
-                              <span>
-                                <Box
-                                  as="input"
-                                  css={{
-                                    backgroundColor: "transparent",
-                                    borderStyle: "solid",
-                                    borderWidth: "1px",
-                                    borderRadius: "8px",
-                                    fontSize: "$xl",
-                                    ml: "$1",
-                                    py: "$3",
-                                    textAlign: "center",
-                                    width: "6rem",
-                                    [`.${darkTheme} &`]: {
-                                      borderColor: "$blue400",
-                                    },
-                                    [`.${lightTheme} &`]: {
-                                      borderColor: "$slate500",
-                                    },
-                                  }}
-                                  type="text"
-                                  value={values.percentage}
-                                  onChange={handlers.handlePercentageChange}
-                                />{" "}
-                                %
-                              </span>
-                            )}
-                            {percentageMode === "pick" && (
+                          <option value="type">Type</option>
+                          <option value="pick">Pick</option>
+                        </Box>{" "}
+                        a percentage:
+                        <span>
+                          {percentageMode === "type" && (
+                            <span>
                               <Box
-                                as="select"
+                                as="input"
                                 css={{
                                   backgroundColor: "transparent",
                                   borderStyle: "solid",
@@ -305,8 +274,9 @@ const PercentageToHexadecimalConverterPage = () => {
                                   borderRadius: "8px",
                                   fontSize: "$xl",
                                   ml: "$1",
-                                  p: "$3",
-                                  pr: "$1",
+                                  py: "$3",
+                                  textAlign: "center",
+                                  width: "6rem",
                                   [`.${darkTheme} &`]: {
                                     borderColor: "$blue400",
                                   },
@@ -314,31 +284,56 @@ const PercentageToHexadecimalConverterPage = () => {
                                     borderColor: "$slate500",
                                   },
                                 }}
+                                type="text"
+                                value={values.percentage}
                                 onChange={handlers.handlePercentageChange}
-                              >
-                                {[
-                                  0,
-                                  10,
-                                  20,
-                                  30,
-                                  40,
-                                  42,
-                                  50,
-                                  60,
-                                  70,
-                                  80,
-                                  90,
-                                  100,
-                                ].map((percentage) => (
-                                  <option key={percentage} value={percentage}>
-                                    {percentage}%
-                                  </option>
-                                ))}
-                              </Box>
-                            )}
-                          </span>
-                        </Flex>
-                      </div>
+                              />{" "}
+                              %
+                            </span>
+                          )}
+                          {percentageMode === "pick" && (
+                            <Box
+                              as="select"
+                              css={{
+                                backgroundColor: "transparent",
+                                borderStyle: "solid",
+                                borderWidth: "1px",
+                                borderRadius: "8px",
+                                fontSize: "$xl",
+                                ml: "$1",
+                                p: "$3",
+                                pr: "$1",
+                                [`.${darkTheme} &`]: {
+                                  borderColor: "$blue400",
+                                },
+                                [`.${lightTheme} &`]: {
+                                  borderColor: "$slate500",
+                                },
+                              }}
+                              onChange={handlers.handlePercentageChange}
+                            >
+                              {[
+                                0,
+                                10,
+                                20,
+                                30,
+                                40,
+                                42,
+                                50,
+                                60,
+                                70,
+                                80,
+                                90,
+                                100,
+                              ].map((percentage) => (
+                                <option key={percentage} value={percentage}>
+                                  {percentage}%
+                                </option>
+                              ))}
+                            </Box>
+                          )}
+                        </span>
+                      </Flex>
                       <Box css={{ mt: "$8", textAlign: "center" }}>
                         <Button
                           radii={"full"}
@@ -354,7 +349,7 @@ const PercentageToHexadecimalConverterPage = () => {
                           </Text>
                         </Button>
                       </Box>
-                    </div>
+                    </Flex>
 
                     <Box css={{ mt: "$4" }}>
                       <Heading
@@ -391,7 +386,6 @@ const PercentageToHexadecimalConverterPage = () => {
                     css={{
                       borderLeftWidth: "2px",
                       borderStyle: "solid",
-                      mt: "$8",
                       p: "$5",
                       [`.${darkTheme} &`]: {
                         borderLeftColor: "$slate600",
@@ -399,7 +393,7 @@ const PercentageToHexadecimalConverterPage = () => {
                       [`.${lightTheme} &`]: {
                         borderLeftColor: "$slate300",
                       },
-                      "@lg": { mt: "0", maxWidth: "300px", width: "100%" },
+                      "@lg": { maxWidth: "300px", width: "100%" },
                     }}
                   >
                     <Box css={{ pt: "$5" }}>
