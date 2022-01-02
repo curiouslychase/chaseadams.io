@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { PageMetaHead } from "~/components/shared/PageMeta";
-import { getTags, getTagsMap } from "~/lib/posts";
+import { getTags, getTagsMap, TagWithPostsWithoutTags } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
 import { TagView } from "~/views/Tag";
 
@@ -27,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let tag: Tag = {
+  let tag: TagWithPostsWithoutTags = {
     text: "",
     slug: "",
     posts: [],
