@@ -8,7 +8,7 @@ import { Container } from "~/components/core/Container";
 import { Flex } from "~/components/core/Flex";
 import { Section } from "~/components/core/Section";
 import { Text } from "~/components/core/Text";
-import { Blob } from "~/components/SiteHeader/components/Blob";
+import { Blob, BlobBox } from "~/components/SiteHeader/components/Blob";
 import { ThemeSwitcher } from "~/components/ThemeSwitcher";
 import { darkTheme, lightTheme, styled } from "~/styles/stitches.config";
 
@@ -63,6 +63,8 @@ const ListItem = styled("li", {
   },
 });
 
+const HoverShowText = styled(Text, {});
+
 export const SiteHeader = () => {
   const { asPath } = useRouter();
   const [toggled, { toggle }] = useToggle();
@@ -104,6 +106,26 @@ export const SiteHeader = () => {
                     [`.${lightTheme} &`]: {
                       color: "$blue600",
                     },
+                    [`&:hover ${HoverShowText}`]: {
+                      display: "block",
+                      [`.${darkTheme} &`]: {
+                        color: "$blue400",
+                      },
+                      [`.${lightTheme} &`]: {
+                        color: "$blue600",
+                      },
+                    },
+                    [`&:hover ${BlobBox}`]: {
+                      // md:group-hover:translate-x-2 md:group-hover:w-10 md:group-hover:-ml-11 transition-all
+                      ml: "-$8",
+                      transform: "scale(.7) translateX(0.5rem)",
+                      [`.${darkTheme} &`]: {
+                        color: "$red500",
+                      },
+                      [`.${lightTheme} &`]: {
+                        color: "$red400",
+                      },
+                    },
                   }}
                 >
                   <span style={{ position: "absolute" }}>
@@ -130,7 +152,7 @@ export const SiteHeader = () => {
                     }}
                   >
                     <Text size={"3xl"}>c</Text>
-                    <Text
+                    <HoverShowText
                       css={{
                         display: "block",
                         "@md": {
@@ -140,9 +162,9 @@ export const SiteHeader = () => {
                       size={"3xl"}
                     >
                       hase
-                    </Text>
+                    </HoverShowText>
                     <Text size={"3xl"}> a</Text>
-                    <Text
+                    <HoverShowText
                       css={{
                         display: "block",
                         "@md": {
@@ -152,7 +174,7 @@ export const SiteHeader = () => {
                       size={"3xl"}
                     >
                       dams
-                    </Text>
+                    </HoverShowText>
                   </Flex>
                 </Flex>
               </Link>

@@ -19,6 +19,7 @@ export const colors = {
   purple500: "#a855f7",
   navy800: "#170b54",
   navy900: "#0b0528",
+  red400: "#f87171",
   red500: "#ef4444",
   slate50: "#f8fafc",
   slate100: "#f1f5f9",
