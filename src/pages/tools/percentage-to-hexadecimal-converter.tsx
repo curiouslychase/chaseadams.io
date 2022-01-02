@@ -1,9 +1,17 @@
 import { ChangeEvent, useCallback, useState } from "react";
 
-import { DarkModeContainer } from "~/components/shared/DarkModeContainer";
+import { Box } from "~/components/core/Box";
+import { Button } from "~/components/core/Button";
+import { Container } from "~/components/core/Container";
+import { Flex } from "~/components/core/Flex";
+import { Heading } from "~/components/core/Heading";
+import { Section } from "~/components/core/Section";
+import { Text } from "~/components/core/Text";
+import { PageContainer } from "~/components/shared/PageContainer";
 import { PageMetaHead } from "~/components/shared/PageMeta";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
+import { darkTheme, lightTheme } from "~/styles/stitches.config";
 
 type UsePercentageToHexadecimalConverterStateTuple = [
   values: {
@@ -110,222 +118,444 @@ const PercentageToHexadecimalConverterPage = () => {
   }, []);
 
   return (
-    <DarkModeContainer>
+    <>
       <PageMetaHead
         page={{
           title: meta.title,
           description: meta.description,
         }}
       />
-      <div className="page-container">
+      <PageContainer>
         <SiteHeader />
-        <div className="section-container pt-0">
+        <Container size={"3"}>
           <div>
-            <span className="text-white text-sm uppercase bg-blue-500 dark:bg-blue-800 p-1 rounded-md">
+            <Text
+              css={{
+                backgroundColor: "$blue500",
+                borderRadius: "4px",
+                color: "$white",
+                fontSize: "$md",
+                textTransform: "uppercase",
+                p: "$1",
+              }}
+            >
               Tools
-            </span>
+            </Text>
             <hgroup>
-              <h1 className="text-2xl mt-2 mb-1">
-                <span className="font-bold dark:text-slate-50">
-                  {meta.title}
-                </span>
-              </h1>
-              <h2 className="italic">{meta.description}</h2>
+              <Heading level="h1">{meta.title}</Heading>
+              <Heading
+                css={{ fontStyle: "italic", fontWeight: "normal" }}
+                level="h2"
+              >
+                {meta.description}
+              </Heading>
             </hgroup>
           </div>
 
-          <div className="flex flex-col-reverse">
-            <div className="lg:max-w-[40rem] lg:mx-auto">
+          <Flex css={{ flexDirection: "column-reverse" }}>
+            <Container css={{ maxWidth: "40rem", "@lg": { mx: "auto" } }}>
               <Abstract />
-            </div>
-            <div className="text-base my-10 lg:m-10">
-              <hgroup className="rounded-t-xl border-2 border-blue-400 border-b-slate-400 dark:border-b-slate-600 bg-slate-300 text-black dark:bg-slate-800 dark:text-slate-50 text-center py-4">
-                <h1 className="font-bold text-2xl">{meta.title}</h1>
-                <h2 className="italic text-sm mt-2 text-slate-600 dark:text-slate-300">
+            </Container>
+            <Box
+              css={{
+                fontSize: "$base",
+                my: "$8",
+              }}
+            >
+              <Box
+                as="hgroup"
+                css={{
+                  border: "2px solid $blue400",
+                  borderTopLeftRadius: "16px",
+                  borderTopRightRadius: "16px",
+                  borderStyle: "solid",
+                  borderWidth: "2px",
+                  py: "$6",
+                  textAlign: "center",
+                  [`.${darkTheme} &`]: {
+                    backgroundColor: "$slate800",
+                    borderBottomColor: "$slate600",
+                  },
+                  [`.${lightTheme} &`]: {
+                    backgroundColor: "$slate300",
+                    borderBottomColor: "$slate400",
+                  },
+                }}
+              >
+                <Heading css={{ fontSize: "$2xl" }}>{meta.title}</Heading>
+                <Heading
+                  as="h2"
+                  css={{
+                    fontSize: "$base",
+                    fontStyle: "italic",
+                    fontWeight: "normal",
+                    mt: "$2",
+                    [`.${darkTheme} &`]: {
+                      color: "$slate300",
+                    },
+                    [`.${lightTheme} &`]: {
+                      color: "$slate600",
+                    },
+                  }}
+                >
                   {meta.description}
-                </h2>
-              </hgroup>
-              <div className="border-2 border-t-0 border-blue-400 rounded-b-xl">
-                <div className="flex flex-col lg:gap-10 lg:flex-row justify-between">
-                  <form className="m-8 flex lg:flex-1 flex-col lg:flex-row justify-around items-center gap-5">
-                    <div>
-                      <div>
-                        <label>
-                          <select
-                            onChange={handlePercentageModeClick}
-                            className="border-slate-500 rounded-lg mr-1 p-3 pr-1 border bg-transparent dark:border-blue-400 dark:text-white"
-                          >
-                            <option value="type">Type</option>
-                            <option value="pick">Pick</option>
-                          </select>{" "}
-                          a percentage:
-                          <span>
-                            {percentageMode === "type" && (
-                              <span className="">
-                                <input
-                                  className=" ml-2 p-3 border rounded-lg bg-transparent border-slate-500 dark:border-blue-500 dark:text-white w-[6rem] text-center"
-                                  type="text"
-                                  value={values.percentage}
-                                  onChange={handlers.handlePercentageChange}
-                                />{" "}
-                                %
-                              </span>
-                            )}
-                            {percentageMode === "pick" && (
-                              <select
-                                className="bg-transparent text-center border rounded-lg p-3 my-5 ml-1 border-slate-500 dark:border-blue-500 dark:text-white"
+                </Heading>
+              </Box>
+              <Box
+                css={{
+                  borderColor: "$blue400",
+                  borderStyle: "solid",
+                  borderWidth: "2px",
+                  borderTopColor: "transparent",
+                  borderBottomLeftRadius: "16px",
+                  borderBottomRightRadius: "16px",
+                }}
+              >
+                <Flex
+                  css={{
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    "@lg": { flexDirection: "row", gap: "$10" },
+                  }}
+                >
+                  <Flex
+                    css={{
+                      alignItems: "center",
+                      flex: "1 0 auto",
+                      flexDirection: "column",
+                      gap: "$5",
+                      justifyContent: "space-around",
+                      m: "$8",
+                      "@lg": {
+                        flexDirection: "row",
+                      },
+                    }}
+                  >
+                    <Flex direction={"column"} justify={"between"}>
+                      <Flex
+                        as="label"
+                        css={{
+                          alignItems: "center",
+                        }}
+                      >
+                        <Box
+                          as="select"
+                          css={{
+                            backgroundColor: "transparent",
+                            borderStyle: "solid",
+                            borderWidth: "1px",
+                            borderRadius: "8px",
+                            fontSize: "$xl",
+                            mr: "$1",
+                            p: "$3",
+                            pr: "$1",
+                            [`.${darkTheme} &`]: {
+                              borderColor: "$blue400",
+                            },
+                            [`.${lightTheme} &`]: {
+                              borderColor: "$slate500",
+                            },
+                          }}
+                          onChange={handlePercentageModeClick}
+                        >
+                          <option value="type">Type</option>
+                          <option value="pick">Pick</option>
+                        </Box>{" "}
+                        a percentage:
+                        <span>
+                          {percentageMode === "type" && (
+                            <span>
+                              <Box
+                                as="input"
+                                css={{
+                                  backgroundColor: "transparent",
+                                  borderStyle: "solid",
+                                  borderWidth: "1px",
+                                  borderRadius: "8px",
+                                  fontSize: "$xl",
+                                  ml: "$1",
+                                  py: "$3",
+                                  textAlign: "center",
+                                  width: "6rem",
+                                  [`.${darkTheme} &`]: {
+                                    borderColor: "$blue400",
+                                  },
+                                  [`.${lightTheme} &`]: {
+                                    borderColor: "$slate500",
+                                  },
+                                }}
+                                type="text"
+                                value={values.percentage}
                                 onChange={handlers.handlePercentageChange}
-                              >
-                                {[
-                                  0,
-                                  10,
-                                  20,
-                                  30,
-                                  40,
-                                  42,
-                                  50,
-                                  60,
-                                  70,
-                                  80,
-                                  90,
-                                  100,
-                                ].map((percentage) => (
-                                  <option key={percentage} value={percentage}>
-                                    {percentage}%
-                                  </option>
-                                ))}
-                              </select>
-                            )}
-                          </span>
-                        </label>
-                      </div>
-                      <div className="text-center">
-                        <button
-                          className="mt-8 py-2 px-3 rounded-lg bg-blue-600 text-slate-50 dark:bg-blue-500 dark:disabled:bg-blue-100 dark:disabled:hover:bg-blue-100 dark:disabled:text-slate-400 dark:disabled:hover:text-slate-400 dark:disabled:hover:scale-100"
+                              />{" "}
+                              %
+                            </span>
+                          )}
+                          {percentageMode === "pick" && (
+                            <Box
+                              as="select"
+                              css={{
+                                backgroundColor: "transparent",
+                                borderStyle: "solid",
+                                borderWidth: "1px",
+                                borderRadius: "8px",
+                                fontSize: "$xl",
+                                ml: "$1",
+                                p: "$3",
+                                pr: "$1",
+                                [`.${darkTheme} &`]: {
+                                  borderColor: "$blue400",
+                                },
+                                [`.${lightTheme} &`]: {
+                                  borderColor: "$slate500",
+                                },
+                              }}
+                              onChange={handlers.handlePercentageChange}
+                            >
+                              {[
+                                0,
+                                10,
+                                20,
+                                30,
+                                40,
+                                42,
+                                50,
+                                60,
+                                70,
+                                80,
+                                90,
+                                100,
+                              ].map((percentage) => (
+                                <option key={percentage} value={percentage}>
+                                  {percentage}%
+                                </option>
+                              ))}
+                            </Box>
+                          )}
+                        </span>
+                      </Flex>
+                      <Box css={{ mt: "$8", textAlign: "center" }}>
+                        <Button
+                          radii={"full"}
                           type="button"
                           onClick={
                             handlers.handleConvertPercentageToHexadecimal
                           }
                         >
                           Convert
-                          <span className="hidden">
+                          <Text css={{ display: "none" }}>
                             {" "}
                             Percentage to Hexadecimal
-                          </span>
-                        </button>
-                      </div>
-                    </div>
+                          </Text>
+                        </Button>
+                      </Box>
+                    </Flex>
 
-                    <div>
-                      <h2 className="text-2xl text-center mt-4">Result</h2>
-                      <div className="flex flex-col items-center">
-                        <code className="block my-5 font-bold highlighter text-slate-50 p-4 rounded text-3xl lg:text-5xl">
+                    <Box css={{ mt: "$4" }}>
+                      <Heading
+                        as="h2"
+                        css={{ fontSize: "$2xl", textAlign: "center" }}
+                      >
+                        Result
+                      </Heading>
+                      <Flex
+                        css={{ flexDirection: "column", alignItems: "center" }}
+                      >
+                        <Box
+                          as="code"
+                          css={{
+                            backgroundColor: "$blue500",
+                            color: "$white",
+                            display: "block",
+                            fontSize: "$3xl",
+                            fontWeight: "bold",
+                            my: "$5",
+                            p: "$4",
+                            "@lg": {
+                              fontSize: "$5xl",
+                            },
+                          }}
+                        >
                           {values.hexadecimal}
-                        </code>
-                      </div>
-                    </div>
-                  </form>
+                        </Box>
+                      </Flex>
+                    </Box>
+                  </Flex>
 
-                  <div className="mt-8 lg:mt-0 lg:max-w-[300px] border-l-2 border-l-slate-300 dark:border-l-slate-600">
-                    <div className="p-5">
+                  <Box
+                    css={{
+                      borderLeftWidth: "2px",
+                      borderStyle: "solid",
+                      p: "$5",
+                      [`.${darkTheme} &`]: {
+                        borderLeftColor: "$slate600",
+                      },
+                      [`.${lightTheme} &`]: {
+                        borderLeftColor: "$slate300",
+                      },
+                      "@lg": { maxWidth: "300px", width: "100%" },
+                    }}
+                  >
+                    <Box css={{ pt: "$5" }}>
                       <div>
-                        <label className="flex flex-col items-center">
-                          <div className="text-center text-xl">
+                        <Flex
+                          as="label"
+                          css={{
+                            alignItems: "center",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <Box css={{ fontSize: "$xl", textAlign: "center" }}>
                             Apply it to a color
-                          </div>
+                          </Box>
                           <div>
-                            <div className="my-5 flex items-center gap-3">
-                              <input
+                            <Flex
+                              css={{
+                                alignItems: "center",
+                                gap: "$3",
+                                my: "$5",
+                              }}
+                            >
+                              <Box
+                                as="input"
+                                css={{
+                                  backgroundColor: "transparent",
+                                  borderRadius: "8px",
+                                  borderStyle: "solid",
+                                  borderWidth: "1px",
+                                  fontSize: "$base",
+                                  p: "$3",
+                                  textAlign: "center",
+                                  [`.${darkTheme} &`]: {
+                                    borderColor: "$blue500",
+                                  },
+                                  [`.${lightTheme} &`]: {
+                                    borderColor: "$slate500",
+                                  },
+                                }}
                                 aria-label="Hexadecimal Color"
                                 type="text"
-                                className="text-center rounded-lg border border-slate-500 dark:border-blue-400 p-3 inline-block bg-transparent dark:text-white"
                                 value={values.hexColor}
                                 onChange={handlers.handleHexColorChange}
                               />
 
-                              <span
-                                className="inline-block w-[24px] h-[24px] rounded-full"
+                              <Box
+                                css={{
+                                  width: "24px",
+                                  height: "24px",
+                                  borderRadius: "99999px",
+                                }}
                                 style={{
                                   backgroundColor: `${values.hexColor}`,
                                 }}
-                              ></span>
-                            </div>
+                              ></Box>
+                            </Flex>
 
                             {values.hexColor.length < 7 ? (
-                              <span className="block text-red-400 leading-1 pb-4">
+                              <Text
+                                css={{
+                                  color: "$red500",
+                                  display: "block",
+                                  pb: "$4",
+                                  lineHeight: "1",
+                                }}
+                              >
                                 hexadecimal has to be 6 characters to use alpha
                                 value.
-                              </span>
+                              </Text>
                             ) : null}
                           </div>
-                        </label>
+                        </Flex>
                       </div>
-                      <div className="flex flex-col justify-around">
-                        <div className="flex flex-col items-center">
-                          <div
-                            className={`w-full h-[64px]`}
+                      <Flex
+                        css={{
+                          flexDirection: "column",
+                          justifyContent: "space-around",
+                        }}
+                      >
+                        <Flex
+                          css={{
+                            alignItems: "center",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <Box
+                            css={{ width: "100%", height: "64px", my: "$3" }}
                             style={{ backgroundColor: values.hexColor }}
-                          ></div>
-                          <span className="block mt-2">
+                          ></Box>
+                          <Text css={{ display: "block", mt: "$2" }}>
                             (<code>{values.hexColor}</code>)
-                          </span>
-                        </div>
-                        <div className="flex flex-col mt-4 items-center">
+                          </Text>
+                        </Flex>
+                        <Flex
+                          css={{
+                            alignItems: "center",
+                            flexDirection: "column",
+                            mt: "$4",
+                          }}
+                        >
                           <span>Alpha Applied</span>
-                          <div
-                            className={`w-full h-[64px]  my-3`}
+                          <Box
+                            css={{ width: "100%", height: "64px", my: "$3" }}
                             style={{
                               backgroundColor: `${values.hexColor}${values.hexadecimal}`,
                             }}
-                          ></div>
-                          <span className="block">
+                          ></Box>
+
+                          <Text css={{ display: "block", mt: "$2" }}>
                             (
                             <code>
                               {values.hexColor}
                               {values.hexadecimal}
                             </code>
                             )
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                          </Text>
+                        </Flex>
+                      </Flex>
+                    </Box>
+                  </Box>
+                </Flex>
+              </Box>
+            </Box>
+          </Flex>
+        </Container>
         <SiteFooter />
-      </div>
-    </DarkModeContainer>
+      </PageContainer>
+    </>
   );
 };
 
 const Abstract = () => {
   return (
-    <div className="text-base">
-      <section className="mt-8">
-        <h2 className="mb-3 text-2xl">Who It&apos;s For</h2>
-        <p className="py-2">
+    <Box css={{ fontSize: "$base", lineHeight: "1.5" }}>
+      <Section size={"3"}>
+        <Heading as="h2" css={{ fontSize: "$2xl", mb: "$3" }}>
+          Who It&apos;s For
+        </Heading>
+        <Box as="p" css={{ pt: "$4" }}>
           Any developer or designer who needs to convert a percentage
           (particularly an opacity percentage) to a hexadecimal alpha value.
-        </p>
-      </section>
-      <section className="mt-8">
-        <h2 className="mb-3 text-2xl">Why I Built It</h2>
-        <p className="py-2">
+        </Box>
+      </Section>
+      <Section size={"3"}>
+        <Heading as="h2" css={{ fontSize: "$2xl", mb: "$3" }}>
+          Why I Built It
+        </Heading>
+
+        <Box as="p" css={{ pt: "$4" }}>
           I found myself constantly searching for a conversion table for opacity
           in percentage to an alpha value (opacity as a number between 0.0 and
           1.0).
-        </p>
-        <p className="py-2">
+        </Box>
+
+        <Box as="p" css={{ pt: "$4" }}>
           I wanted to build something simple that let me type or pick a
           percentage and have it automatically convert into the alpha equivalent
           in hexadecimal. This also gave me the chance to understand hexadecimal
           conversion with a concrete example.
-        </p>
-      </section>
-    </div>
+        </Box>
+      </Section>
+    </Box>
   );
 };
 

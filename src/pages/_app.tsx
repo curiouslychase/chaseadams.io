@@ -1,14 +1,15 @@
+import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import React, { FC, useCallback } from "react";
 import { useEffect } from "react";
 
-import { ThemeSwitcherProvider } from "~/contexts/ThemeContext";
-import "../styles/global.css";
+import { darkTheme, globalStyles, lightTheme } from "~/styles/stitches.config";
 
 import * as gtag from "../utils/gtag";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+  globalStyles();
   const router = useRouter();
 
   const handleRouteChange = useCallback((url: URL) => {
@@ -25,9 +26,16 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   }, [router.events]);
 
   return (
-    <ThemeSwitcherProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      value={{
+        light: lightTheme.className,
+        dark: darkTheme.className,
+      }}
+    >
       <Component {...pageProps} />
-    </ThemeSwitcherProvider>
+    </ThemeProvider>
   );
 };
 

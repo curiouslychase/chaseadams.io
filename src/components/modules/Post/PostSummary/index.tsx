@@ -1,41 +1,107 @@
 import Link from "next/link";
 
+import { Box } from "~/components/core/Box";
+import { Flex } from "~/components/core/Flex";
+import { Heading } from "~/components/core/Heading";
+import { Text } from "~/components/core/Text";
 import type { PostMeta, Tag as TagType } from "~/lib/posts/types";
+import { darkTheme, lightTheme } from "~/styles/stitches.config";
 
 export const PostSummary = ({ post }: { post: PostMeta }) => {
   return (
-    <article
-      className="group bg-slate-200 dark:bg-slate-900 hover:bg-blue-700 flex flex-col flex-1 group hover:ring-2 hover:ring-blue-500 dark:hover:ring-blue-800 p-5 rounded-lg transition hover:scale-105"
+    <Flex
+      as="article"
+      css={{
+        borderRadius: "8px",
+        flexDirection: "column",
+        p: "$6",
+        transition: "all .25s",
+        "&:hover": {
+          transform: "scale(1.05)",
+        },
+        [`.${darkTheme} &`]: {
+          backgroundColor: "$navy900",
+        },
+        [`.${lightTheme} &`]: {
+          backgroundColor: "$slate200",
+        },
+      }}
       key={post.id}
     >
-      <div className="pb-2 text-sm text-slate-500 group-hover:text-slate-300 dark:text-slate-400">
+      <Text
+        css={{
+          [`.${darkTheme} &`]: {
+            color: "$slate400",
+          },
+          [`.${lightTheme} &`]: {
+            color: "$slate500",
+          },
+          pb: "$3",
+        }}
+        size={"md"}
+      >
         Posted on <time dateTime={post.date}>{post.date} </time>
-      </div>
-      <h3>
+      </Text>
+      <Heading as="h3" level={"h5"}>
         <Link href={`/posts/${post.slug}`}>
-          <a className="block font-bold text-2xl text-blue-600 group-hover:text-slate-50 hover:text-white dark:text-slate-300 dark:group-hover:text-blue-400 pb-5">
+          <Text
+            as="a"
+            css={{
+              display: "block",
+              pb: "$5",
+              [`.${darkTheme} &`]: {
+                color: "$slate300",
+                "&:hover": {
+                  color: "$blue400",
+                },
+              },
+              [`.${lightTheme} &`]: {
+                color: "$blue600",
+                "&:hover": {
+                  color: "$blue700",
+                },
+              },
+            }}
+          >
             {post.title}
-          </a>
+          </Text>
         </Link>
-      </h3>
-      <div className="pb-5 text-md text-slate-600 group-hover:text-slate-200 dark:text-slate-300">
+      </Heading>
+      <Box
+        css={{
+          fontSize: "$lg",
+          lineHeight: "1.75rem",
+          pb: "$5",
+          [`.${darkTheme} &`]: {
+            color: "$slate400",
+          },
+          [`.${lightTheme} &`]: {
+            color: "$slate600",
+          },
+        }}
+      >
         {post.description}
-      </div>
+      </Box>
       {post.tags?.length ? <Tags tags={post.tags} /> : null}
-    </article>
+    </Flex>
   );
 };
 
 const Tags = ({ tags }: { tags: Array<TagType> }) => {
   return (
-    <div className="text-sm pt-1 m-b-start-auto">
+    <Box
+      css={{
+        marginBlockStart: "auto",
+        pt: "$1",
+      }}
+    >
       {tags?.map((tag, idx) => (
-        <span key={tag.slug}>
+        <Text size={"base"} key={tag.slug}>
           <Tag tag={tag} />
           {tags && idx < tags?.length - 1 ? ", " : ""}
-        </span>
+        </Text>
       ))}
-    </div>
+    </Box>
   );
 };
 
@@ -43,9 +109,26 @@ const Tag = ({ tag }: { tag: TagType }) => {
   return (
     <span key={tag.slug}>
       <Link href={tag.slug}>
-        <a className="group-hover:text-slate-100 dark:text-blue-200 dark:hover:text-blue-400">
+        <Text
+          as="a"
+          css={{
+            [`.${darkTheme} &`]: {
+              color: "$blue200",
+              "&:hover": {
+                color: "$blue400",
+              },
+            },
+            [`.${lightTheme} &`]: {
+              color: "$blue400",
+              "&:hover": {
+                color: "$blue600",
+              },
+            },
+          }}
+          size={"sm"}
+        >
           {tag.text}
-        </a>
+        </Text>
       </Link>
     </span>
   );

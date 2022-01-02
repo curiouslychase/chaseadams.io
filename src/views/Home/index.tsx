@@ -1,58 +1,149 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Box } from "~/components/core/Box";
+import { Button } from "~/components/core/Button";
+import { Container } from "~/components/core/Container";
+import { Flex } from "~/components/core/Flex";
+import { Heading } from "~/components/core/Heading";
+import { Section } from "~/components/core/Section";
+import { SectionHeading } from "~/components/core/SectionHeading";
+import { Text } from "~/components/core/Text";
 import { PostSummaries } from "~/components/modules/Post/PostSummaries";
+import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { AllPosts, PostMeta } from "~/lib/posts/types";
+import { darkTheme, lightTheme } from "~/styles/stitches.config";
 
 export const HomeView = ({ allPostsData }: { allPostsData: AllPosts }) => {
   return (
-    <div className="page-container">
+    <PageContainer>
       <SiteHeader />
-      <div className="section-container">
-        <div className="flex items-center gap-10 flex-col lg:flex-row">
-          <Image src={"/img/chase-hex.png"} width={350} height={350} />
-          <div className="flex flex-col">
-            <p className="text-blue-700 dark:text-blue-400 text-4xl font-bold pb-4">
-              Hey, I'm Chase!
-            </p>
-            <h2 className="leading-normal text-2xl">
-              I create strong, resilient teams and build human-centric software.
-            </h2>
-            <div className="flex flex-col xl:flex-row xl:items-center lg:items-start justify-between mt-0 xl:mt-8">
-              <Link href="/about-me">
-                <a className="inline-block py-4">Learn More About Me</a>
-              </Link>
-              <div className="m-b-start-auto justify-self-end xl:mt-0 lg:mt-2">
-                <Link href="/posts">
-                  <a className="button cta">Read my blog</a>
+      <Container size={"3"}>
+        <Section size={{ "@initial": "none", "@bp1": "loose" }}>
+          <Flex
+            direction={{ "@initial": "column", "@bp1": "row" }}
+            align={"center"}
+            css={{ "@bp1": { alignItems: "center", gap: "$8" } }}
+          >
+            <Box css={{ maxWidth: "50%" }}>
+              <Image src={"/img/chase-hex.png"} width={350} height={350} />
+            </Box>
+            <Flex
+              direction={"column"}
+              css={{
+                mx: "$5",
+                "@bp1": {
+                  m: 0,
+                },
+              }}
+            >
+              <Box
+                as="p"
+                css={{
+                  fontSize: "$4xl",
+                  fontWeight: "bold",
+                  pb: "$4",
+                  textAlign: "center",
+                  "@bp1": {
+                    textAlign: "left",
+                  },
+                  [`.${darkTheme} &`]: {
+                    color: "$blue400",
+                  },
+                  [`.${lightTheme} &`]: {
+                    color: "$blue700",
+                  },
+                }}
+              >
+                Hey, I'm Chase!
+              </Box>
+              <Heading
+                as="h2"
+                level="h3"
+                css={{
+                  fontWeight: "normal",
+                  textAlign: "center",
+                  "@bp1": {
+                    textAlign: "left",
+                  },
+                }}
+              >
+                I create strong, resilient teams and build human-centric
+                software.
+              </Heading>
+              <Flex
+                align={{ "@initial": "start", "@md": "center" }}
+                direction={{ "@initial": "column", "@md": "row" }}
+                justify={"between"}
+                css={{
+                  "@md": {
+                    mt: "$8",
+                  },
+                }}
+              >
+                <Link href="/about-me" passHref>
+                  <Text
+                    as="a"
+                    css={{
+                      mx: "auto",
+                      py: "$4",
+                      "@bp1": {
+                        mx: "inherit",
+                      },
+                    }}
+                  >
+                    Learn More About Me
+                  </Text>
                 </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <CurrentWork shouldRender={false} />
-      <Writing posts={allPostsData} />
+                <Box
+                  css={{
+                    mt: "$6",
+                    mx: "auto",
+                    "@bp1": {
+                      mt: 0,
+                      mx: "inherit",
+                    },
+                  }}
+                >
+                  <Link href="/posts" passHref>
+                    <Button as="a" color={"blue"} radii={"full"}>
+                      Read my blog
+                    </Button>
+                  </Link>
+                </Box>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Section>
+        <CurrentWork shouldRender={false} />
+        <Writing posts={allPostsData} />
+      </Container>
       <SiteFooter />
-    </div>
+    </PageContainer>
   );
 };
 
 const Writing = ({ posts }: { posts: Array<PostMeta> }) => {
   return (
-    <div className="section-container">
-      <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
-        What I'm Writing
-      </h2>
+    <Section size={"loose"}>
+      <SectionHeading>What I'm Writing</SectionHeading>
       <PostSummaries posts={posts} />
-      <div className="group flex justify-end items-center pt-8">
-        <Link href="/posts">
-          <a className="button cta">Start reading the blog</a>
+      <Flex
+        align={"center"}
+        justify={{ "@initial": "center", "@bp1": "end" }}
+        css={{
+          pt: "$8",
+        }}
+      >
+        <Link href="/posts" passHref>
+          <Button as="a" radii={"full"}>
+            Start reading the blog
+          </Button>
         </Link>
-      </div>
-    </div>
+      </Flex>
+    </Section>
   );
 };
 
@@ -61,18 +152,16 @@ const CurrentWork = ({ shouldRender }: { shouldRender: boolean }) => {
   if (!shouldRender) return null;
 
   return (
-    <div className="section-container">
-      <h2 className="uppercase font-bold text-blue-700 dark:text-blue-400 pb-4">
-        What I'm Working On
-      </h2>
-      <div className="grid lg:grid-cols-2">
+    <Section size={"loose"}>
+      <SectionHeading>What I'm Working On</SectionHeading>
+      <Flex css={{ flexBasis: "3fr" }}>
         <div>
-          <h3 className="font-bold text-2xl">Murmur</h3>
+          <Heading level="h3">Murmur</Heading>
         </div>
         <div>
-          <h3 className="font-bold text-2xl">Pizza</h3>
+          <Heading level={"h3"}>Pizza</Heading>
         </div>
-      </div>
-    </div>
+      </Flex>
+    </Section>
   );
 };

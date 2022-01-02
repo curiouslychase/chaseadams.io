@@ -1,8 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-import { DarkModeContainer } from "~/components/shared/DarkModeContainer";
 import { PageMetaHead } from "~/components/shared/PageMeta";
-import { getTags, getTagsMap } from "~/lib/posts";
+import { getTags, getTagsMap, TagWithPostsWithoutTags } from "~/lib/posts";
 import type { Tag } from "~/lib/posts/types";
 import { TagView } from "~/views/Tag";
 
@@ -10,10 +9,10 @@ type Props = { tag: Tag };
 
 const TagPage: NextPage<Props> = ({ tag }) => {
   return (
-    <DarkModeContainer>
+    <>
       <PageMetaHead page={{ title: `Posts tagged with "${tag.text}"` }} />
       <TagView tag={tag} />
-    </DarkModeContainer>
+    </>
   );
 };
 
@@ -28,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let tag: Tag = {
+  let tag: TagWithPostsWithoutTags = {
     text: "",
     slug: "",
     posts: [],
