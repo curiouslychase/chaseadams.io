@@ -1,7 +1,10 @@
 import Link from "next/link";
 
+import { Box } from "~/components/core/Box";
+import { Container } from "~/components/core/Container";
 import { PostSummaries } from "~/components/modules/Post/PostSummaries";
-import { ViewH1 } from "~/components/shared/PageTitle";
+import { PostSummaryHeader } from "~/components/modules/Post/PostSummaryHeader";
+import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
 import type { Tag } from "~/lib/posts/types";
@@ -10,18 +13,19 @@ type Props = { tag: Tag };
 
 export const TagView = ({ tag }: Props) => {
   return (
-    <div className="page-container">
+    <PageContainer>
       <SiteHeader />
-      <div className="section-container">
-        <ViewH1>
-          Tagged with "{tag.text}" ({tag.posts.length})
-        </ViewH1>
+      <Container css={{ pb: "$10" }} size={"3"}>
+        <PostSummaryHeader
+          title={`Tagged with "${tag.text}"`}
+          count={tag.posts.length}
+        />
         <PostSummaries posts={tag.posts} />
-        <div className="pt-8">
+        <Box css={{ pt: "$8" }}>
           <Link href="/tags">Back to all tags</Link>
-        </div>
-      </div>
+        </Box>
+      </Container>
       <SiteFooter />
-    </div>
+    </PageContainer>
   );
 };

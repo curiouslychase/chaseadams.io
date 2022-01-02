@@ -1,8 +1,25 @@
 import Head from "next/head";
 
-import { ViewH1 } from "~/components/shared/PageTitle";
+import { Box } from "~/components/core/Box";
+import { Container } from "~/components/core/Container";
+import { Heading } from "~/components/core/Heading";
+import { PageContainer } from "~/components/shared/PageContainer";
 import { SiteFooter } from "~/components/SiteFooter";
 import { SiteHeader } from "~/components/SiteHeader";
+import { styled } from "~/styles/stitches.config";
+
+const List = styled("ul", {
+  listStyle: "disc",
+  pl: "$4",
+  py: "$4",
+});
+
+const ListItem = styled("li", {
+  py: "$1",
+  "@bp1": {
+    ml: "$8",
+  },
+});
 
 export const AboutView = () => {
   return (
@@ -10,66 +27,63 @@ export const AboutView = () => {
       <Head>
         <title>About Me - Chase Adams</title>
       </Head>
-      <div className="page-container">
+
+      <PageContainer>
         <SiteHeader />
-        <div className="section-container">
-          <ViewH1>About Me</ViewH1>
-          <h2>In 30 Seconds</h2>
-          <h3>I enjoy...</h3>
-          <ul className="list-disc pl-4 py-4">
-            <li className="ml-8 py-1">
-              🧰 building software that lowers friction so that makers can turn
-              their ideas into reality.
-            </li>
-            <li className="ml-8 py-1">👨‍🔬 learning new concepts and ideas.</li>
-            <li className="ml-8 py-1">🚀 teaching others.</li>
-            <li className="ml-8 py-1">🧠 exploring ideas on consciousness.</li>
-          </ul>
-          <h2>Now...</h2>
-          <ul className="list-disc pl-4 py-4">
-            <li className="ml-8 py-1">
-              🦄 I build software at <a href="https://murmur.com">Murmur</a>.
-            </li>
-            <li className="ml-8 py-1">
-              🧪 I experiment with various tools, systems & processes to learn
-              to live more effectively.
-            </li>
-            <li className="ml-8 py-1">↗️ My favorite shape is an arrow.</li>
-            <li className="ml-8 py-1">🏜 I live in Las Vegas, Nevada, USA.</li>
-          </ul>
-          <h3>At Home, I'm...</h3>
-          <ul className="list-disc pl-4 py-4">
-            <li className="ml-8 py-1">
-              Hiking & birding with my wife & daughter.
-            </li>
-            <li className="ml-8 py-1">Hanging out with my awesome family.</li>
-            <li className="ml-8 py-1">Walking my dogs.</li>
-            <li className="ml-8 py-1">
-              Building train tracks with my daughter.
-            </li>
-            <li className="ml-8 py-1">
-              Making cold brew coffees & Americanos.
-            </li>
-          </ul>
-          <h3>My Interests Include...</h3>
-          <ul className="list-disc pl-4 py-4">
-            <li className="ml-8 py-1">
-              Experimenting with productivity systems & processes.
-            </li>
-            <li className="ml-8 py-1">Making things with my 3D printer.</li>
-            <li className="ml-8 py-1">Hacking on software ideas.</li>
-            <li className="ml-8 py-1">
-              Writing about the process of building software.
-            </li>
-            <li className="ml-8 py-1">Reading and reviewing books.</li>
-            <li className="ml-8 py-1">
-              Teaching others about technology & productivity.
-            </li>
-          </ul>
-        </div>
+        <Container size={"3"}>
+          <Box css={{ px: "$6" }}>
+            <Heading>About Me</Heading>
+            <Heading level={"h2"}>In 30 Seconds</Heading>
+            <Heading level={"h3"}>I enjoy...</Heading>
+            <List>
+              <ListItem>
+                🧰 building software that lowers friction so that makers can
+                turn their ideas into reality.
+              </ListItem>
+              <ListItem>👨‍🔬 learning new concepts and ideas.</ListItem>
+              <ListItem>🚀 teaching others.</ListItem>
+              <ListItem>🧠 exploring ideas on consciousness.</ListItem>
+            </List>
+            <Heading level={"h2"}>Now...</Heading>
+            <List>
+              <ListItem>
+                🦄 I build software at <a href="https://murmur.com">Murmur</a>.
+              </ListItem>
+              <ListItem>
+                🧪 I experiment with various tools, systems & processes to learn
+                to live more effectively.
+              </ListItem>
+              <ListItem>↗️ My favorite shape is an arrow.</ListItem>
+              <ListItem>🏜 I live in Las Vegas, Nevada, USA.</ListItem>
+            </List>
+            <Heading level={"h3"}>At Home, I'm...</Heading>
+            <List>
+              <ListItem>Hiking & birding with my wife & daughter.</ListItem>
+              <ListItem>Hanging out with my awesome family.</ListItem>
+              <ListItem>Walking my dogs.</ListItem>
+              <ListItem>Building train tracks with my daughter.</ListItem>
+              <ListItem>Making cold brew coffees & Americanos.</ListItem>
+            </List>
+            <Heading level={"h3"}>My Interests Include...</Heading>
+            <List>
+              <ListItem>
+                Experimenting with productivity systems & processes.
+              </ListItem>
+              <ListItem>Making things with my 3D printer.</ListItem>
+              <ListItem>Hacking on software ideas.</ListItem>
+              <ListItem>
+                Writing about the process of building software.
+              </ListItem>
+              <ListItem>Reading and reviewing books.</ListItem>
+              <ListItem>
+                Teaching others about technology & productivity.
+              </ListItem>
+            </List>
+          </Box>
+        </Container>
 
         <SiteFooter />
-      </div>
+      </PageContainer>
     </>
   );
 };
