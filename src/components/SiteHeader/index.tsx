@@ -2,8 +2,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 
+import { Box } from "~/components/core/Box";
+import { Button } from "~/components/core/Button";
+import { Container } from "~/components/core/Container";
+import { Flex } from "~/components/core/Flex";
+import { Section } from "~/components/core/Section";
+import { Text } from "~/components/core/Text";
 import { Blob } from "~/components/SiteHeader/components/Blob";
 import { ThemeSwitcher } from "~/components/ThemeSwitcher";
+import { darkTheme, lightTheme, styled } from "~/styles/stitches.config";
 
 type UseToggleTuple = [toggled: boolean, handlers: { toggle: () => void }];
 
@@ -17,93 +24,232 @@ const useToggle = (initialOpen = false): UseToggleTuple => {
   return [toggled, { toggle }];
 };
 
+const StyledSiteHeaderButton = styled("a", {
+  borderRadius: "4px",
+  display: "block",
+  p: "$6",
+  "@bp1": {
+    p: "$4",
+  },
+  [`.${darkTheme} &`]: {
+    "&.active, &:hover": {
+      background: "$blue500",
+      color: "$slate50",
+    },
+  },
+  [`.${lightTheme} &`]: {
+    "&.active, &:hover": {
+      background: "$blue500",
+      color: "$slate50",
+    },
+  },
+});
+
+const ListItem = styled("li", {
+  borderBottomStyle: "solid",
+  borderBottomWidth: "2px",
+  "&:last-child": {
+    borderBottom: "none",
+  },
+  "@bp1": {
+    borderBottom: "none",
+    pr: "$4",
+  },
+  [`.${darkTheme} &`]: {
+    borderColor: `$navy800`,
+  },
+  [`.${lightTheme} &`]: {
+    borderColor: `$slate300`,
+  },
+});
+
 export const SiteHeader = () => {
   const { asPath } = useRouter();
   const [toggled, { toggle }] = useToggle();
 
   return (
-    <div className="md:m-0 -my-4">
-      <div className="fixed md:relative z-10 bg-slate-100 dark:bg-black section-container">
-        <nav className="site-header flex justify-between pb-0 text-base md:text-lg">
-          <div>
-            <Link href="/">
-              <a className="group flex items-center h-[64px] w-[64px] relative text-blue-600 dark:text-blue-400">
-                <span className="absolute">
-                  <Blob />
-                </span>
-                <span className="flex ml-3.5 text-black dark:text-slate-100 md:text-slate-100 md:dark:text-black z-10 text-2xl md:text-3xl font-bold mb-1 group-hover:text-black dark:group-hover:text-slate-100 md:group-hover:text-blue-600 md:dark:group-hover:text-blue-400 transition-all">
-                  <span>c</span>
-                  <span className="md:hidden md:group-hover:inline">hase</span>
-                  <span className="md:group-hover:ml-2 md:ml-0 sm:ml-2">
-                    {" "}
-                    a
+    <Container size={"3"}>
+      <Section as="div" css={{}} size={{ xs: "none", "@bp1": "lg" }}>
+        <Box
+          as="nav"
+          css={{
+            backgroundColor: "$background",
+            position: "fixed",
+            top: 0,
+            width: "100%",
+            zIndex: "100",
+            p: "$4",
+            "@bp2": {
+              position: "relative",
+              p: 0,
+            },
+          }}
+        >
+          <Flex css={{ alignItems: "center", justifyContent: "space-between" }}>
+            <Box>
+              <Link href="/">
+                <Flex
+                  as="a"
+                  css={{
+                    alignItems: "center",
+                    position: "relative",
+                    height: "64px",
+                    width: "64px",
+                    [`.${darkTheme} &`]: {
+                      color: "$blue600",
+                      "@bp2": {
+                        color: "$blue400",
+                      },
+                    },
+                    [`.${lightTheme} &`]: {
+                      color: "$blue600",
+                    },
+                  }}
+                >
+                  <span style={{ position: "absolute" }}>
+                    <Blob />
                   </span>
-                  <span className="md:hidden md:group-hover:inline">dams</span>
-                </span>
-              </a>
-            </Link>
-          </div>
-          <div className="flex md:hidden items-center">
-            <button
-              className="rounded-full border-2 border-white px-4 py-2 lowercase"
-              onClick={toggle}
-            >
-              {!toggled ? "Menu" : "X Close"}
-            </button>
-          </div>
-          <div
-            className={`md:flex md:bg-transparent md:relative ${
-              toggled
-                ? "bg-slate-50 dark:bg-black border-t border-slate-200 dark:border-slate-700 md:border-none divide-y fixed md:top-0 top-[128px] bottom-0 left-0 right-0 z-10"
-                : "hidden"
-            }`}
-          >
-            <ul className="flex flex-col md:flex-row gap-0 md:gap-6 items-start md:items-center md:justify-end lowercase">
-              <li className="block md:hidden w-full border-b border-slate-20 dark:border-slate-700 md:border-none">
-                <Link href="/">
-                  <a
-                    className="block md:p-0 p-8 md:inline-block w-full hover:bg-blue-600 hover:text-slate-50 dark:text-slate-300 dark:hover:text-slate-50 transition-all"
-                    onClick={() => asPath === "/" && toggle()}
+                  <Flex
+                    css={{
+                      fontWeight: "bold",
+                      ml: "$3",
+                      mb: "$2",
+                      zIndex: 10,
+                      [`.${darkTheme} &`]: {
+                        color: "$white",
+                        "@bp2": {
+                          color: "$black",
+                        },
+                      },
+                      [`.${lightTheme} &`]: {
+                        color: "$black",
+                        "@bp2": {
+                          color: "$slate50",
+                        },
+                      },
+                    }}
                   >
-                    Home
-                  </a>
-                </Link>
-              </li>
-              <li className="w-full md:w-fit border-b border-slate-20 dark:border-slate-700 md:border-none">
-                <Link href="/posts">
-                  <a
-                    className={`${
-                      asPath === "/posts/" ? "md:button md:active" : "md:button"
-                    } block w-full rounded-none p-8 md:p-4 md:rounded-3xl hover:bg-blue-600 hover:text-slate-50 dark:text-slate-300 dark:hover:text-slate-50 transition-all`}
-                    onClick={() => asPath === "/posts/" && toggle()}
-                  >
-                    Blog
-                  </a>
-                </Link>
-              </li>
-              <li className="w-full md:w-fit border-b border-slate-20 dark:border-slate-700 md:border-none">
-                <Link href="/about-me">
-                  <a
-                    className={`${
-                      asPath === "/about-me/"
-                        ? "md:button md:active"
-                        : "md:button"
-                    } block w-full rounded-none p-8 md:p-4 md:rounded-3xl hover:bg-blue-600 hover:text-slate-50 dark:text-slate-300 dark:hover:text-slate-50 transition-all`}
-                    onClick={() => asPath === "/about-me/" && toggle()}
-                  >
-                    About
-                  </a>
-                </Link>
-              </li>
-            </ul>
-            <div className="flex items-center justify-center pt-16 md:hidden w-full border-b border-slate-20 dark:border-slate-700 md:border-none">
-              <ThemeSwitcher />
-            </div>
-          </div>
-        </nav>
-      </div>
+                    <Text size={"3xl"}>c</Text>
+                    <Text
+                      css={{
+                        display: "block",
+                        "@md": {
+                          display: "none",
+                        },
+                      }}
+                      size={"3xl"}
+                    >
+                      hase
+                    </Text>
+                    <Text size={"3xl"}> a</Text>
+                    <Text
+                      css={{
+                        display: "block",
+                        "@md": {
+                          display: "none",
+                        },
+                      }}
+                      size={"3xl"}
+                    >
+                      dams
+                    </Text>
+                  </Flex>
+                </Flex>
+              </Link>
+            </Box>
+            <Box>
+              <Button
+                css={{
+                  "@bp1": {
+                    display: "none",
+                  },
+                }}
+                color={"hollow"}
+                radii={"full"}
+                spacing={"lg"}
+                onClick={toggle}
+              >
+                {toggled ? "Close " : "Menu"}
+              </Button>
 
-      <hr className="border-none h-[144px] md:h-0" />
-    </div>
+              <Flex
+                as="ul"
+                css={{
+                  bottom: 0,
+                  display: toggled ? "block" : "none",
+                  position: "fixed",
+                  top: "96px",
+                  left: 0,
+                  textAlign: "center",
+                  width: "100%",
+                  "@bp1": {
+                    alignItems: "center",
+                    display: "flex",
+                    gap: "$3",
+                    justifyContent: "flex-end",
+                    position: "relative",
+                    textAlign: "left",
+                    textTransform: "lowercase",
+                    top: 0,
+                    visibility: "visible",
+                  },
+
+                  [`.${darkTheme} &`]: {
+                    backgroundColor: "$navy900",
+                    "@bp1": {
+                      backgroundColor: "transparent",
+                    },
+                  },
+                  [`.${lightTheme} &`]: {
+                    backgroundColor: "$slate200",
+                    "@bp1": {
+                      backgroundColor: "transparent",
+                    },
+                  },
+                }}
+              >
+                <ListItem>
+                  <Link href="/">
+                    <StyledSiteHeaderButton
+                      css={{
+                        "@bp1": {
+                          display: "none",
+                        },
+                      }}
+                      onClick={() => asPath === "/" && toggle()}
+                    >
+                      Home
+                    </StyledSiteHeaderButton>
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/posts">
+                    <StyledSiteHeaderButton
+                      className={asPath === "/posts/" ? "active" : ""}
+                      onClick={() => asPath === "/posts/" && toggle()}
+                    >
+                      Blog
+                    </StyledSiteHeaderButton>
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/about-me">
+                    <StyledSiteHeaderButton
+                      className={asPath === "/about-me/" ? "active" : ""}
+                      onClick={() => asPath === "/about-me/" && toggle()}
+                    >
+                      About
+                    </StyledSiteHeaderButton>
+                  </Link>
+                </ListItem>
+                <ListItem css={{ marginTop: "$8", "@bp1": { marginTop: 0 } }}>
+                  <ThemeSwitcher type={"iconOnly"} responsiveText={true} />
+                </ListItem>
+              </Flex>
+            </Box>
+          </Flex>
+        </Box>
+      </Section>
+    </Container>
   );
 };
