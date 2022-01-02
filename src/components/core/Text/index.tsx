@@ -1,5 +1,5 @@
 import { VariantProps } from "@stitches/react";
-import { forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 import { styled, StyledElementProps } from "~/styles/stitches.config";
 
@@ -42,7 +42,9 @@ const StyledText = styled(DEFAULT_TAG, {
 });
 
 type TextVariants = VariantProps<typeof StyledText>;
-type TextOwnProps = StyledElementProps & TextVariants;
+type TextOwnProps = StyledElementProps &
+  TextVariants &
+  ComponentPropsWithoutRef<"a">;
 
 export const Text = forwardRef<HTMLDivElement, TextOwnProps>(
   ({ children, ...props }, forwardedRef) => {

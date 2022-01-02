@@ -426,8 +426,22 @@ const TOC = ({ headings }: { headings: Post["headings"] }) => {
       <Heading level="h4">In this post</Heading>
       <ul>
         {headings?.map((heading) => (
-          <Box as="li" css={{ pt: "$3" }} key={heading.slug}>
-            <a href={`#${heading.slug}`}>{heading.text}</a>
+          <Box as="li" key={heading.slug}>
+            <Text
+              as="a"
+              css={{
+                borderLeft: "1px solid $blue900",
+                display: "block",
+                pl: "$2",
+                mt: "$3",
+                "&:hover": {
+                  borderLeft: "1px solid $blue200",
+                },
+              }}
+              href={`#${heading.slug}`}
+            >
+              {heading.text}
+            </Text>
           </Box>
         ))}
       </ul>
