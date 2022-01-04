@@ -8,10 +8,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            href="https://cloud.typography.com/6522872/7140832/css/fonts.css"
-            rel="stylesheet"
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
