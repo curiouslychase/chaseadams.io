@@ -121,7 +121,7 @@ export const stitchesConfig = createStitches({
   },
 });
 
-export const { styled, theme: darkTheme } = stitchesConfig;
+export const { getCssText, styled, theme: darkTheme } = stitchesConfig;
 
 export type CSS = StitchesCSS<typeof stitchesConfig>;
 
