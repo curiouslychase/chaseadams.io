@@ -116,7 +116,6 @@ export const SiteHeader = () => {
                       },
                     },
                     [`&:hover ${BlobBox}`]: {
-                      // md:group-hover:translate-x-2 md:group-hover:w-10 md:group-hover:-ml-11 transition-all
                       ml: "-$8",
                       transform: "scale(.7) translateX(0.5rem)",
                       [`.${darkTheme} &`]: {
@@ -151,7 +150,7 @@ export const SiteHeader = () => {
                       },
                     }}
                   >
-                    <Text size={"3xl"}>c</Text>
+                    <Text size={{ "@initial": "3xl", "@bp1": "4xl" }}>c</Text>
                     <HoverShowText
                       css={{
                         display: "block",
@@ -159,11 +158,11 @@ export const SiteHeader = () => {
                           display: "none",
                         },
                       }}
-                      size={"3xl"}
+                      size={{ "@initial": "3xl", "@bp1": "4xl" }}
                     >
                       hase
                     </HoverShowText>
-                    <Text size={"3xl"}> a</Text>
+                    <Text size={{ "@initial": "3xl", "@bp1": "4xl" }}> a</Text>
                     <HoverShowText
                       css={{
                         display: "block",
@@ -171,7 +170,7 @@ export const SiteHeader = () => {
                           display: "none",
                         },
                       }}
-                      size={"3xl"}
+                      size={{ "@initial": "3xl", "@bp1": "4xl" }}
                     >
                       dams
                     </HoverShowText>

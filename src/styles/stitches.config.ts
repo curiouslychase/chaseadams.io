@@ -15,9 +15,9 @@ export const stitchesConfig = createStitches({
       primary: "$blue400",
     },
     fonts: {
-      sans: ['"Ringside Regular SSm A"', "Helvetica"].join(","),
+      sans: ["Inter", "Helvetica"].join(","),
       mono:
-        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
     },
     fontSizes: {
       sm: "0.75rem",

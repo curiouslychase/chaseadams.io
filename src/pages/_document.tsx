@@ -11,6 +11,16 @@ class MyDocument extends Document {
             href="https://cloud.typography.com/6522872/7140832/css/fonts.css"
             rel="stylesheet"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=JetBrains+Mono:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+            rel="stylesheet"
+          />
           {process.env.IS_PRODUCTION && (
             <>
               {/* Global Site Tag (gtag.js) - Google Analytics */}
