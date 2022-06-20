@@ -8,18 +8,32 @@ module.exports = {
         permanent: true,
       },
       {
+        source: "/posts/:path*",
+        destination: "https://chaseignited.com/posts/:path*",
+      },
+      {
         source: `/gatsby-drafts/`,
         destination: `/posts/gatsby-drafts/`,
         permanent: true,
       },
       {
         source: `/blog/`,
-        destination: `/posts/`,
+        destination: `https://chaseignited.com/blog/`,
+        permanent: true,
+      },
+      {
+        source: `/posts/`,
+        destination: `https://chaseignited.com/blog/`,
+        permanent: true,
+      },
+      {
+        source: `/about-me/`,
+        destination: `https://chaseignited.com/about/`,
         permanent: true,
       },
       {
         source: `/writing/`,
-        destination: `/posts/`,
+        destination: `https://chaseignited.com/blog/`,
         permanent: true,
       },
     ];
