@@ -10,6 +10,7 @@ module.exports = {
       {
         source: "/posts/:path*",
         destination: "https://chaseignited.com/posts/:path*",
+        permanent: true,
       },
       {
         source: `/gatsby-drafts/`,
