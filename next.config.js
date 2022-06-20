@@ -3,13 +3,13 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: `/most-common-programming-case-types/`,
-        destination: `/posts/most-common-programming-case-types/`,
+        source: "/:path*",
+        destination: "https://chaseignited.com/:path*",
         permanent: true,
       },
       {
-        source: "/posts/:path*",
-        destination: "https://chaseignited.com/posts/:path*",
+        source: `/most-common-programming-case-types/`,
+        destination: `/posts/most-common-programming-case-types/`,
         permanent: true,
       },
       {
