@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: "/:path*",
-        destination: "https://chaseignited.com/:path*",
+        destination: "https://curiouslychase.com/:path*",
         permanent: true,
       },
       {
@@ -19,22 +19,22 @@ module.exports = {
       },
       {
         source: `/blog/`,
-        destination: `https://chaseignited.com/blog/`,
+        destination: `https://curiouslychase.com/blog/`,
         permanent: true,
       },
       {
         source: `/posts/`,
-        destination: `https://chaseignited.com/blog/`,
+        destination: `https://curiouslychase.com/blog/`,
         permanent: true,
       },
       {
         source: `/about-me/`,
-        destination: `https://chaseignited.com/about/`,
+        destination: `https://curiouslychase.com/about/`,
         permanent: true,
       },
       {
         source: `/writing/`,
-        destination: `https://chaseignited.com/blog/`,
+        destination: `https://curiouslychase.com/blog/`,
         permanent: true,
       },
     ];
